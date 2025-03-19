@@ -1,129 +1,93 @@
-# Zaheer Bijapure Portfolio Website
+# Zaheer Bijapure Portfolio
 
-A sleek, modern, and visually engaging portfolio website for Zaheer Bijapure, a VFX Layout Artist and 3D Artist with 9 years of experience.
-
-![Zaheer Bijapure Portfolio](https://via.placeholder.com/1200x600?text=Zaheer+Bijapure+Portfolio)
-
-## Features
-
-- **Responsive Design**: Fully responsive layout that works on mobile, tablet, and desktop
-- **Dark Theme**: Modern dark theme with vibrant accent colors
-- **Interactive Elements**: Smooth animations and transitions for an engaging user experience
-- **Portfolio Showcase**: Separate sections for VFX and AI projects with filtering capabilities
-- **Contact Form**: Interactive contact form for potential clients or collaborators
-
-## Technologies Used
-
-- **Next.js**: React framework for server-rendered applications
-- **React**: JavaScript library for building user interfaces
-- **TypeScript**: Type-safe JavaScript
-- **Tailwind CSS**: Utility-first CSS framework
-- **Framer Motion**: Animation library for React
-- **React Icons**: Icon library
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/zaheer-portfolio.git
-   cd zaheer-portfolio
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. Run the development server:
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A professional portfolio showcasing VFX, AI art, and creative work by Zaheer Bijapure.
 
 ## Project Structure
 
 ```
-zaheer-portfolio/
-├── app/                   # Next.js app directory
-│   ├── about/             # About page
-│   ├── contact/           # Contact page
-│   ├── experience/        # Experience page
-│   ├── portfolio/         # Portfolio pages
-│   │   ├── ai/            # AI portfolio
-│   │   └── vfx/           # VFX portfolio
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
-├── components/            # Reusable components
-│   ├── Footer.tsx         # Footer component
-│   └── Navbar.tsx         # Navigation component
-├── public/                # Static assets
-│   └── logo/              # Logo files
-├── styles/                # Additional styles
-├── package.json           # Project dependencies
-├── tailwind.config.js     # Tailwind configuration
-└── README.md              # Project documentation
+├── app/               # Next.js App Router files
+│   ├── about/         # About page
+│   ├── components/    # App-specific components
+│   ├── experience/    # Experience page
+│   ├── portfolio/     # Portfolio pages
+│   │   ├── ai/        # AI artwork portfolio
+│   │   └── vfx/       # VFX work portfolio
+│   ├── utils/         # Utility functions
+│   ├── globals.css    # Global styles
+│   ├── layout.tsx     # Root layout
+│   └── page.tsx       # Home page
+├── public/            # Static assets
+│   ├── ai-gallery/    # AI artwork images
+│   ├── images/        # General images
+│   ├── logos/         # Logo images
+│   ├── thumbnail/     # Thumbnail images for projects
+│   └── videos/        # Video assets
+└── node_modules/      # Dependencies
 ```
 
-## Customization
+## Development Workflow
 
-### Changing Colors
+### Local Development
 
-Edit the `tailwind.config.js` file to customize the color scheme:
+1. **Clone the repository**
+   ```
+   git clone https://github.com/ZaheerArtist/zaheerbijapure.git
+   cd zaheerbijapure
+   ```
 
-```js
-theme: {
-  extend: {
-    colors: {
-      background: '#121212',       // Main background
-      primary: '#1E1E1E',          // Card backgrounds
-      secondary: '#2A2A2A',        // Secondary elements
-      accent1: '#7B68EE',          // Primary accent (purple)
-      accent2: '#00CCFF',          // Secondary accent (cyan)
-      textPrimary: '#FFFFFF',      // Main text
-      textSecondary: '#AAAAAA',    // Secondary text
-    },
-  }
-}
-```
+2. **Install dependencies**
+   ```
+   npm install
+   ```
 
-### Adding Projects
+3. **Run the development server**
+   ```
+   npm run dev
+   ```
+   The site will be available at [http://localhost:3000](http://localhost:3000)
 
-To add new projects to the portfolio, edit the data in the respective portfolio page files.
+### Adding New Content
 
-## Deployment
+#### Adding New Projects
+1. To add new film/TV projects, add images to `public/thumbnail/` with naming format: `[Title]-[Year].jpg`
+2. Update the projects array in `app/about/page.tsx`
 
-This website can be easily deployed to Vercel, Netlify, or other platforms that support Next.js:
+#### Adding AI Artwork
+1. Add new images to `public/ai-gallery/`
+2. Update the gallery in `app/portfolio/ai/page.tsx` 
 
-```bash
-# Build for production
-npm run build
-# or
-yarn build
-```
+#### Adding VFX Work
+1. Add new images to `public/images/`
+2. Update the portfolio in `app/portfolio/vfx/page.tsx`
 
-## License
+### Deployment
 
-[MIT](LICENSE)
+#### GitHub Pages Deployment
 
-## Credits
+1. **Build the site**
+   ```
+   npm run build
+   ```
 
-- Design and Development: [Your Name]
-- Icons: [React Icons](https://react-icons.github.io/react-icons/)
-- Fonts: Google Fonts (Montserrat, Raleway)
+2. **Export static files**
+   ```
+   npm run export
+   ```
 
----
+3. **Commit and push to the gh-pages branch**
+   ```
+   git add out/
+   git commit -m "Deploy to GitHub Pages"
+   git subtree push --prefix out origin gh-pages
+   ```
 
-Designed and built with ❤️ for Zaheer Bijapure 
+## Troubleshooting
+
+### Image Issues
+- Make sure all image paths include the repository name when deployed on GitHub Pages
+- Use the `getGitHubPagesUrl()` function from `app/utils/imagePathFixer.ts` for image paths
+- Check browser console for image loading errors
+
+### Local Development
+- If port 3000 is in use, the site will automatically use the next available port
+- Clear the `.next` cache if you encounter strange build issues: `rm -rf .next/` 
