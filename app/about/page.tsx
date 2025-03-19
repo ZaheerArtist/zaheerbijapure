@@ -46,7 +46,7 @@ export default function About() {
       console.log('Prefers reduced motion:', prefersReducedMotion);
       
       // Test direct image access with correct GitHub Pages path
-      const testImageUrl = '/zaheerbijapure/thumbnail/profile.jpg';
+      const testImageUrl = '/images/profile.jpg';
       // Create an image element instead of using the Image constructor
       const testImg = document.createElement('img');
       testImg.onload = () => console.log(`✅ Test image loaded successfully: ${testImageUrl}`);
