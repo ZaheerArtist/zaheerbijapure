@@ -118,40 +118,92 @@
 }
 
 .image-fade-in.loaded {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
-/* Thumbnail skeleton loading effect */
+/* Improved thumbnail skeleton loading animation */
 .thumbnail-skeleton {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #1e2638 25%, #2a3649 50%, #1e2638 75%);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 38, 56, 0.7) 0%, 
+    rgba(42, 54, 73, 0.8) 50%, 
+    rgba(30, 38, 56, 0.7) 100%
+  );
   background-size: 200% 100%;
-  animation: loading 1.5s infinite;
+  animation: skeleton-loading 1.5s ease infinite;
+  z-index: 0;
 }
 
-@keyframes loading {
+@keyframes skeleton-loading {
   0% {
-    background-position: 200% 0;
+    background-position: 100% 50%;
   }
   100% {
-    background-position: -200% 0;
+    background-position: 0 50%;
   }
 }
 
-/* Prevent image flickering */
+/* Ensure images don't show broken image icon while loading */
 img {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
+  background-color: #1e293b; /* Dark fallback background */
 }
 
-img.loading {
-  opacity: 0;
+/* Always show text alternative for images */
+img::after {
+  content: attr(alt);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e293b;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
 }
 
 img.loaded {
-  opacity: 1;
+  opacity: 1 !important;
+}
+
+/* Image load error fallback */
+.img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e2638 0%, #2a3649 100%);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Overrides for opacity issues */
+/* This ensures images are visible regardless of JavaScript */
+@media (prefers-reduced-motion: reduce) {
+  img, .image-fade-in {
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Force visibility for debugging */
+.force-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
 }
 
 /* Video thumbnail loading states */
