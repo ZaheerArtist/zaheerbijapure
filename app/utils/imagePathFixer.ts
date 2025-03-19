@@ -2,8 +2,25 @@
  * Utility functions to help fix image paths at runtime
  */
 
-// Repository prefix for GitHub Pages
-export const repoPrefix = '/zaheerbijapure';
+// The repository name for GitHub Pages
+export const REPO_NAME = 'zaheerbijapure';
+
+// Function to check if we're running on GitHub Pages
+export const isGitHubPages = () => {
+  if (typeof window === 'undefined') return false;
+  return window.location.hostname.includes('github.io');
+};
+
+// Function to get the correct path with repository name if needed
+export const getGitHubPagesUrl = (path: string) => {
+  if (isGitHubPages()) {
+    // If path already includes the repo name, return as is
+    if (path.includes(`/${REPO_NAME}/`)) return path;
+    // Add the repo name to the path
+    return `/${REPO_NAME}${path}`;
+  }
+  return path; // Return as is for local development
+};
 
 /**
  * Attempts to fix an image path by trying multiple variations
@@ -26,9 +43,9 @@ export function generateImageFallbacks(originalPath: string, category?: string):
   if (category === 'films') {
     // For films category, try different directories and formats
     const folderVariations = [
-      `${repoPrefix}/thumbnail/`, 
-      `${repoPrefix}/Films/`,
-      `${repoPrefix}/images/Films/`,
+      `${REPO_NAME}/thumbnail/`, 
+      `${REPO_NAME}/Films/`,
+      `${REPO_NAME}/images/Films/`,
       '/thumbnail/',
       '/Films/',
       '/images/Films/',
@@ -48,9 +65,9 @@ export function generateImageFallbacks(originalPath: string, category?: string):
     });
   } else if (category === 'profile') {
     // For profile images, try standard web paths
-    fallbacks.push(`${repoPrefix}/thumbnail/profile.jpg`);
-    fallbacks.push(`${repoPrefix}/images/profile.jpg`);
-    fallbacks.push(`${repoPrefix}/profile.jpg`);
+    fallbacks.push(`${REPO_NAME}/thumbnail/profile.jpg`);
+    fallbacks.push(`${REPO_NAME}/images/profile.jpg`);
+    fallbacks.push(`${REPO_NAME}/profile.jpg`);
     fallbacks.push('/thumbnail/profile.jpg');
     fallbacks.push('/images/profile.jpg');
   }
@@ -59,13 +76,13 @@ export function generateImageFallbacks(originalPath: string, category?: string):
   const yearPattern = /-\d{4}$/;
   if (yearPattern.test(filenameWithoutExt)) {
     const nameWithoutYear = filenameWithoutExt.replace(yearPattern, '');
-    fallbacks.push(`${repoPrefix}/thumbnail/${nameWithoutYear}.jpg`);
+    fallbacks.push(`${REPO_NAME}/thumbnail/${nameWithoutYear}.jpg`);
     fallbacks.push(`/thumbnail/${nameWithoutYear}.jpg`);
   }
   
   // Default placeholder as last resort
-  fallbacks.push(`${repoPrefix}/thumbnail/placeholder.jpg`);
-  fallbacks.push(`${repoPrefix}/images/placeholder.jpg`);
+  fallbacks.push(`${REPO_NAME}/thumbnail/placeholder.jpg`);
+  fallbacks.push(`${REPO_NAME}/images/placeholder.jpg`);
   fallbacks.push('/thumbnail/placeholder.jpg');
   
   // Remove duplicates
@@ -81,14 +98,18 @@ export function handleImageError(event: React.SyntheticEvent<HTMLImageElement>, 
   const img = event.currentTarget;
   const currentSrc = img.src;
   
-  // Try different path variations
+  // Try different path variations - now with GitHub Pages paths included
   const paths = [
-    `/thumbnail/${title}.jpg`,
-    `/images/${title}.jpg`,
-    `/thumbnail/${title?.toLowerCase()}.jpg`,
-    `/images/${title?.toLowerCase()}.jpg`,
-    '/thumbnail/placeholder.jpg'
+    getGitHubPagesUrl(`/thumbnail/${title}.jpg`),
+    getGitHubPagesUrl(`/images/${title}.jpg`),
+    getGitHubPagesUrl(`/thumbnail/${title?.toLowerCase()}.jpg`),
+    getGitHubPagesUrl(`/images/${title?.toLowerCase()}.jpg`),
+    getGitHubPagesUrl('/thumbnail/placeholder.jpg'),
+    getGitHubPagesUrl('/images/placeholder.jpg'),
+    getGitHubPagesUrl('/placeholder.jpg')
   ];
+  
+  console.log(`Image error for: ${currentSrc}. Will try alternate paths:`, paths);
   
   // Find the next path to try
   const currentIndex = paths.findIndex(path => currentSrc.includes(path));
