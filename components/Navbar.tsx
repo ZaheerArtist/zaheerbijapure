@@ -42,7 +42,7 @@ export const Navbar = () => {
     if (path === '/') {
       return pathname === path;
     }
-    return pathname.startsWith(path);
+    return pathname?.startsWith(path);
   };
 
   return (

@@ -15,28 +15,30 @@ export default function About() {
   const [showAllProjects, setShowAllProjects] = useState(false);
   
   // Function to map movie titles to correct filenames
-  const getMovieFilename = (title: string, year: string | number): string => {
+  const getMovieFilename = (title: string, year: string) => {
     // Special cases mapping
-    const specialCases: Record<string, string> = {
-      "Fast & Furious: Hobbs & Shaw": "Fast and Furious Hobbs and Shaw",
-      "Fantastic Beasts: The Crimes of Grindelwald": "Fantastic Beasts The Crimes of Grindelwald",
-      "Greyhound": "Greyhound Tom Hanks",
-      "2.0": "2Point0"
+    const specialCases: { [key: string]: string } = {
+      'Fast & Furious: Hobbs & Shaw': 'Fast and Furious Hobbs and Shaw',
+      'Fantastic Beasts: The Crimes of Grindelwald': 'Fantastic Beasts The Crimes of Grindelwald',
+      // Add more special cases as needed
     };
-    
-    // If it's a special case, use the mapped filename
-    if (title in specialCases) {
-      return `/images/films/${specialCases[title]} (${year}).jpg`;
+
+    try {
+      if (specialCases[title]) {
+        return `/zaheerbijapure/Films/${specialCases[title]} (${year}).jpg`;
+      }
+
+      // For regular titles, replace special characters and spaces
+      const sanitizedTitle = title
+        .replace(/[&:]/g, '') // Remove & and :
+        .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+        .trim();
+
+      return `/zaheerbijapure/Films/${sanitizedTitle} (${year}).jpg`;
+    } catch (error) {
+      console.error('Error in getMovieFilename:', error);
+      return '/zaheerbijapure/images/placeholder.jpg';
     }
-    
-    // Default case: replace special characters and spaces
-    const sanitizedTitle = title
-      .replace(/:/g, ' -')
-      .replace(/['"]/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-    
-    return `/images/films/${sanitizedTitle} (${year}).jpg`;
   };
   
   const skills = [
@@ -273,17 +275,17 @@ export default function About() {
             {/* Simplified photo display without frames */}
             <div className="w-full flex justify-center items-center">
               <div className="relative w-96 aspect-[3/4] rounded-lg overflow-hidden">
-                <Image 
-                  src="/images/profile.jpg"
-                  alt="Zaheer Bijapure - VFX Layout & 3D Artist" 
+                <Image
+                  src="/zaheerbijapure/images/profile.jpg"
+                  alt="Zaheer Bijapure"
                   fill
-                  sizes="384px"
-                  quality={100}
-                  style={{ objectFit: 'cover' }}
-                  className="rounded-lg"
-                  priority
-                  loading="eager"
+                  className="object-cover rounded-lg"
+                  priority={true}
                   unoptimized={true}
+                  onError={(e) => {
+                    const imgElement = e.currentTarget as HTMLImageElement;
+                    imgElement.src = '/zaheerbijapure/images/placeholder.jpg';
+                  }}
                 />
               </div>
             </div>
