@@ -22,7 +22,7 @@ const vfxProjects: Array<{
     title: 'Production Layout Showreel',
     category: 'VFX Layout',
     description: 'Production layout work showcasing CG cinematic cameras, retiming, reracking, proxy creation, crowd placements, ingestions, and more.',
-    imagePath: '/zaheerbijapure/images/vfx/Production-Layout.jpg',
+    imagePath: '/zaheerbijapure/public/thumbnail/Production-Layout.jpg',
     videoUrl: 'https://vimeo.com/1060745371',
     videoType: 'vimeo',
     isPasswordProtected: false

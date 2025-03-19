@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaDesktop, FaCube, FaCode, FaLightbulb, FaRocket, FaGraduationCap, FaCamera, FaFilm, FaRobot, FaVideo, FaImdb, FaAward, FaStar, FaChevronDown, FaChevronUp, FaLinkedin, FaPlay } from 'react-icons/fa';
 import Link from 'next/link';
+import { handleImageError } from '../utils/imagePathFixer';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -14,31 +15,75 @@ const fadeIn = {
 export default function About() {
   const [showAllProjects, setShowAllProjects] = useState(false);
   
-  // Function to map movie titles to correct filenames
-  const getMovieFilename = (title: string, year: string) => {
-    // Special cases mapping
-    const specialCases: { [key: string]: string } = {
-      'Fast & Furious: Hobbs & Shaw': 'Fast and Furious Hobbs and Shaw',
-      'Fantastic Beasts: The Crimes of Grindelwald': 'Fantastic Beasts The Crimes of Grindelwald',
-      // Add more special cases as needed
+  // Force images to be visible after a timeout
+  useEffect(() => {
+    const forceImagesVisible = setTimeout(() => {
+      console.log('🔧 Forcing all images to be visible due to timeout');
+      document.querySelectorAll('img').forEach((img: HTMLImageElement) => {
+        img.style.opacity = '1';
+        img.classList.add('force-visible');
+      });
+      
+      // Also remove all skeleton loaders
+      document.querySelectorAll('.thumbnail-skeleton').forEach((skeleton) => {
+        skeleton.remove();
+      });
+    }, 5000); // Force visibility after 5 seconds
+    
+    return () => clearTimeout(forceImagesVisible);
+  }, []);
+  
+  // Run diagnostics when the component mounts
+  useEffect(() => {
+    const runDiagnostics = () => {
+      console.log('=== IMAGE LOADING DIAGNOSTICS ===');
+      console.log('GitHub Pages base URL: https://zaheerartist.github.io/zaheerbijapure/');
+      console.log('Current page URL:', window.location.href);
+      console.log('Browser:', navigator.userAgent);
+      
+      // Check if document supports prefers-reduced-motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      console.log('Prefers reduced motion:', prefersReducedMotion);
+      
+      // Test direct image access with correct GitHub Pages path
+      const testImageUrl = '/zaheerbijapure/thumbnail/profile.jpg';
+      // Create an image element instead of using the Image constructor
+      const testImg = document.createElement('img');
+      testImg.onload = () => console.log(`✅ Test image loaded successfully: ${testImageUrl}`);
+      testImg.onerror = () => console.log(`❌ Test image failed to load: ${testImageUrl}`);
+      testImg.src = testImageUrl;
+      
+      // Look for any loading errors in existing images
+      setTimeout(() => {
+        const allImages = document.querySelectorAll('img');
+        console.log(`Total images on page: ${allImages.length}`);
+        
+        let loadedCount = 0;
+        allImages.forEach((img: HTMLImageElement) => {
+          if (img.complete && img.naturalHeight !== 0) {
+            loadedCount++;
+          }
+        });
+        
+        console.log(`Successfully loaded images: ${loadedCount}/${allImages.length}`);
+        
+        // Apply the force-visible class if too many images failed to load
+        if (loadedCount < allImages.length * 0.5) {
+          console.log('⚠️ Too many images failed to load, forcing visibility');
+          document.querySelectorAll('.image-fade-in').forEach((el: Element) => {
+            el.classList.add('force-visible');
+          });
+        }
+      }, 3000);
     };
+    
+    // Run after a short delay to ensure the page is loaded
+    setTimeout(runDiagnostics, 1000);
+  }, []);
 
-    try {
-      if (specialCases[title]) {
-        return `/zaheerbijapure/Films/${specialCases[title]} (${year}).jpg`;
-      }
-
-      // For regular titles, replace special characters and spaces
-      const sanitizedTitle = title
-        .replace(/[&:]/g, '') // Remove & and :
-        .replace(/\s+/g, ' ') // Replace multiple spaces with single space
-        .trim();
-
-      return `/zaheerbijapure/Films/${sanitizedTitle} (${year}).jpg`;
-    } catch (error) {
-      console.error('Error in getMovieFilename:', error);
-      return '/zaheerbijapure/images/placeholder.jpg';
-    }
+  // Function to map movie titles to correct filenames
+  const getMovieFilename = (title: string) => {
+    return title.replace(/[&:,.']/g, '').replace(/\s+/g, '-');
   };
   
   const skills = [
@@ -243,8 +288,13 @@ export default function About() {
     : allProjects.filter(project => project.isRecent);
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="container-custom">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white p-8">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="max-w-6xl mx-auto space-y-8"
+      >
         <motion.div 
           className="max-w-4xl mx-auto text-center mb-16"
           initial="hidden"
@@ -263,37 +313,18 @@ export default function About() {
         </motion.div>
 
         {/* Profile Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          {/* Image */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative"
-          >
-            {/* Simplified photo display without frames */}
-            <div className="w-full flex justify-center items-center">
-              <div className="relative w-96 aspect-[3/4] rounded-lg overflow-hidden">
-                <Image
-                  src="/zaheerbijapure/images/profile.jpg"
-                  alt="Zaheer Bijapure"
-                  fill
-                  className="object-cover rounded-lg"
-                  priority={true}
-                  unoptimized={true}
-                  onError={(e) => {
-                    const imgElement = e.currentTarget as HTMLImageElement;
-                    imgElement.src = '/zaheerbijapure/images/placeholder.jpg';
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-accent1 rounded-lg"></div>
-          </motion.div>
-
+        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+          <div className="relative w-48 h-48 rounded-full overflow-hidden">
+            <Image
+              src="/thumbnail/profile.jpg"
+              alt="Zaheer Bijapure"
+              fill
+              className="object-cover"
+              priority
+              onError={(e) => handleImageError(e, 'profile')}
+            />
+          </div>
+          
           {/* Bio */}
           <motion.div
             initial="hidden"
@@ -503,43 +534,16 @@ export default function About() {
                 <div className="h-64 relative overflow-hidden bg-secondary">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10"></div>
                   <div className="thumbnail-skeleton"></div>
-                  <Image 
-                    src={getMovieFilename(project.title, project.year)}
-                    alt={project.title}
+                  <Image
+                    src={`/thumbnail/${getMovieFilename(project.title)}-${project.year}.jpg`}
+                    alt={`${project.title} (${project.year})`}
                     fill
                     sizes="(max-width: 768px) 150px, 200px"
-                    className="object-cover transition-all duration-500 hover:scale-105 image-fade-in"
-                    priority={index < 6}
-                    loading={index < 6 ? "eager" : "lazy"}
+                    className="object-cover image-fade-in"
+                    priority={index < 4}
+                    loading={index < 4 ? "eager" : "lazy"}
                     quality={75}
-                    unoptimized={true}
-                    onLoad={(e) => {
-                      const img = e.target as HTMLImageElement;
-                      if (img.complete) {
-                        img.classList.add('loaded');
-                        // Find parent and remove skeleton
-                        const parent = img.parentElement;
-                        if (parent) {
-                          const skeleton = parent.querySelector('.thumbnail-skeleton');
-                          if (skeleton) skeleton.remove();
-                        }
-                      }
-                    }}
-                    style={{
-                      transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out'
-                    }}
-                    onError={(e) => {
-                      console.log(`Failed to load image: ${project.title}`);
-                      // Try with alternate extension
-                      const imgElement = e.currentTarget;
-                      const currentSrc = imgElement.src;
-                      if (currentSrc.endsWith('.jpg')) {
-                        imgElement.src = currentSrc.replace('.jpg', '.png');
-                      } else if (currentSrc.endsWith('.png')) {
-                        // If both formats fail, use a placeholder
-                        imgElement.src = '/placeholder-movie.jpg';
-                      }
-                    }}
+                    onError={(e) => handleImageError(e, project.title)}
                   />
                   {project.isRecent && (
                     <div className="absolute top-2 right-2 bg-accent1 text-white text-xs px-2 py-1 rounded-full z-10">
@@ -600,7 +604,7 @@ export default function About() {
             Get in Touch, Let's Create Together
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 } 
