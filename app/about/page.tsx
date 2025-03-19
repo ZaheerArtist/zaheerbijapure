@@ -315,16 +315,16 @@ export default function About() {
         {/* Profile Section */}
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
           <div className="relative w-48 h-48 rounded-full overflow-hidden">
-            <Image
+                <Image 
               src="/thumbnail/profile.jpg"
               alt="Zaheer Bijapure"
-              fill
+                  fill
               className="object-cover"
-              priority
+                  priority
               onError={(e) => handleImageError(e, 'profile')}
-            />
-          </div>
-          
+                />
+              </div>
+
           {/* Bio */}
           <motion.div
             initial="hidden"
@@ -534,7 +534,7 @@ export default function About() {
                 <div className="h-64 relative overflow-hidden bg-secondary">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10"></div>
                   <div className="thumbnail-skeleton"></div>
-                  <Image
+                  <Image 
                     src={`/thumbnail/${getMovieFilename(project.title)}-${project.year}.jpg`}
                     alt={`${project.title} (${project.year})`}
                     fill
@@ -561,8 +561,8 @@ export default function About() {
                   <h3 className="text-base font-bold truncate">{project.title}</h3>
                   <div className="flex justify-between items-center">
                     <span className="text-accent1 text-sm">{project.year}</span>
-                  </div>
                 </div>
+              </div>
               </motion.div>
             ))}
           </div>
