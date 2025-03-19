@@ -27,7 +27,7 @@ export default function Contact() {
   
   // Check for success parameter in URL (for Formspree redirect)
   useEffect(() => {
-    if (searchParams.get('success') === 'true') {
+    if (searchParams?.get('success') === 'true') {
       setSuccess(true);
     }
   }, [searchParams]);
