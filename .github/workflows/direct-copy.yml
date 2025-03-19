@@ -1,0 +1,81 @@
+name: Direct Copy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        
+      - name: Create dist directory
+        run: mkdir -p dist
+        
+      - name: Copy public files directly
+        run: |
+          cp -r public/* dist/
+          echo "CONTENT OF PUBLIC DIRECTORY:"
+          ls -la public/
+          echo "CONTENT OF DIST DIRECTORY AFTER COPY:"
+          ls -la dist/
+          
+      - name: Add .nojekyll file
+        run: touch dist/.nojekyll
+        
+      - name: Create simple test page
+        run: |
+          cat > dist/direct-test.html << 'EOL'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Direct Files Test</title>
+            <style>
+              body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+              .test-img { border: 1px solid #ddd; padding: 10px; margin-bottom: 15px; }
+              img { max-width: 300px; height: auto; }
+            </style>
+          </head>
+          <body>
+            <h1>Direct Files Test</h1>
+            <p>Testing direct file paths from the public folder:</p>
+            
+            <div class="test-img">
+              <h3>Profile Image (Direct)</h3>
+              <img src="zaheer-bijapure.jpg" alt="Profile">
+              <p>Path: zaheer-bijapure.jpg</p>
+            </div>
+            
+            <div class="test-img">
+              <h3>Maya Logo (Direct)</h3>
+              <img src="logos/software/maya.png" alt="Maya">
+              <p>Path: logos/software/maya.png</p>
+            </div>
+            
+            <div class="test-img">
+              <h3>Data URI Image (Always Works)</h3>
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" style="background: #ddd;">
+              <p>This is a data URI image that should always display</p>
+            </div>
+          </body>
+          </html>
+          EOL
+          
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean: true 

@@ -1,0 +1,129 @@
+name: Fix Images for GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Create static site directory
+        run: |
+          mkdir -p _site
+          cp -r public/* _site/
+          
+      - name: Copy and rename profile image to root
+        run: |
+          cp public/zaheer-bijapure.jpg _site/
+          
+      - name: Create logos directory
+        run: |
+          mkdir -p _site/logos/software
+          cp public/logos/software/*.png _site/logos/software/
+          
+      - name: Create final index.html
+        run: |
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Zaheer Bijapure | Portfolio</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: #f7f7f7; }
+              header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
+              h1 { font-size: 2.5rem; margin-bottom: 10px; }
+              .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+              .profile { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin: 2rem 0; }
+              .profile img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid white; }
+              .profile-text { flex: 1; min-width: 300px; }
+              .tools { display: flex; flex-wrap: wrap; gap: 20px; margin: 2rem 0; }
+              .tool { text-align: center; width: 80px; }
+              .tool img { width: 50px; height: 50px; display: block; margin: 0 auto 8px; }
+              footer { background: #1a1a2e; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+            </style>
+          </head>
+          <body>
+            <header>
+              <h1>Zaheer Bijapure</h1>
+              <p>VFX Layout Artist & 3D Artist</p>
+            </header>
+            
+            <div class="container">
+              <div class="profile">
+                <img src="zaheer-bijapure.jpg" alt="Zaheer Bijapure">
+                <div class="profile-text">
+                  <h2>About Me</h2>
+                  <p>With over 9 years in the VFX and CG industry, I bring a deep understanding of creative and technical processes that shape compelling visual stories. My experience spans VFX layout, camera tracking, body tracking, cinematic camera animation, and more.</p>
+                </div>
+              </div>
+              
+              <h2>Software Skills</h2>
+              <div class="tools">
+                <div class="tool">
+                  <img src="logos/software/maya.png" alt="Maya">
+                  <span>Maya</span>
+                </div>
+                <div class="tool">
+                  <img src="logos/software/nuke.png" alt="Nuke">
+                  <span>Nuke</span>
+                </div>
+                <div class="tool">
+                  <img src="logos/software/3dequalizer.png" alt="3D Equalizer">
+                  <span>3DEqualizer</span>
+                </div>
+                <div class="tool">
+                  <img src="logos/software/houdini.png" alt="Houdini">
+                  <span>Houdini</span>
+                </div>
+                <div class="tool">
+                  <img src="logos/software/Photoshop.png" alt="Photoshop">
+                  <span>Photoshop</span>
+                </div>
+              </div>
+              
+              <h2>Test Pages</h2>
+              <p>For debugging:</p>
+              <ul>
+                <li><a href="minimal-index.html">Minimal Test</a></li>
+                <li><a href="root-index.html">Path Test</a></li>
+              </ul>
+            </div>
+            
+            <footer>
+              &copy; 2025 Zaheer Bijapure
+            </footer>
+          </body>
+          </html>
+          EOF
+          
+          # Add .nojekyll file to prevent Jekyll processing
+          touch _site/.nojekyll
+          
+          # List all files for debugging
+          echo "FILES IN _site:"
+          find _site -type f | sort
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 

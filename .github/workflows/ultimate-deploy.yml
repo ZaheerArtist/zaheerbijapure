@@ -1,0 +1,93 @@
+name: Ultimate GitHub Pages Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Show Node and NPM versions
+        run: |
+          node --version
+          npm --version
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Create necessary files
+        run: |
+          mkdir -p out
+          echo '# Building...' > out/README.md
+          touch out/.nojekyll
+          
+      - name: Set production environment
+        run: |
+          echo "NODE_ENV=production" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_BASE_PATH=/zaheerbijapure" >> $GITHUB_ENV
+          
+      - name: Update next.config.js
+        run: |
+          echo '/** @type {import("next").NextConfig} */
+          module.exports = {
+            output: "export",
+            basePath: "/zaheerbijapure",
+            images: {
+              unoptimized: true,
+            },
+            trailingSlash: true,
+          }' > next.config.js
+          cat next.config.js
+          
+      - name: Build site
+        run: npm run build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_BASE_PATH: /zaheerbijapure
+          
+      - name: List output directory
+        run: |
+          echo "== Files in out directory =="
+          ls -la out/
+          
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
+      
+      - name: Create 404.html
+        run: |
+          echo '<!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Redirecting...</title>
+            <script>
+              // Simple redirect to main page
+              window.location.href = "/zaheerbijapure/";
+            </script>
+          </head>
+          <body>
+            <p>Redirecting to home page...</p>
+            <a href="/zaheerbijapure/">Click here if not redirected</a>
+          </body>
+          </html>' > out/404.html
+          
+      - name: Use GitHub Pages Action
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: gh-pages
+          clean: true 

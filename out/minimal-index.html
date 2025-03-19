@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Test</title>
+  <style>
+    body { font-family: Arial; margin: 40px; }
+    .test-img { border: 1px solid #ccc; padding: 10px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <h1>Minimal Test Page</h1>
+  <p>This page contains only inline content with no external dependencies.</p>
+  
+  <div class="test-img">
+    <h3>Inline SVG Image</h3>
+    <svg width="100" height="100">
+      <circle cx="50" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+    </svg>
+    <p>This is an SVG image embedded directly in the HTML.</p>
+  </div>
+  
+  <div class="test-img">
+    <h3>Data URI Image</h3>
+    <img src="data:image/png;base64,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" width="50" height="50">
+    <p>This is a base64-encoded image embedded directly in the HTML.</p>
+  </div>
+  
+  <hr>
+  <p>Repository: ZaheerArtist/zaheerbijapure</p>
+  <p>Page generated: <script>document.write(new Date().toLocaleString())</script></p>
+</body>
+</html> 

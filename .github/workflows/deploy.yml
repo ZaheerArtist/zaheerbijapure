@@ -1,0 +1,89 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Fix HTML files for GitHub Pages
+        run: |
+          # Disable the minimal test page by renaming it
+          if [ -f out/minimal-index.html ]; then
+            mv out/minimal-index.html out/disabled-minimal-index.html
+          fi
+          
+          # Make sure the index.html file exists and points to the correct content
+          cp -f out/index.html out/index-backup.html
+          
+          # Create an explicit homepage file
+          cat > out/index.html << EOL
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Zaheer Bijapure's Portfolio</title>
+            <script>
+              window.location.href = "/zaheerbijapure/";
+            </script>
+            <meta http-equiv="refresh" content="0;url=/zaheerbijapure/" />
+          </head>
+          <body>
+            <h1>Zaheer Bijapure's Portfolio</h1>
+            <p>If you are not redirected, please <a href="/zaheerbijapure/">click here</a> to visit the portfolio.</p>
+          </body>
+          </html>
+          EOL
+          
+          # Create a 404 page that redirects to main page
+          cp -f out/index.html out/404.html
+          
+          # Create .nojekyll file to disable GitHub Pages processing
+          touch out/.nojekyll
+          
+          # List all HTML files for debugging
+          echo "HTML files in output directory:"
+          ls -la out/*.html
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: gh-pages
+          clean: true
+
+      # This enables publishing directly using the built-in GitHub Pages functionality
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'out'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2 

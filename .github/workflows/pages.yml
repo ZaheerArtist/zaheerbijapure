@@ -1,0 +1,66 @@
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Create Simple HTML
+        run: |
+          # Create a directory for our site
+          mkdir -p _site
+          
+          # Create a minimal HTML file that's directly in the workflow
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Zaheer Bijapure</title>
+            <style>
+              body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+              h1 { color: #333; }
+            </style>
+          </head>
+          <body>
+            <h1>Zaheer Bijapure</h1>
+            <p>VFX Artist and Layout Artist</p>
+            <p>Simple page created: <script>document.write(new Date().toLocaleString())</script></p>
+          </body>
+          </html>
+          EOF
+          
+          # No external dependencies
+          touch _site/.nojekyll
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './_site'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zaheer Bijapure Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+    img { max-width: 100%; height: auto; display: block; margin: 10px 0; }
+    .test-section { border: 1px solid #ddd; padding: 15px; margin: 15px 0; }
+    h2 { margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+    p { line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <h1>Zaheer Bijapure - Direct Test Page</h1>
+  <p>This page is designed to test image loading in the simplest possible way.</p>
+  
+  <h2>Profile Image Tests</h2>
+  
+  <div class="test-section">
+    <h3>1. Direct Image Path</h3>
+    <img src="zaheer-bijapure.jpg" alt="Profile Image">
+    <p>Path: <code>zaheer-bijapure.jpg</code></p>
+  </div>
+  
+  <div class="test-section">
+    <h3>2. Absolute Image Path</h3>
+    <img src="/zaheer-bijapure.jpg" alt="Profile Image">
+    <p>Path: <code>/zaheer-bijapure.jpg</code></p>
+  </div>
+  
+  <div class="test-section">
+    <h3>3. Repository-prefixed Path</h3>
+    <img src="/zaheerbijapure/zaheer-bijapure.jpg" alt="Profile Image">
+    <p>Path: <code>/zaheerbijapure/zaheer-bijapure.jpg</code></p>
+  </div>
+  
+  <h2>Software Logo Tests</h2>
+  
+  <div class="test-section">
+    <h3>1. Maya Logo - Direct Path</h3>
+    <img src="logos/software/maya.png" alt="Maya Logo">
+    <p>Path: <code>logos/software/maya.png</code></p>
+  </div>
+  
+  <div class="test-section">
+    <h3>2. Maya Logo - Absolute Path</h3>
+    <img src="/logos/software/maya.png" alt="Maya Logo">
+    <p>Path: <code>/logos/software/maya.png</code></p>
+  </div>
+  
+  <div class="test-section">
+    <h3>3. Maya Logo - Repository-prefixed Path</h3>
+    <img src="/zaheerbijapure/logos/software/maya.png" alt="Maya Logo">
+    <p>Path: <code>/zaheerbijapure/logos/software/maya.png</code></p>
+  </div>
+  
+  <h2>Guaranteed Test</h2>
+  <div class="test-section">
+    <h3>Data URI Image (Always Works)</h3>
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" width="50" height="50" style="background: red; display: inline-block;">
+    <p>This is a data URI image that should always display</p>
+  </div>
+  
+  <h2>Debug Information</h2>
+  <p>Repository: ZaheerArtist/zaheerbijapure</p>
+  <p>Current time: <span id="current-time">Loading...</span></p>
+  
+  <script>
+    document.getElementById('current-time').textContent = new Date().toString();
+    
+    // Check which images loaded successfully
+    window.addEventListener('load', function() {
+      var images = document.getElementsByTagName('img');
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].src.startsWith('data:')) continue; // Skip data URI
+        
+        var label = document.createElement('div');
+        label.style.color = images[i].complete ? 'green' : 'red';
+        label.textContent = images[i].complete ? '✓ LOADED' : '✗ FAILED';
+        images[i].parentNode.appendChild(label);
+      }
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaheer Bijapure | VFX Layout Artist</title>
+  <style>
+    /* Base styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+    
+    /* Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background-color: #1a1a2e;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+    
+    /* Profile section */
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .profile-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    /* Software section */
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #eaeaea;
+    }
+    .software-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .software-item {
+      text-align: center;
+      width: 100px;
+    }
+    .software-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #1a1a2e;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+    }
+    
+    /* Image status indicator */
+    .img-status {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+    .loaded { color: green; }
+    .failed { color: red; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Zaheer Bijapure</h1>
+      <p>VFX Layout Artist & 3D Artist</p>
+    </div>
+  </header>
+  
+  <main class="container">
+    <section class="profile">
+      <img src="images/zaheer-bijapure.jpg" alt="Zaheer Bijapure" class="profile-img" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'><circle cx=\'100\' cy=\'100\' r=\'100\' fill=\'%23ddd\'/></svg>'; this.style.background='#ddd'; document.getElementById('profile-img-status').classList.add('failed'); document.getElementById('profile-img-status').textContent='✗ Image failed to load';">
+      <span id="profile-img-status" class="img-status"></span>
+      
+      <div class="profile-text">
+        <h2>About Me</h2>
+        <p>With over 9 years in the VFX and CG industry, I bring a deep understanding of creative and technical processes that shape compelling visual stories. My experience spans VFX layout, camera tracking, body tracking, cinematic camera animation, and more.</p>
+      </div>
+    </section>
+    
+    <section>
+      <h2 class="section-title">Software Skills</h2>
+      <div class="software-list">
+        <div class="software-item">
+          <img src="logos/software/maya.png" alt="Maya" class="software-icon" id="maya-img">
+          <span>Maya</span>
+          <span id="maya-status" class="img-status"></span>
+        </div>
+        
+        <div class="software-item">
+          <img src="logos/software/nuke.png" alt="Nuke" class="software-icon" id="nuke-img">
+          <span>Nuke</span>
+          <span id="nuke-status" class="img-status"></span>
+        </div>
+        
+        <div class="software-item">
+          <img src="logos/software/3dequalizer.png" alt="3D Equalizer" class="software-icon" id="3deq-img">
+          <span>3D Equalizer</span>
+          <span id="3deq-status" class="img-status"></span>
+        </div>
+        
+        <div class="software-item">
+          <img src="logos/software/houdini.png" alt="Houdini" class="software-icon" id="houdini-img">
+          <span>Houdini</span>
+          <span id="houdini-status" class="img-status"></span>
+        </div>
+        
+        <div class="software-item">
+          <img src="logos/software/Photoshop.png" alt="Photoshop" class="software-icon" id="ps-img">
+          <span>Photoshop</span>
+          <span id="ps-status" class="img-status"></span>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2 class="section-title">Contact</h2>
+      <p>Feel free to reach out to me for collaborations or inquiries about my work.</p>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Zaheer Bijapure. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Check if images loaded successfully
+    window.addEventListener('load', function() {
+      // Profile image
+      var profileImg = document.querySelector('.profile-img');
+      var profileStatus = document.getElementById('profile-img-status');
+      if (profileImg.complete && profileImg.naturalWidth !== 0) {
+        profileStatus.classList.add('loaded');
+        profileStatus.textContent = '✓ Image loaded successfully';
+      } else {
+        profileStatus.classList.add('failed');
+        profileStatus.textContent = '✗ Image failed to load';
+      }
+      
+      // Software icons
+      var softwareImages = [
+        { img: document.getElementById('maya-img'), status: document.getElementById('maya-status') },
+        { img: document.getElementById('nuke-img'), status: document.getElementById('nuke-status') },
+        { img: document.getElementById('3deq-img'), status: document.getElementById('3deq-status') },
+        { img: document.getElementById('houdini-img'), status: document.getElementById('houdini-status') },
+        { img: document.getElementById('ps-img'), status: document.getElementById('ps-status') }
+      ];
+      
+      softwareImages.forEach(function(item) {
+        if (item.img.complete && item.img.naturalWidth !== 0) {
+          item.status.classList.add('loaded');
+          item.status.textContent = '✓ Loaded';
+        } else {
+          item.status.classList.add('failed');
+          item.status.textContent = '✗ Failed';
+        }
+      });
+    });
+  </script>
+</body>
+</html> 
