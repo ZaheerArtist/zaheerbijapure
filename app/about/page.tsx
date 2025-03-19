@@ -46,7 +46,9 @@ export default function About() {
       console.log('Prefers reduced motion:', prefersReducedMotion);
       
       // Test direct image access with correct GitHub Pages path
+
       const testImageUrl = '/images/profile.jpg';
+
       // Create an image element instead of using the Image constructor
       const testImg = document.createElement('img');
       testImg.onload = () => console.log(`✅ Test image loaded successfully: ${testImageUrl}`);
@@ -315,6 +317,7 @@ export default function About() {
         {/* Profile Section */}
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
           <div className="relative w-48 h-48 rounded-full overflow-hidden">
+
                 <Image 
               src="/thumbnail/profile.jpg"
               alt="Zaheer Bijapure"
@@ -324,6 +327,8 @@ export default function About() {
               onError={(e) => handleImageError(e, 'profile')}
                 />
               </div>
+
+
 
           {/* Bio */}
           <motion.div
@@ -534,7 +539,9 @@ export default function About() {
                 <div className="h-64 relative overflow-hidden bg-secondary">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10"></div>
                   <div className="thumbnail-skeleton"></div>
+
                   <Image 
+
                     src={`/thumbnail/${getMovieFilename(project.title)}-${project.year}.jpg`}
                     alt={`${project.title} (${project.year})`}
                     fill
