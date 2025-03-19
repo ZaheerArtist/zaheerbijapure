@@ -22,7 +22,7 @@ const vfxProjects: Array<{
     title: 'Production Layout Showreel',
     category: 'VFX Layout',
     description: 'Production layout work showcasing CG cinematic cameras, retiming, reracking, proxy creation, crowd placements, ingestions, and more.',
-    imagePath: '/thumbnail/Production-Layout.jpg',
+    imagePath: '/images/vfx/Production-Layout.jpg',
     videoUrl: 'https://vimeo.com/1060745371',
     videoType: 'vimeo',
     isPasswordProtected: false
@@ -32,7 +32,7 @@ const vfxProjects: Array<{
     title: 'Personal Layout Showreel',
     category: 'Cinematic Camera',
     description: 'Cinematic camera, stitched camera, and multiple projection work demonstrating dynamic framing, movement, and visual storytelling techniques.',
-    imagePath: '/thumbnail/Cinematic-Camera.jpg',
+    imagePath: '/images/vfx/Cinematic-Camera.jpg',
     videoUrl: 'https://vimeo.com/1062331587/1a0097ad99',
     videoType: 'vimeo',
     isPasswordProtected: false
@@ -42,7 +42,7 @@ const vfxProjects: Array<{
     title: 'Previsualization & Layout Showreel',
     category: 'Previz',
     description: 'Comprehensive previsualization work showcasing complex sequence planning, technical visualization, and creative problem-solving for production.',
-    imagePath: '/thumbnail/Previz-Layout.jpg',
+    imagePath: '/images/vfx/Previz-Layout.jpg',
     videoUrl: 'https://vimeo.com/1062328741/dd9829b4a8',
     videoType: 'vimeo',
     isPasswordProtected: false
@@ -52,7 +52,7 @@ const vfxProjects: Array<{
     title: 'Camera & Body Tracking Showreel',
     category: 'Camera & Body Tracking',
     description: 'High-precision camera and body tracking demonstrations for seamless VFX integration with live-action footage.',
-    imagePath: '/thumbnail/camera-bodytrack.jpg',
+    imagePath: '/images/vfx/camera-bodytrack.jpg',
     videoUrl: 'https://youtu.be/Vqj1RU_uJCk',
     videoType: 'youtube',
     isPasswordProtected: false

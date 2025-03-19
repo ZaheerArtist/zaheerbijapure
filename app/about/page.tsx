@@ -26,7 +26,7 @@ export default function About() {
     
     // If it's a special case, use the mapped filename
     if (title in specialCases) {
-      return `/Films/${specialCases[title]} (${year}).jpg`;
+      return `/images/films/${specialCases[title]} (${year}).jpg`;
     }
     
     // Default case: replace special characters and spaces
@@ -36,7 +36,7 @@ export default function About() {
       .replace(/\s+/g, ' ')
       .trim();
     
-    return `/Films/${sanitizedTitle} (${year}).jpg`;
+    return `/images/films/${sanitizedTitle} (${year}).jpg`;
   };
   
   const skills = [
@@ -274,7 +274,7 @@ export default function About() {
             <div className="w-full flex justify-center items-center">
               <div className="relative w-96 aspect-[3/4] rounded-lg overflow-hidden">
                 <Image 
-                  src={`/zaheer-bijapure.jpg?refresh=${Date.now()}`}
+                  src="/images/profile.jpg"
                   alt="Zaheer Bijapure - VFX Layout & 3D Artist" 
                   fill
                   sizes="384px"

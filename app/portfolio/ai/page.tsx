@@ -30,21 +30,21 @@ const aiImageGallery = [
     id: 1,
     title: 'Johnson\'s Baby Poster Design 1',
     description: 'AI-generated poster design for Johnson\'s Baby products showcasing the gentle care and nurturing elements essential for infant skincare. Created with attention to soft colors and calming visuals.',
-    imagePath: '/ai-gallery/johnsons-baby-poster1.png',
+    imagePath: '/images/ai/johnsons-baby-poster1.png',
     tool: 'Freepik AI + Adobe Photoshop'
   },
   {
     id: 2,
     title: 'Johnson\'s Baby Poster Design 2',
     description: 'Second variation of Johnson\'s Baby promotional material highlighting the brand\'s commitment to natural ingredients and baby-safe formulations, designed with a harmonious color palette and soothing imagery.',
-    imagePath: '/ai-gallery/johnsons-baby-poster2.png',
+    imagePath: '/images/ai/johnsons-baby-poster2.png',
     tool: 'Freepik AI + Adobe Photoshop'
   },
   {
     id: 3,
     title: 'Coming Soon',
     description: 'More AI-generated imagery projects in development',
-    imagePath: '/placeholder.jpg',
+    imagePath: '/images/placeholder.jpg',
     tool: 'Various AI Tools'
   }
 ];

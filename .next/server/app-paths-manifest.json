@@ -3,6 +3,5 @@
   "/portfolio/vfx/page": "app/portfolio/vfx/page.js",
   "/portfolio/ai/page": "app/portfolio/ai/page.js",
   "/experience/page": "app/experience/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/about/page": "app/about/page.js"
+  "/contact/page": "app/contact/page.js"
 }
