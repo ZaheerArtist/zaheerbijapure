@@ -86,6 +86,14 @@ export default function About() {
     return title.replace(/[&:,.']/g, '').replace(/\s+/g, '-');
   };
   
+  // Function to get the correct image URL for GitHub Pages
+  const getGitHubPagesUrl = (path: string) => {
+    // Check if we're running in development or production
+    const isDev = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+    // If we're in development, use relative paths, otherwise use GitHub Pages path
+    return isDev ? path : `/zaheerbijapure${path}`;
+  };
+
   const skills = [
     { name: 'VFX Layout', icon: <FaDesktop />, level: 95 },
     { name: 'Cinematic Camera', icon: <FaVideo />, level: 95 },
@@ -315,15 +323,15 @@ export default function About() {
         {/* Profile Section */}
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
           <div className="relative w-48 h-48 rounded-full overflow-hidden">
-                <Image 
-              src="/thumbnail/profile.jpg"
+            <Image
+              src={getGitHubPagesUrl("/thumbnail/profile.jpg")}
               alt="Zaheer Bijapure"
-                  fill
+              fill
               className="object-cover"
-                  priority
+              priority
               onError={(e) => handleImageError(e, 'profile')}
-                />
-              </div>
+            />
+          </div>
 
           {/* Bio */}
           <motion.div
@@ -534,15 +542,15 @@ export default function About() {
                 <div className="h-64 relative overflow-hidden bg-secondary">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10"></div>
                   <div className="thumbnail-skeleton"></div>
-                  <Image 
-                    src={`/thumbnail/${getMovieFilename(project.title)}-${project.year}.jpg`}
+                  <Image
+                    src={getGitHubPagesUrl(`/thumbnail/${getMovieFilename(project.title)}-${project.year}.jpg`)}
                     alt={`${project.title} (${project.year})`}
                     fill
-                    sizes="(max-width: 768px) 150px, 200px"
-                    className="object-cover image-fade-in"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-110 image-fade-in"
                     priority={index < 4}
-                    loading={index < 4 ? "eager" : "lazy"}
-                    quality={75}
+                    loading={index < 4 ? 'eager' : 'lazy'}
+                    quality={90}
                     onError={(e) => handleImageError(e, project.title)}
                   />
                   {project.isRecent && (
