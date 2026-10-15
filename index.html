@@ -84,6 +84,10 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .laurel em{font-style:normal;font-size:.6rem;letter-spacing:.18em;color:var(--dim)}
 
 /* Reels */
+.vfxband{position:relative;isolation:isolate;overflow:hidden;padding-bottom:clamp(60px,9vw,100px);margin-top:clamp(72px,11vw,120px);padding-top:clamp(72px,11vw,120px)}
+.bandvid{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:saturate(1.1) brightness(1.2)}
+.vfxband::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--void) 0%,rgba(6,9,10,.45) 22%,rgba(6,9,10,.55) 70%,var(--void) 100%)}
+.vfxband .more{margin-top:30px}
 .reels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media (max-width:860px){.reels{grid-template-columns:1fr 1fr}}
 .reel{display:block;text-decoration:none;position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
@@ -141,7 +145,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
 
 <header class="nav"><div class="wrap">
   <a class="mark" href="#top">ZB</a>
-  <nav aria-label="Sections"><a href="#ai">AI Films</a><a class="opt" href="#story">Story</a><a class="opt" href="#reels">VFX</a><a href="#contact">Contact</a></nav>
+  <nav aria-label="Sections"><a href="#ai">AI Films</a><a class="opt" href="#story">Story</a><a class="opt" href="portfolio/vfx/">VFX</a><a href="#contact">Contact</a></nav>
 </div></header>
 
 <main id="top">
@@ -195,7 +199,8 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
     </div>
   </section>
 
-  <section id="reels">
+  <section id="reels" class="vfxband">
+    <video class="bandvid" id="vfxvid" autoplay muted loop playsinline preload="metadata" poster="images/hero-poster.jpg" aria-hidden="true"><source src="videos/hero.mp4" type="video/mp4"></video>
     <div class="wrap">
       <div class="head"><p class="eyebrow">Where the craft began</p><h2 class="h2">VFX showreels</h2></div>
       <div class="reels">
@@ -204,6 +209,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
         <a class="reel" href="https://vimeo.com/1062328741/dd9829b4a8" target="_blank" rel="noopener"><img src="images/reel-previz.jpg" alt="Previz car on a city street"><span><i>▶ Play</i><b>Previz &amp; Techviz</b></span></a>
         <a class="reel" href="https://youtu.be/Vqj1RU_uJCk" target="_blank" rel="noopener"><img src="images/reel-tracking.jpg" alt="Camera and body tracking showreel still"><span><i>▶ Play</i><b>Body Tracking</b></span></a>
       </div>
+      <p class="more" style="text-align:center"><a class="btn hot" href="portfolio/vfx/">Enter the VFX portfolio</a></p>
     </div>
   </section>
 
@@ -237,12 +243,12 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
-(function(){var v=document.getElementById('bgvid');if(!v)return;
+['bgvid','vfxvid'].forEach(function(id){(function(){var v=document.getElementById(id);if(!v)return;
   v.muted=true;v.defaultMuted=true;v.playsInline=true;
   function go(){if(!v.paused)return;var p=v.play();if(p&&p.catch)p.catch(function(){});}
   go();v.addEventListener('canplay',go);
   ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){addEventListener(ev,go,{passive:true,once:true});});
-  document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});})();
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});})();});
 document.querySelectorAll('[data-copy]').forEach(function(b){
   b.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.copy);
