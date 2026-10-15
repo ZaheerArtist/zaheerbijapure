@@ -503,7 +503,7 @@ export default function Home() {
               <div className="pt-4">
                 <p className="mb-2"><strong>Email:</strong> <a href="mailto:zaheerartist@gmail.com" className="text-accent2 hover:underline">zaheerartist@gmail.com</a></p>
                 <p className="mb-2"><strong>Location:</strong> Mumbai, India</p>
-                <p><strong>Phone:</strong> <a href="tel:+919730326776" className="text-accent2 hover:underline">+91 9730 326 776</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+971567567948" className="text-accent2 hover:underline">+971 56 756 7948</a></p>
               </div>
             </motion.div>
 

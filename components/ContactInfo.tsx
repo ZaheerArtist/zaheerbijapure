@@ -24,8 +24,8 @@ export const ContactInfo = ({
     { 
       id: 'phone', 
       icon: <FaPhone />, 
-      content: '+919730326776',
-      href: 'tel:+919730326776' 
+      content: '+971 56 756 7948',
+      href: 'tel:+971567567948' 
     },
     { 
       id: 'location', 
