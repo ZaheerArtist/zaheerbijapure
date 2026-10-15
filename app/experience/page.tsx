@@ -19,11 +19,12 @@ export default function Experience() {
       title: 'AI Senior Designer',
       company: 'Saatchi & Saatchi ME · Publicis Groupe',
       location: 'United Arab Emirates · On-site',
-      description: 'Creating AI-driven visual concepts for advertising and branded campaigns, taking ideas from concept to images and videos through to final delivery, in close collaboration with the creative team.',
+      description: 'I work on AI-driven visual concepts for advertising and branded campaigns, taking ideas from concept to images and videos through to final delivery.',
       responsibilities: [
-        'Develop AI-driven visual concepts for advertising and branded campaigns',
-        'Take ideas from concept to finished images and videos through to final delivery',
-        'Collaborate closely with creative teams on campaign direction'
+        'Create AI-driven visual concepts for advertising and branded campaigns',
+        'Take ideas from concept to images and videos through to final delivery',
+        'Collaborate closely with creative and strategy teams to translate ideas into clear, cinematic visuals',
+        'Use AI and VFX to support campaign production across different brands and formats'
       ],
       technologies: ['AI Image Generation', 'AI Video Generation', 'After Effects', 'Photoshop', 'Premiere Pro']
     },
