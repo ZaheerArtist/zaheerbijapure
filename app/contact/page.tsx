@@ -118,7 +118,7 @@ export default function Contact() {
                     href="https://www.linkedin.com/in/zaheer-bijapure/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-secondary hover:bg-accent1 transition-colors duration-300 p-3 rounded-none text-background"
+                    className="bg-secondary text-textPrimary hover:bg-accent1 hover:text-background transition-colors duration-300 p-3 rounded-none"
                     aria-label="LinkedIn"
                   >
                     <FaLinkedin />
@@ -127,7 +127,7 @@ export default function Contact() {
                     href="https://www.instagram.com/zaheerbijapure/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-secondary hover:bg-accent1 transition-colors duration-300 p-3 rounded-none text-background"
+                    className="bg-secondary text-textPrimary hover:bg-accent1 hover:text-background transition-colors duration-300 p-3 rounded-none"
                     aria-label="Instagram"
                   >
                     <FaInstagram />
@@ -136,7 +136,7 @@ export default function Contact() {
                     href="https://www.youtube.com/@ZaheerBijapure"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-secondary hover:bg-accent1 transition-colors duration-300 p-3 rounded-none text-background"
+                    className="bg-secondary text-textPrimary hover:bg-accent1 hover:text-background transition-colors duration-300 p-3 rounded-none"
                     aria-label="YouTube"
                   >
                     <FaYoutube />
@@ -145,7 +145,7 @@ export default function Contact() {
                     href="https://www.imdb.com/name/nm12429900/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-secondary hover:bg-accent1 transition-colors duration-300 p-3 rounded-none text-background"
+                    className="bg-secondary text-textPrimary hover:bg-accent1 hover:text-background transition-colors duration-300 p-3 rounded-none"
                     aria-label="IMDb"
                   >
                     <FaImdb />
