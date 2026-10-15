@@ -29,11 +29,11 @@ export const Footer = () => {
                 <span className="text-lg font-heading font-bold text-white block text-center">
                   Zaheer <span className="text-accent1">Bijapure</span>
                 </span>
-                <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] block">AI Film Director</span>
+                <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] block">AI Filmmaker &amp; VFX Artist</span>
               </div>
             </a>
             <p className="text-sm text-textSecondary mb-6">
-              AI film director and creative based in Dubai. Cinematic AI films and campaigns, built on over a decade of animation and film VFX for Hollywood and Indian cinema. Currently AI Senior Designer at Saatchi & Saatchi ME, Publicis Groupe.
+              AI filmmaker and VFX artist based in Dubai. Cinematic AI films and campaigns, built on over a decade of animation and film VFX for Hollywood and Indian cinema. Currently AI Senior Designer at Saatchi & Saatchi ME, Publicis Groupe.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (

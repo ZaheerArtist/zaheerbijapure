@@ -280,7 +280,7 @@ export default function About() {
           <div className={s.heroText}>
             <p className={s.eyebrow}>About</p>
             <h1 className={s.name}>Zaheer Bijapure</h1>
-            <p className={s.role}>AI Film Director &amp; Creative</p>
+            <p className={s.role}>AI Filmmaker &amp; VFX Artist</p>
             <p className={s.agency}>
               AI Senior Designer, Saatchi &amp; Saatchi ME <span>Publicis Groupe · Dubai</span>
             </p>

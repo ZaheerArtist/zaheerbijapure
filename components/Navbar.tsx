@@ -64,7 +64,7 @@ export const Navbar = () => {
             <span className="text-lg md:text-xl font-heading font-semibold text-textPrimary block leading-tight tracking-wide">
               Zaheer <span className="text-accent1">Bijapure</span>
             </span>
-            <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] -mt-0.5 block">AI Film Director</span>
+            <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] -mt-0.5 block">AI Filmmaker &amp; VFX Artist</span>
           </div>
         </a>
 

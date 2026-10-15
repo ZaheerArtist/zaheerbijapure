@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact | Zaheer Bijapure, AI Film Director, Dubai',
-  description: 'Get in touch with Zaheer Bijapure, AI film director and creative in Dubai, about AI films, brand campaigns and creative development.',
+  title: 'Contact | Zaheer Bijapure, AI Filmmaker & VFX Artist, Dubai',
+  description: 'Get in touch with Zaheer Bijapure, AI filmmaker and VFX artist in Dubai, about AI films, brand campaigns and creative development.',
   alternates: { canonical: 'https://zaheerartist.github.io/contact/' },
   openGraph: {
-    title: 'Contact | Zaheer Bijapure, AI Film Director, Dubai',
-    description: 'Get in touch with Zaheer Bijapure, AI film director and creative in Dubai, about AI films, brand campaigns and creative development.',
+    title: 'Contact | Zaheer Bijapure, AI Filmmaker & VFX Artist, Dubai',
+    description: 'Get in touch with Zaheer Bijapure, AI filmmaker and VFX artist in Dubai, about AI films, brand campaigns and creative development.',
     url: 'https://zaheerartist.github.io/contact/',
     siteName: 'Zaheer Bijapure',
     images: [{ url: 'https://zaheerartist.github.io/images/og-card.jpg', width: 1200, height: 630 }],
