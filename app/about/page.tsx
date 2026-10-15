@@ -341,7 +341,7 @@ export default function About() {
     : allProjects.filter(project => project.isRecent);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white p-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-4 md:px-8 pt-28 pb-8">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -367,7 +367,7 @@ export default function About() {
 
         {/* Profile Section */}
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-          <div className="relative w-48 h-48 rounded-full overflow-hidden">
+          <div className="relative w-48 h-48 md:w-56 md:h-56 shrink-0 rounded-full overflow-hidden ring-2 ring-accent1/60">
 
                 <Image 
               src={`${BASE}/thumbnail/profile.jpg`}
