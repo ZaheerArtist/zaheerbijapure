@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaTwitter, FaImdb } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaYoutube, FaImdb } from 'react-icons/fa';
 import { ContactInfo } from '@/components/ContactInfo';
 import { useSearchParams } from 'next/navigation';
 
@@ -115,7 +115,7 @@ export default function Contact() {
                 <h3 className="font-medium text-white mb-4">Connect with me</h3>
                 <div className="flex space-x-4">
                   <a
-                    href="https://www.linkedin.com/in/zaheerbijapure/"
+                    href="https://www.linkedin.com/in/zaheer-bijapure/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-secondary hover:bg-accent1 transition-colors duration-300 p-3 rounded-lg text-white"
@@ -124,7 +124,7 @@ export default function Contact() {
                     <FaLinkedin />
                   </a>
                   <a
-                    href="https://www.instagram.com/zaheerartist/"
+                    href="https://www.instagram.com/zaheerbijapure/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-secondary hover:bg-accent1 transition-colors duration-300 p-3 rounded-lg text-white"
@@ -133,13 +133,13 @@ export default function Contact() {
                     <FaInstagram />
                   </a>
                   <a
-                    href="https://twitter.com/zaheerartist"
+                    href="https://www.youtube.com/@ZaheerBijapure"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-secondary hover:bg-accent1 transition-colors duration-300 p-3 rounded-lg text-white"
-                    aria-label="Twitter"
+                    aria-label="YouTube"
                   >
-                    <FaTwitter />
+                    <FaYoutube />
                   </a>
                   <a
                     href="https://www.imdb.com/name/nm12429900/"

@@ -28,10 +28,7 @@ const films: Film[] = [
 ];
 const meta = (...parts: string[]) => parts.filter(Boolean).join(' · ');
 
-const posters = [
-  { src: '/images/ai/johnsons-baby-poster1.jpg', title: 'Tear-free bath time', alt: 'AI-generated baby soap key visual: a smiling baby in bath foam on a soft pink background' },
-  { src: '/images/ai/johnsons-baby-poster2.jpg', title: 'Gentle by nature', alt: 'Second AI-generated baby care key visual with soft colours and calm imagery' },
-];
+const posters: { src: string; title: string; alt: string }[] = [];
 
 const method = [
   { slug: 'Shot 01', name: 'The Brief', text: 'Every film starts with the brand: who it speaks to, what it should feel like, and the one idea it must land.' },
@@ -83,8 +80,8 @@ export default function AIPortfolio() {
           </p>
           <p className={`${s.slug} ${s.heroSlug}`}>Int. Saatchi &amp; Saatchi ME · Publicis Groupe — UAE — Now</p>
           <div className={s.heroActions}>
-            <a className={`${s.btn} ${s.btnHot}`} href={hasFilms ? '#films' : '#visuals'}>
-              {hasFilms ? '▶ Watch the films' : '▶ See the work'}
+            <a className={`${s.btn} ${s.btnHot}`} href="#films">
+              ▶ Watch the films
             </a>
             <Link className={s.btn} href="/contact/">
               Start a project
@@ -161,28 +158,6 @@ export default function AIPortfolio() {
         </div>
       </section>
       )}
-
-      {/* Key visuals */}
-      <section className={s.section} id="visuals" style={{ scrollMarginTop: 80 }}>
-        <div className={s.wrap}>
-          <div className={s.head}>
-            <p className={s.eyebrow}>Key visuals</p>
-            <h2 className={s.title}>Stills that sell</h2>
-            <p>Concept campaign for a baby-care brand. Generated in Freepik AI, then retouched and laid out in Photoshop.</p>
-          </div>
-          <div className={s.posters}>
-            {posters.map((p) => (
-              <figure key={p.src} style={{ margin: 0 }}>
-                <button type="button" className={s.poster} onClick={() => setPoster(p)} aria-label={`Enlarge ${p.title}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={BASE + p.src} alt={p.alt} loading="lazy" />
-                </button>
-                <figcaption className={s.posterCap}>{p.title} · Freepik AI + Photoshop</figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Kit and credentials */}
       <section className={s.section}>

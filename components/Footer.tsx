@@ -1,17 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { FaLinkedin, FaInstagram, FaTwitter, FaYoutube, FaImdb } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaYoutube, FaImdb } from 'react-icons/fa';
 import { ContactInfo } from './ContactInfo';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/zaheerbijapure/', ariaLabel: 'LinkedIn' },
-    { icon: <FaInstagram />, url: 'https://www.instagram.com/zaheerartist/', ariaLabel: 'Instagram' },
-    { icon: <FaTwitter />, url: 'https://twitter.com/zaheerartist', ariaLabel: 'Twitter' },
-    { icon: <FaYoutube />, url: 'https://www.youtube.com/@zaheerartist', ariaLabel: 'YouTube' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/zaheer-bijapure/', ariaLabel: 'LinkedIn' },
+    { icon: <FaInstagram />, url: 'https://www.instagram.com/zaheerbijapure/', ariaLabel: 'Instagram' },
+    { icon: <FaYoutube />, url: 'https://www.youtube.com/@ZaheerBijapure', ariaLabel: 'YouTube' },
     { icon: <FaImdb />, url: 'https://www.imdb.com/name/nm12429900/', ariaLabel: 'IMDb' },
   ];
 

@@ -218,7 +218,7 @@ export default function Home() {
                 <FaImdb className="mr-2 text-xl" /> IMDb Profile
               </a>
               <a 
-                href="http://www.linkedin.com/in/zaheer-bijapure" 
+                href="https://www.linkedin.com/in/zaheer-bijapure/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-flex items-center bg-[#0077b5] hover:bg-[#005e8c] text-white font-medium py-2 px-4 rounded-lg transition-all duration-300"
@@ -464,7 +464,7 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="http://www.linkedin.com/in/zaheer-bijapure"
+                  href="https://www.linkedin.com/in/zaheer-bijapure/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-2xl text-[#0077b5] hover:text-[#0077b5]/80 transition-colors"
@@ -473,7 +473,7 @@ export default function Home() {
                   <FaLinkedin />
                 </a>
                 <a
-                  href="https://instagram.com/yourusername"
+                  href="https://www.instagram.com/zaheerbijapure/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-2xl text-[#C13584] hover:text-[#C13584]/80 transition-colors"
@@ -482,7 +482,7 @@ export default function Home() {
                   <FaInstagram />
                 </a>
                 <a
-                  href="https://twitter.com/yourusername"
+                  href="https://www.youtube.com/@ZaheerBijapure"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-2xl text-[#1DA1F2] hover:text-[#1DA1F2]/80 transition-colors"
