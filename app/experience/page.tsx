@@ -175,10 +175,10 @@ export default function Experience() {
                       <span className="text-accent1 text-sm font-medium mb-2 block flex items-center">
                         <FaCalendarAlt className="mr-2" /> {exp.period}
                       </span>
-                      <h3 className="text-xl font-bold mb-1">{exp.title}</h3>
-                      <h4 className="text-lg text-accent1/80 mb-2 flex items-center">
-                        <FaBuilding className="mr-2" /> {exp.company}
+                      <h4 className="text-2xl md:text-3xl font-bold text-white mb-2 flex items-start leading-tight">
+                        <FaBuilding className="mr-3 mt-1 shrink-0 text-accent1" /> <span>{exp.company}</span>
                       </h4>
+                      <h3 className="text-lg font-semibold text-accent1 mb-1">{exp.title}</h3>
                       <p className="text-sm text-textSecondary mb-4">{exp.location}</p>
                     </div>
                     <button 
