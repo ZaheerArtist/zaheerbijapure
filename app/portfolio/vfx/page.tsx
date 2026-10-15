@@ -23,7 +23,7 @@ const vfxProjects: Array<{
     id: 1,
     title: 'Production Layout Showreel',
     category: 'VFX Layout',
-    description: 'Production layout work showcasing CG cinematic cameras, retiming, reracking, proxy creation, crowd placements, ingestions, and more.',
+    description: 'Layout for feature films: CG cameras, retimes, proxy models and crowd placement.',
 
     imagePath: `${BASE}/thumbnail/Production-Layout.jpg`,
 
@@ -35,7 +35,7 @@ const vfxProjects: Array<{
     id: 2,
     title: 'Personal Layout Showreel',
     category: 'Cinematic Camera',
-    description: 'Cinematic camera, stitched camera, and multiple projection work demonstrating dynamic framing, movement, and visual storytelling techniques.',
+    description: 'Personal camera work: framing, movement, stitched cameras and projections.',
 
     imagePath: `${BASE}/thumbnail/Cinematic-Camera.jpg`,
 
@@ -45,9 +45,9 @@ const vfxProjects: Array<{
   },
   {
     id: 3,
-    title: 'Previsualization & Layout Showreel',
+    title: 'Previsualisation & Layout Showreel',
     category: 'Previz',
-    description: 'Comprehensive previsualization work showcasing complex sequence planning, technical visualization, and creative problem-solving for production.',
+    description: 'Previz and techviz: planning complex sequences before they are shot.',
 
     imagePath: `${BASE}/thumbnail/Previz-Layout.jpg`,
 
@@ -59,7 +59,7 @@ const vfxProjects: Array<{
     id: 4,
     title: 'Camera & Body Tracking Showreel',
     category: 'Camera & Body Tracking',
-    description: 'High-precision camera and body tracking demonstrations for seamless VFX integration with live-action footage.',
+    description: 'Camera and body tracking that locks CG to live-action footage.',
 
     imagePath: `${BASE}/thumbnail/camera-bodytrack.jpg`,
 
@@ -164,7 +164,7 @@ export default function VFXPortfolio() {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/30 via-black/40 to-background" />
         <div className="container-custom w-full pb-12 text-center">
-          <p className="text-accent1 tracking-[0.3em] text-xs uppercase mb-4">Ten years behind the camera</p>
+          <p className="text-accent1 tracking-[0.3em] text-xs uppercase mb-4">Behind the camera</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">VFX Portfolio</h1>
           <div className="w-20 h-1 bg-accent1 mx-auto mb-6"></div>
           <p className="text-white/85 text-lg max-w-2xl mx-auto">

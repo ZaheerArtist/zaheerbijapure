@@ -4,8 +4,8 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Zaheer Bijapure | AI Film Director & Creative',
-  description: 'Zaheer Bijapure is an AI film director and creative in the UAE: cinematic AI films, advertising concepts and visual campaigns, built on 10 years of professional VFX.',
+  title: 'Zaheer Bijapure | AI Film Director & Creative, Dubai',
+  description: 'Zaheer Bijapure is an AI film director and creative based in Dubai: cinematic AI films, advertising concepts and visual campaigns, built on over a decade of animation and film VFX.',
 };
 
 export default function RootLayout({

@@ -90,10 +90,10 @@ export default function Contact() {
           variants={fadeIn}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in touch</h1>
           <div className="w-20 h-1 bg-accent1 mx-auto mb-6"></div>
           <p className="text-textSecondary text-lg">
-            Interested in working together or have a question? Send me a message and I'll get back to you as soon as possible.
+            Tell me about your film, campaign or idea. I usually reply within two working days.
           </p>
         </motion.div>
         
@@ -107,7 +107,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="bg-primary rounded-lg p-8">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold mb-6">Contact details</h2>
               
               <div className="space-y-6">
                 <ContactInfo showIcons={true} className="space-y-6" />
@@ -166,7 +166,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <div className="bg-primary rounded-lg p-8">
-              <h2 className="text-2xl font-bold mb-6">Send Me a Message</h2>
+              <h2 className="text-2xl font-bold mb-6">Send a message</h2>
               
               {success ? (
                 <motion.div 
@@ -174,13 +174,13 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-green-500/20 text-green-400 p-4 rounded-lg"
                 >
-                  <p className="font-medium">Thank you for your message!</p>
-                  <p>I'll get back to you as soon as possible.</p>
+                  <p className="font-medium">Thank you. Your message has been sent.</p>
+                  <p>I usually reply within two working days.</p>
                   <button 
                     onClick={() => setSuccess(false)}
                     className="mt-4 px-4 py-2 bg-green-500/30 hover:bg-green-500/40 text-green-400 rounded-lg transition-colors"
                   >
-                    Send Another Message
+                    Send another message
                   </button>
                 </motion.div>
               ) : (
@@ -201,7 +201,7 @@ export default function Contact() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="name" className="block text-textSecondary mb-2">
-                        Your Name <span className="text-accent1">*</span>
+                        Your name <span className="text-accent1">*</span>
                       </label>
                       <input
                         type="text"
@@ -211,13 +211,13 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full bg-secondary border-2 border-secondary focus:border-accent1 rounded-lg p-3 text-white outline-none transition-colors"
-                        placeholder="John Doe"
+                        placeholder="Your full name"
                       />
                     </div>
                     
                     <div>
                       <label htmlFor="email" className="block text-textSecondary mb-2">
-                        Your Email <span className="text-accent1">*</span>
+                        Email <span className="text-accent1">*</span>
                       </label>
                       <input
                         type="email"
@@ -227,7 +227,7 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full bg-secondary border-2 border-secondary focus:border-accent1 rounded-lg p-3 text-white outline-none transition-colors"
-                        placeholder="john@example.com"
+                        placeholder="name@company.com"
                       />
                     </div>
                   </div>
@@ -244,7 +244,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       className="w-full bg-secondary border-2 border-secondary focus:border-accent1 rounded-lg p-3 text-white outline-none transition-colors"
-                      placeholder="Project Inquiry"
+                      placeholder="Project enquiry"
                     />
                   </div>
                   
@@ -260,7 +260,7 @@ export default function Contact() {
                       required
                       rows={6}
                       className="w-full bg-secondary border-2 border-secondary focus:border-accent1 rounded-lg p-3 text-white outline-none transition-colors resize-none"
-                      placeholder="Tell me about your project or inquiry..."
+                      placeholder="What you want to make, for whom, and roughly when."
                     ></textarea>
                   </div>
                   
@@ -279,7 +279,7 @@ export default function Contact() {
                     disabled={submitting}
                     className={`btn-primary w-full ${submitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
-                    {submitting ? 'Sending...' : 'Send Message'}
+                    {submitting ? 'Sending…' : 'Send message'}
                   </button>
                 </form>
               )}

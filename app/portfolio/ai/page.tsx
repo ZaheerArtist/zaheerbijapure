@@ -76,9 +76,9 @@ export default function AIPortfolio() {
             to <span>Picture</span>
           </h1>
           <p className={s.logline}>
-            For ten years I placed cameras for Hollywood. Now the camera is a sentence, and the craft is exactly the same.
+            For years I placed cameras for Hollywood films. Now the camera is a sentence, and the craft is exactly the same.
           </p>
-          <p className={`${s.slug} ${s.heroSlug}`}>Int. Saatchi &amp; Saatchi ME · Publicis Groupe — UAE — Now</p>
+          <p className={`${s.slug} ${s.heroSlug}`}>Int. Studio — Dubai — Now</p>
           <div className={s.heroActions}>
             <a className={`${s.btn} ${s.btnHot}`} href="#films">
               ▶ Watch the films
