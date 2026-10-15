@@ -104,6 +104,25 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .mini:hover b{color:var(--ember)}
 .more{text-align:center;margin-top:30px}
 
+/* Poetry */
+@font-face{font-family:"Noto Nastaliq Urdu";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/noto-nastaliq-urdu-arabic-400.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
+.poem{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(110px,16vw,190px);margin-top:clamp(40px,7vw,90px);background:radial-gradient(60% 55% at 50% 45%,rgba(255,122,47,.06),transparent 70%)}
+.poem-field{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.poem-inner{text-align:center;display:grid;justify-items:center}
+.poem-label{font-family:var(--script);font-weight:400;font-size:.76rem;letter-spacing:.34em;color:var(--ember);margin:0}
+.poem-fig{margin:clamp(26px,4vw,40px) 0 0;display:grid;justify-items:center;gap:clamp(22px,3.4vw,34px)}
+.ur{margin:0;font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq","Urdu Typesetting","Noto Naskh Arabic",serif;font-size:clamp(1.9rem,5.6vw,4.1rem);line-height:2.15;color:var(--cream);direction:rtl;unicode-bidi:isolate;font-feature-settings:"liga" 1,"calt" 1;text-rendering:optimizeLegibility}
+.ur p{margin:0;white-space:nowrap}
+.roman{font-family:var(--title);font-size:clamp(1rem,2.1vw,1.25rem);letter-spacing:.04em;line-height:1.75;color:var(--cream);opacity:.88}
+.trans{margin-top:14px;font-style:italic;color:var(--dim);font-size:clamp(.98rem,1.8vw,1.08rem);max-width:44ch}
+.closing{margin-top:clamp(30px,4.6vw,48px);font-family:var(--script);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ember)}
+.poem.armed .pr{opacity:0;transform:translateY(14px);transition:opacity 1.6s ease,transform 1.6s ease}
+.poem.armed.in .pr{opacity:1;transform:none}
+.poem.armed.in .ur p:nth-child(1){transition-delay:.7s}.poem.armed.in .ur p:nth-child(2){transition-delay:1.5s}
+.poem.armed.in .roman{transition-delay:2.3s}.poem.armed.in .trans{transition-delay:2.8s}.poem.armed.in .closing{transition-delay:3.5s}
+@media (max-width:420px){.ur{font-size:min(1.95rem,8.5vw)}.poem-label,.closing{letter-spacing:.2em}}
+@media (prefers-reduced-motion:reduce){.poem.armed .pr{opacity:1;transform:none;transition:none}}
+
 /* 03 What I do */
 .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:820px){.services{grid-template-columns:1fr}}
@@ -292,6 +311,25 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
     </div>
   </section>
 
+  <!-- Poetry: a thought behind the pixel -->
+  <section id="poem" class="poem" aria-labelledby="poem-label">
+    <canvas class="poem-field" aria-hidden="true"></canvas>
+    <div class="wrap poem-inner">
+      <h2 id="poem-label" class="poem-label pr">A THOUGHT BEHIND THE PIXEL</h2>
+      <figure class="poem-fig">
+        <blockquote class="ur" lang="ur" dir="rtl">
+          <p class="pr">اک نقطے سے جہاں بنتا ہے</p>
+          <p class="pr">اک خیال سے آسماں بنتا ہے</p>
+        </blockquote>
+        <figcaption>
+          <p class="roman pr" lang="ur-Latn">Ik nuqte se jahaan banta hai,<br>ik khayaal se aasmaan banta hai.</p>
+          <p class="trans pr" lang="en">“A world emerges from a single point; a sky from a single thought.”</p>
+        </figcaption>
+      </figure>
+      <p class="closing pr">One pixel. Infinite possibilities.</p>
+    </div>
+  </section>
+
   <!-- 03 What I do -->
   <section id="services">
     <div class="wrap">
@@ -465,6 +503,55 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(e){sel()}
   });
 });
+// Poetry: one amber pixel opens into a field of particles
+(function(){
+  var sec=document.getElementById('poem');if(!sec)return;
+  var cv=sec.querySelector('.poem-field'),ctx=cv.getContext&&cv.getContext('2d');
+  var still=false;try{still=matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  if(!still)sec.classList.add('armed');
+  if(!ctx)return;
+  var W=0,H=0,dpr=1,pts=[],ox=0,oy=0,start=0,raf=0,visible=false,began=false;
+  function rnd(a,b){return a+Math.random()*(b-a);}
+  function build(){
+    var r=sec.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);
+    W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+    ox=W/2;var lb=sec.querySelector('.poem-label').getBoundingClientRect();oy=Math.max(24,lb.top-r.top-34);
+    var n=Math.round(Math.min(240,Math.max(90,W*H/5200)));pts=[];
+    for(var i=0;i<n;i++){
+      var a=rnd(0,Math.PI*2),d=Math.pow(Math.random(),0.62),x=W/2+Math.cos(a)*d*W*0.56,y=H*0.52+Math.sin(a)*d*H*0.6;
+      var cx=(x-W/2)/(W*0.3),cy=(y-H*0.5)/(H*0.3),near=Math.max(0,1-Math.sqrt(cx*cx+cy*cy));   // fade near the verse
+      pts.push({x:x,y:y,r:rnd(0.5,1.5),a:rnd(0.18,0.62)*(1-near*0.85),warm:Math.random()<0.28,delay:rnd(0,0.55),ph:rnd(0,6.28),sp:rnd(0.15,0.45)});
+    }
+  }
+  function ease(t){return 1-Math.pow(1-t,3);}
+  function draw(now){
+    var t=still?99:(now-start)/1000,grow=Math.min(1,t/5.5);
+    ctx.clearRect(0,0,W,H);
+    // the single point
+    var seed=Math.min(1,t/1.2),pr=0.6+seed*1.6;
+    ctx.fillStyle='rgba(255,122,47,'+(0.25+0.65*seed)+')';ctx.beginPath();ctx.arc(ox,oy,pr,0,6.283);ctx.fill();
+    var g=ctx.createRadialGradient(ox,oy,0,ox,oy,22);g.addColorStop(0,'rgba(255,122,47,'+(0.22*seed)+')');g.addColorStop(1,'rgba(255,122,47,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(ox,oy,22,0,6.283);ctx.fill();
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i],k=still?1:ease(Math.max(0,Math.min(1,(grow-p.delay*0.6)/(1-p.delay*0.6))));
+      if(k<=0)continue;
+      var dx=still?0:Math.sin(t*p.sp+p.ph)*2.2,dy=still?0:Math.cos(t*p.sp*0.8+p.ph)*1.6;
+      var x=ox+(p.x-ox)*k+dx*k,y=oy+(p.y-oy)*k+dy*k;
+      ctx.fillStyle=(p.warm?'rgba(255,170,110,':'rgba(242,232,213,')+(p.a*k)+')';
+      ctx.fillRect(x,y,p.r,p.r);
+    }
+    if(!still&&visible)raf=requestAnimationFrame(draw);
+  }
+  function go(){if(still){draw(0);return;}cancelAnimationFrame(raf);raf=requestAnimationFrame(draw);}
+  build();
+  if(still)draw(0);
+  var ro=0;addEventListener('resize',function(){clearTimeout(ro);ro=setTimeout(function(){build();if(still||!visible)draw(still?0:performance.now());else go();},150);},{passive:true});
+  if(!('IntersectionObserver' in window)){visible=true;began=true;sec.classList.add('in');start=performance.now();go();return;}
+  new IntersectionObserver(function(es){es.forEach(function(e){
+    visible=e.isIntersecting;
+    if(visible&&!began){began=true;start=performance.now();sec.classList.add('in');}
+    if(visible)go();else cancelAnimationFrame(raf);
+  });},{threshold:0.2}).observe(sec);
+})();
 // Storm reel: load and play only while on screen
 (function(){var v=document.getElementById('stormvid');if(!v)return;v.muted=true;
   if(!('IntersectionObserver' in window)){v.preload='auto';v.play().catch(function(){});return;}
