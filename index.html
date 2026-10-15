@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zaheer Bijapure</title>
-<meta name="description" content="Zaheer Bijapure, storyteller at Saatchi &amp; Saatchi ME. AI × VFX × Content: cinematic campaigns from concept to screen.">
+<meta name="description" content="Zaheer Bijapure, AI creative and AI filmmaker at Saatchi &amp; Saatchi ME. AI brand films, ad campaigns and key visuals, directed with ten years of Hollywood VFX experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Courier+Prime:wght@400;700&family=Figtree:wght@400;500;600&display=swap">
 <style>
@@ -89,12 +89,24 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .reel i{font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.16em;color:var(--ember)}
 
 /* AI films */
-.films{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;border-top:1px solid var(--edge)}
+.sub{color:var(--dim);max-width:52ch}
+.films{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 @media (max-width:640px){.films{grid-template-columns:1fr}}
-.films a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--edge);text-decoration:none}
-.films b{font-family:var(--title);font-size:1.12rem;letter-spacing:.03em}
-.films a:hover b{color:var(--ember)}
-.films i{font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);white-space:nowrap}
+.film{display:block;text-decoration:none;background:var(--deep)}
+.film .pic{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,var(--deep),#1b2b2d)}
+.film img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:transform .7s ease}
+.film:hover img{transform:scale(1.05)}
+.film em{position:absolute;left:14px;bottom:14px;font-style:normal;width:44px;height:44px;display:grid;place-items:center;background:var(--ember);color:var(--void);font-size:.95rem}
+.film .txt{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 16px}
+.film b{font-family:var(--title);font-size:1.12rem;letter-spacing:.03em}
+.film:hover b{color:var(--ember)}
+.film i{order:2;font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);white-space:nowrap}
+.make{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
+.make div{padding:18px 16px;display:grid;gap:4px;border-right:1px solid var(--edge)}
+.make div:last-child{border-right:0}
+.make b{font-family:var(--title);letter-spacing:.03em}
+.make span{color:var(--dim);font-size:.92rem}
+@media (max-width:640px){.make{grid-template-columns:1fr}.make div{border-right:0;border-bottom:1px solid var(--edge)}.make div:last-child{border-bottom:0}}
 .more{text-align:center;margin-top:30px}
 
 /* Credits */
@@ -123,7 +135,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
 
 <header class="nav"><div class="wrap">
   <a class="mark" href="#top">ZB</a>
-  <nav aria-label="Sections"><a class="opt" href="#story">Story</a><a href="#reels">Reels</a><a class="opt" href="#ai">AI</a><a href="#contact">Contact</a></nav>
+  <nav aria-label="Sections"><a href="#ai">AI Films</a><a class="opt" href="#story">Story</a><a class="opt" href="#reels">VFX</a><a href="#contact">Contact</a></nav>
 </div></header>
 
 <main id="top">
@@ -131,23 +143,41 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
     <video class="plate" id="bgvid" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true"><source src="videos/hero.mp4" type="video/mp4"></video>
     <div class="wrap">
       <div>
-        <p class="eyebrow">AI × VFX × Content</p>
-        <h1 style="margin-top:14px">Zaheer Bijapure<span>Storyteller</span></h1>
-        <p class="role">Senior Designer, AI Creative at <b>Saatchi &amp; Saatchi ME</b>. Ten years building shots for Hollywood, now crafting cinematic campaigns from concept to screen.</p>
-        <div class="actions"><a class="btn hot" href="#reels">▶ Watch reels</a><a class="btn" href="#contact">Work with me</a></div>
+        <p class="eyebrow">AI Creative · Saatchi &amp; Saatchi ME</p>
+        <h1 style="margin-top:14px">Zaheer Bijapure<span>AI Storyteller</span></h1>
+        <p class="role">I direct <b>AI films and campaigns</b> for brands, with ten years of Hollywood VFX behind every frame.</p>
+        <div class="actions"><a class="btn hot" href="#ai">▶ Watch AI films</a><a class="btn" href="#contact">Work with me</a></div>
       </div>
       <img class="face" src="images/portrait.jpg" alt="Zaheer Bijapure holding his MPC award">
     </div>
   </section>
 
+  <section id="ai">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Now showing</p><h2 class="h2">AI films</h2><p class="sub">Brand films and ads made with generative AI, directed and finished like VFX.</p></div>
+      <div class="films">
+        <a class="film" href="https://youtu.be/koywWFCnhhg" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/koywWFCnhhg/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>Fashion</i><b>Effortless Elegance</b></span></a>
+        <a class="film" href="https://youtu.be/Ra4tNXg4hSI" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/Ra4tNXg4hSI/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>Food</i><b>Happy Noodles</b></span></a>
+        <a class="film" href="https://youtu.be/P4x1BBZdlyU" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/P4x1BBZdlyU/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>Short film</i><b>AI Film Showcase</b></span></a>
+        <a class="film" href="https://youtu.be/Q1QOJ3eY4Fo" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/Q1QOJ3eY4Fo/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>Travel</i><b>New York to Dubai</b></span></a>
+      </div>
+      <div class="make">
+        <div><b>AI brand films</b><span>Story-led spots for launches and social</span></div>
+        <div><b>AI ad campaigns</b><span>Concepts to finished ads, at agency speed</span></div>
+        <div><b>Key visuals</b><span>Stills and posters, retouched to print</span></div>
+      </div>
+      <p class="more"><a class="btn hot" href="portfolio/ai/">Enter the AI portfolio</a></p>
+    </div>
+  </section>
+
   <section id="story">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">The story so far</p><h2 class="h2">Four reels, one craft</h2></div>
+      <div class="head"><p class="eyebrow">The backstory</p><h2 class="h2">From Hollywood to AI</h2><p class="sub">Every AI film I make is built on a decade of placing cameras for the big screen.</p></div>
       <div class="scenes">
         <div class="scene"><p class="yr">2014 – 2017</p><h3>The Apprentice</h3><p>Animation for TV, ads and <i>Maya the Bee</i>.</p><span class="at">Vertex Volt · Tata Elxsi</span></div>
         <div class="scene"><p class="yr">2017 – 2022</p><h3>The Big Screen</h3><p>Body track and layout on <i>Zero</i>, <i>Devotion</i>, <i>The Matrix Resurrections</i>.</p><span class="at">Red Chillies · DNEG</span></div>
         <div class="scene"><p class="yr">2022 – 2025</p><h3>Behind the Camera</h3><p>Senior layout, previz and techviz on <i>The Flash</i> and <i>Kraven</i>.</p><span class="at">MPC</span></div>
-        <div class="scene"><p class="yr">2025 – Now</p><h3>The Plot Twist</h3><p>AI films and campaigns for global brands.</p><span class="at">Studio Blo · Saatchi &amp; Saatchi</span></div>
+        <div class="scene"><p class="yr">2025 – Now</p><h3>The Plot Twist</h3><p>AI VFX lead, then AI creative for global brands.</p><span class="at">Studio Blo · Saatchi &amp; Saatchi</span></div>
       </div>
       <div class="laurels" aria-label="Awards">
         <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · 2023</small><strong>Spotlight Award</strong><em>MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
@@ -158,7 +188,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
 
   <section id="reels">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">Now showing</p><h2 class="h2">The showreels</h2></div>
+      <div class="head"><p class="eyebrow">Where the craft began</p><h2 class="h2">VFX showreels</h2></div>
       <div class="reels">
         <a class="reel" href="https://vimeo.com/1060745371" target="_blank" rel="noopener"><img src="images/reel-production.jpg" alt="Production layout showreel still"><span><i>▶ Play</i><b>Production Layout</b></span></a>
         <a class="reel" href="https://vimeo.com/1062331587/1a0097ad99" target="_blank" rel="noopener"><img src="images/reel-cinematic.jpg" alt="Butterfly in a CG flower field"><span><i>▶ Play</i><b>Cinematic Camera</b></span></a>
@@ -168,23 +198,11 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
     </div>
   </section>
 
-  <section id="ai">
-    <div class="wrap">
-      <div class="head"><p class="eyebrow">Coming attractions</p><h2 class="h2">AI films</h2></div>
-      <div class="films">
-        <a href="https://youtu.be/koywWFCnhhg" target="_blank" rel="noopener"><b>Effortless Elegance</b><i>Fashion ↗</i></a>
-        <a href="https://youtu.be/Ra4tNXg4hSI" target="_blank" rel="noopener"><b>Happy Noodles</b><i>Food ↗</i></a>
-        <a href="https://youtu.be/P4x1BBZdlyU" target="_blank" rel="noopener"><b>AI Film Showcase</b><i>Short ↗</i></a>
-        <a href="https://youtu.be/Q1QOJ3eY4Fo" target="_blank" rel="noopener"><b>New York to Dubai</b><i>Travel ↗</i></a>
-      </div>
-      <p class="more"><a class="btn hot" href="portfolio/ai/">Enter the AI portfolio</a></p>
-    </div>
-  </section>
 
   <section class="credits">
     <div class="wrap">
       <div class="head"><p class="eyebrow">Selected credits</p><h2 class="h2">On the big screen</h2></div>
-      <p class="marquee"><b>The Matrix Resurrections</b><span>·</span><b>No Time to Die</b><span>·</span><b>Kraven the Hunter</b><span>·</span><b>The Flash</b><span>·</span><b>Aquaman and the Lost Kingdom</b><span>·</span><b>Wonder Woman 1984</b><span>·</span><b>Mission: Impossible – Fallout</b><span>·</span><b>Pinocchio</b><span>·</span><b>Back in Action</b><span>·</span><b>Brahmastra</b></p>
+      <p class="marquee"><b>The Matrix Resurrections</b> <span>·</span> <b>No Time to Die</b> <span>·</span> <b>Kraven the Hunter</b> <span>·</span> <b>The Flash</b> <span>·</span> <b>Aquaman and the Lost Kingdom</b> <span>·</span> <b>Wonder Woman 1984</b> <span>·</span> <b>Mission: Impossible – Fallout</b> <span>·</span> <b>Pinocchio</b> <span>·</span> <b>Back in Action</b> <span>·</span> <b>Brahmastra</b></p>
       <p class="note">35+ films and series. <a href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener" style="color:var(--ember)">Full list on IMDb ↗</a></p>
     </div>
   </section>
@@ -192,7 +210,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
   <section class="end" id="contact">
     <div class="wrap">
       <p class="eyebrow">Post-credits scene</p>
-      <h2 style="margin-top:16px">Let's make<br>the <em>sequel</em>.</h2>
+      <h2 style="margin-top:16px">Your brand is<br>the <em>next story</em>.</h2>
       <div class="contact">
         <div class="row"><div><p class="k">Email</p><p class="v" id="email">zaheerartist@gmail.com</p></div><div style="display:flex;gap:8px"><button class="btn" type="button" data-copy="email">Copy</button><a class="btn hot" href="mailto:zaheerartist@gmail.com">Write</a></div></div>
         <div class="row"><div><p class="k">Phone</p><p class="v" id="phone">+91 97303 26776</p></div><button class="btn" type="button" data-copy="phone">Copy</button></div>
