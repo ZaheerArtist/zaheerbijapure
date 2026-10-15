@@ -45,9 +45,8 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 
 /* Title card */
 .hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(92vh,820px);display:grid;align-items:end;padding:0}
-.hero .plate{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;filter:saturate(1.2) contrast(1.05);animation:push 20s ease-out both}
-@keyframes push{from{transform:scale(1.12)}to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,9,10,.35) 0%,rgba(6,9,10,.55) 45%,var(--void) 96%),linear-gradient(90deg,rgba(12,40,44,.55),transparent 60%)}
+.hero .plate{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:saturate(1.15) contrast(1.08) brightness(1.15)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,9,10,.15) 0%,rgba(6,9,10,.35) 50%,var(--void) 97%),linear-gradient(90deg,rgba(12,40,44,.5),transparent 65%)}
 .hero .wrap{width:100%;padding-block:120px 64px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
 .hero h1{font-family:var(--title);font-size:clamp(2.8rem,9vw,6.6rem);line-height:.98;letter-spacing:.03em}
 .hero h1 span{display:block;color:var(--ember);font-size:.4em;letter-spacing:.45em;margin-top:.5em}
@@ -117,7 +116,7 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .socials{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spacing:.35em;font-size:.75rem;color:var(--dim)}
 
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero .plate{animation:none}.reel img{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reel img{transition:none}}
 </style>
 </head>
 <body>
@@ -129,7 +128,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
 
 <main id="top">
   <section class="hero">
-    <div class="plate" style="background-image:url('images/still-butterfly.jpg')"></div>
+    <video class="plate" id="bgvid" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true"><source src="videos/hero.mp4" type="video/mp4"></video>
     <div class="wrap">
       <div>
         <p class="eyebrow">AI × VFX × Content</p>
@@ -211,6 +210,9 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){var v=document.getElementById('bgvid');if(!v)return;
+  try{if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();return;}}catch(e){}
+  var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});})();
 document.querySelectorAll('[data-copy]').forEach(function(b){
   b.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.copy);
