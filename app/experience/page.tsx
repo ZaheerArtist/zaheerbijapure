@@ -49,12 +49,16 @@ export default function Experience() {
       title: 'Senior VFX Layout / Previz / Techviz / Matchmove / Roto Animation Artist',
       company: 'MPC',
       location: 'Mumbai, India · Hybrid',
-      description: 'Delivered high-quality VFX layouts, techviz, and previsualization, showcasing expertise in match move, body tracking, set dressing, and proxy modeling, while streamlining production workflows, enhancing cross-department collaboration, and earning two industry awards.',
+      description: 'I tackled exciting projects, using my skills in Layout, Body Tracking, Match Move, Previsualization, Techviz and Animation during production, and was proud to be recognized with two awards for my contributions.',
       responsibilities: [
-        'Delivered high-quality VFX layouts, techviz and previsualization, cinematic camera and framing to meet film directors creative vision',
-        'Demonstrated expertise in match move, body tracking, set dressing, proxy model for complex production environments',
-        'Streamlined production workflows by managing heavy environments, projections, assembling FX, characters, lights, textures',
-        'Collaborated cross-departmentally, enhancing team productivity and ensuring timely project completion. And got awarded twice'
+        'Previsualization and Techviz',
+        'Basic lighting, shading and texturing',
+        'Master scenes',
+        'Camera animation',
+        'Repositioning, retime and camera stitching',
+        'Creating proxy models',
+        'Helping with matchmove and roto animation on shows',
+        'Set dressing'
       ],
       technologies: ['Autodesk Maya', '3D Equalizer', 'Nuke', 'Houdini']
     },
