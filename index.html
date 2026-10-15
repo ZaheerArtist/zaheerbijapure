@@ -35,8 +35,7 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 .eyebrow{font-family:var(--script);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ember)}
 
 /* Film grain + progress */
-.grain{position:fixed;inset:-50%;z-index:50;pointer-events:none;opacity:.07;animation:grain 1s steps(6) infinite}
-@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-4%)}60%{transform:translate(-4%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045}
 .progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ember);z-index:40}
 
 /* Top nav */
@@ -50,7 +49,7 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 
 /* Opening titles */
 .opening{position:relative;min-height:min(100vh,860px);display:grid;place-items:center;text-align:center;overflow:hidden;background:var(--void);isolation:isolate}
-.opening .plate{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;opacity:.42;filter:saturate(1.25) contrast(1.1) sepia(.15) hue-rotate(-8deg);animation:push 24s ease-out both}
+.opening .plate{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;opacity:.42;filter:saturate(1.25) contrast(1.1) sepia(.15) hue-rotate(-8deg);animation:push 24s ease-out both;will-change:transform}
 @keyframes push{from{transform:scale(1.18)}to{transform:scale(1.02)}}
 .opening::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,transparent 25%,var(--void) 85%),linear-gradient(180deg,rgba(12,26,28,.55),rgba(6,9,10,.9))}
 .bars::before,.bars::after{content:"";position:absolute;left:0;right:0;height:9vh;max-height:80px;background:#000;z-index:2;animation:bar 1.6s cubic-bezier(.7,0,.2,1) both}
@@ -58,9 +57,9 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 @keyframes bar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 .titles{padding-block:140px 120px;display:grid;gap:22px;justify-items:center}
 .presents{font-family:var(--script);letter-spacing:.35em;text-transform:uppercase;font-size:.8rem;color:var(--dim);animation:fade 1.4s .3s ease both}
-.opening h1{font-family:var(--title);font-weight:600;font-size:clamp(2.6rem,9.5vw,7.6rem);line-height:1;letter-spacing:.06em;animation:track 3.2s .2s cubic-bezier(.2,.7,.1,1) both}
+.opening h1{font-family:var(--title);font-weight:600;font-size:clamp(2.4rem,9vw,7.2rem);line-height:1.05;letter-spacing:.06em;animation:track 2.4s .2s cubic-bezier(.2,.7,.1,1) both}
 .opening h1 span{display:block;font-size:.42em;letter-spacing:.5em;color:var(--ember);margin-top:.35em;padding-left:.5em}
-@keyframes track{from{letter-spacing:.32em;opacity:.15;filter:blur(6px)}to{letter-spacing:.06em;opacity:1;filter:blur(0)}}
+@keyframes track{from{letter-spacing:.2em;opacity:.2}to{letter-spacing:.06em;opacity:1}}
 @keyframes fade{from{opacity:.1}to{opacity:1}}
 .logline{max-width:46ch;font-size:clamp(1.05rem,2.3vw,1.3rem);color:var(--cream);animation:fade 1.6s 1.2s ease both}
 .billing{margin-top:10px;font-family:var(--title);font-size:.72rem;letter-spacing:.24em;color:var(--dim);line-height:2;max-width:640px;animation:fade 1.6s 1.6s ease both}
@@ -142,8 +141,10 @@ h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 /* End credits */
 .credits{text-align:center}
 .roll-box{position:relative;height:min(78vh,620px);overflow:hidden;margin-top:40px;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
-.roll{animation:roll 70s linear infinite;padding-top:40px}
-.roll-box:hover .roll,.roll-box.paused .roll{animation-play-state:paused}
+.roll{animation:roll 90s linear infinite;will-change:transform}
+.roll>div{padding-top:40px;display:flow-root}
+@media (hover:hover){.roll-box:hover .roll{animation-play-state:paused}}
+.roll-box.paused .roll{animation-play-state:paused}
 @keyframes roll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 .block{margin-bottom:46px}
 .block .role{font-family:var(--title);font-size:.7rem;letter-spacing:.32em;color:var(--ember);margin-bottom:8px}
@@ -172,7 +173,7 @@ footer b{display:block;font-size:1.6rem;letter-spacing:.3em;color:var(--cream);f
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .grain,.opening .plate,.bars::before,.bars::after,.opening h1,.presents,.logline,.billing,.cue{animation:none}
+  .opening .plate,.bars::before,.bars::after,.opening h1,.presents,.logline,.billing,.cue{animation:none}
   .roll{animation:none}.roll-box{height:auto;-webkit-mask-image:none;mask-image:none}.roll .dup{display:none}
   .frame img{transition:none}
 }
@@ -241,7 +242,7 @@ footer b{display:block;font-size:1.6rem;letter-spacing:.3em;color:var(--cream);f
       </div>
     </div>
     <figure class="still" style="margin-bottom:0">
-      <img src="images/still-previz.jpg" alt="Previz frame of a car speeding down a city street, from Zaheer's previz reel" loading="lazy">
+      <img src="images/still-previz.jpg" alt="Previz frame of a car speeding down a city street, from Zaheer's previz reel">
       <span class="tc">PREVIZ · SH040 · 1047</span>
       <figcaption class="sub">Before a single frame is shot, someone has to plan the camera.</figcaption>
     </figure>
@@ -269,7 +270,7 @@ footer b{display:block;font-size:1.6rem;letter-spacing:.3em;color:var(--cream);f
       </div>
     </div>
     <div class="wrap"><figure class="still portrait">
-      <img src="images/portrait.jpg" alt="Zaheer Bijapure holding his award at an MPC event" loading="lazy">
+      <img src="images/portrait.jpg" alt="Zaheer Bijapure holding his award at an MPC event">
       <figcaption class="sub">No excuses. Just the work.</figcaption>
     </figure></div>
   </section>
@@ -299,19 +300,19 @@ footer b{display:block;font-size:1.6rem;letter-spacing:.3em;color:var(--cream);f
       <h2>The Showreels</h2>
       <div class="strip">
         <a class="frame" href="https://vimeo.com/1060745371" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-production.jpg" alt="Still from the production layout showreel" loading="lazy"><span class="play">▶ Play</span></div>
+          <div class="pic"><img src="images/reel-production.jpg" alt="Still from the production layout showreel"><span class="play">▶ Play</span></div>
           <div class="info"><b>Production Layout</b><span>CG cameras, retimes, re-racks, proxies and crowd placement.</span></div>
         </a>
         <a class="frame" href="https://vimeo.com/1062331587/1a0097ad99" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-cinematic.jpg" alt="Still of a butterfly in a CG flower field" loading="lazy"><span class="play">▶ Play</span></div>
+          <div class="pic"><img src="images/reel-cinematic.jpg" alt="Still of a butterfly in a CG flower field"><span class="play">▶ Play</span></div>
           <div class="info"><b>Cinematic Camera</b><span>Stitched and projected cameras, framing that serves the story.</span></div>
         </a>
         <a class="frame" href="https://vimeo.com/1062328741/dd9829b4a8" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-previz.jpg" alt="Previz still of a car on a city street" loading="lazy"><span class="play">▶ Play</span></div>
+          <div class="pic"><img src="images/reel-previz.jpg" alt="Previz still of a car on a city street"><span class="play">▶ Play</span></div>
           <div class="info"><b>Previz &amp; Techviz</b><span>Complex sequences planned and solved before the shoot.</span></div>
         </a>
         <a class="frame" href="https://youtu.be/Vqj1RU_uJCk" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-tracking.jpg" alt="Still from the camera and body tracking showreel" loading="lazy"><span class="play">▶ Play</span></div>
+          <div class="pic"><img src="images/reel-tracking.jpg" alt="Still from the camera and body tracking showreel"><span class="play">▶ Play</span></div>
           <div class="info"><b>Camera &amp; Body Tracking</b><span>Precise tracks that let CG live inside real footage.</span></div>
         </a>
       </div>
@@ -330,8 +331,8 @@ footer b{display:block;font-size:1.6rem;letter-spacing:.3em;color:var(--cream);f
         <li><a href="https://youtu.be/Q1QOJ3eY4Fo" target="_blank" rel="noopener"><span class="g">Travel</span><b>New York to Dubai</b><span class="w">Watch ↗</span><p>A premium airline-style travel ad.</p></a></li>
       </ul>
       <div class="posters">
-        <figure><img src="images/ai-poster-1.jpg" alt="AI-generated baby soap advertisement, a smiling baby in bubbles on pink" loading="lazy"><figcaption>Key visual 01 · Baby care concept · Freepik AI + Photoshop</figcaption></figure>
-        <figure><img src="images/ai-poster-2.jpg" alt="Second AI-generated baby care advertisement" loading="lazy"><figcaption>Key visual 02 · Baby care concept · Freepik AI + Photoshop</figcaption></figure>
+        <figure><img src="images/ai-poster-1.jpg" alt="AI-generated baby soap advertisement, a smiling baby in bubbles on pink"><figcaption>Key visual 01 · Baby care concept · Freepik AI + Photoshop</figcaption></figure>
+        <figure><img src="images/ai-poster-2.jpg" alt="Second AI-generated baby care advertisement"><figcaption>Key visual 02 · Baby care concept · Freepik AI + Photoshop</figcaption></figure>
       </div>
     </div>
   </section>
