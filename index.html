@@ -218,16 +218,13 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
   <!-- 02 Selected work -->
   <section id="work">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">Selected work</p><h2 class="h2">Three films</h2><p class="sub">Each one directed like a shoot and finished like a VFX shot. Open a case study to see how it was made.</p></div>
+      <div class="head"><p class="eyebrow">Selected work</p><h2 class="h2">Three films</h2><p class="sub">Press play to watch.</p></div>
       <div class="projects">
         <article class="proj">
           <div class="media"><button type="button" class="player" data-yt="xQ4nvfIa0vM" aria-label="Play From Previz to Final Frame"><img src="https://i.ytimg.com/vi/xQ4nvfIa0vM/hqdefault.jpg" alt="Still from From Previz to Final Frame" loading="lazy" onerror="this.remove()"><span class="pb">▶ Play film</span></button></div>
           <div>
             <p class="idx">01 · AI film</p>
             <h3>From Previz to Final Frame</h3>
-            <p class="log">How a shot travels from a grey-shaded previz to a finished cinematic frame, using a VFX layout workflow together with AI generation.</p>
-            <dl><dt>Role</dt><dd>Concept and direction, Previz and camera, AI image and video generation, Compositing and finishing</dd></dl>
-            <div class="actions"><a class="btn hot" href="work/from-previz-to-final-frame/">Case study</a></div>
           </div>
         </article>
         <article class="proj flip">
@@ -235,9 +232,6 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
           <div>
             <p class="idx">02 · AI film</p>
             <h3>After Midnight</h3>
-            <p class="log">A night-time mood piece built on smoke, light and atmosphere.</p>
-            <dl><dt>Role</dt><dd>Concept and direction, AI image and video generation, Edit and finishing</dd></dl>
-            <div class="actions"><a class="btn hot" href="work/after-midnight/">Case study</a></div>
           </div>
         </article>
         <article class="proj">
@@ -245,9 +239,6 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
           <div>
             <p class="idx">03 · AI film</p>
             <h3>Innocence</h3>
-            <p class="log">A quiet, intimate character piece about childhood.</p>
-            <dl><dt>Role</dt><dd>Concept and direction, AI image and video generation, Edit and finishing</dd></dl>
-            <div class="actions"><a class="btn hot" href="work/innocence/">Case study</a></div>
           </div>
         </article>
       </div>
@@ -325,6 +316,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
       <div class="contactgrid">
         <form class="form" id="enquiry" action="https://formspree.io/f/mqapaqqq" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New project enquiry from zaheerartist.github.io">
+          <input type="hidden" name="_next" value="https://zaheerartist.github.io/?sent=1#contact">
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
           <div class="two">
             <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -391,18 +383,14 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
 // Enquiry form
 (function(){
   var f=document.getElementById('enquiry'),note=document.getElementById('f-note'),send=document.getElementById('f-send'),pw=document.getElementById('phonewrap');
+  if(/[?&]sent=1/.test(location.search)){note.textContent='Thank you. Your enquiry has been sent, and I will reply soon.';note.classList.add('ok');}
   f.querySelectorAll('input[name=preferred_contact]').forEach(function(r){r.addEventListener('change',function(){pw.hidden=(f.preferred_contact.value==='Email');});});
   f.addEventListener('submit',function(e){
     e.preventDefault();note.className='formnote';
     if(!f.checkValidity()){var bad=f.querySelector(':invalid');note.textContent='Please fill in your name, a valid email, the project type and a short brief.';note.classList.add('err');if(bad)bad.focus();return;}
     if(!pw.hidden&&!f.phone.value.trim()){note.textContent='Please add your phone number, or choose email.';note.classList.add('err');f.phone.focus();return;}
     send.disabled=true;send.textContent='Sending…';
-    fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){
-      if(!r.ok)throw new Error(r.status);
-      f.reset();pw.hidden=true;note.textContent='Thank you. Your enquiry has been sent, and I will reply soon.';note.classList.add('ok');
-    }).catch(function(){
-      note.textContent='Your enquiry could not be sent from here. Please email zaheerartist@gmail.com directly.';note.classList.add('err');
-    }).finally(function(){send.disabled=false;send.textContent='Send enquiry';});
+    f.submit();
   });
 })();
 </script>
