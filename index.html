@@ -211,8 +211,11 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 (function(){var v=document.getElementById('bgvid');if(!v)return;
-  try{if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();return;}}catch(e){}
-  var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});})();
+  v.muted=true;v.defaultMuted=true;v.playsInline=true;
+  function go(){if(!v.paused)return;var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  go();v.addEventListener('canplay',go);
+  ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){addEventListener(ev,go,{passive:true,once:true});});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});})();
 document.querySelectorAll('[data-copy]').forEach(function(b){
   b.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.copy);
