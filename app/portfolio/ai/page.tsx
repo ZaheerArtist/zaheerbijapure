@@ -167,7 +167,7 @@ export default function AIPortfolio() {
             <h2 className={s.title}>Behind the lens</h2>
           </div>
           <div className={s.kit}>
-            {['Runway', 'Kling', 'Vidu', 'MiniMax', 'Midjourney', 'Freepik', 'Photoshop', 'After Effects', 'Premiere Pro'].map((k) => (
+            {['Runway', 'Kling', 'Seedance', 'Luma AI', 'Vidu', 'MiniMax', 'Midjourney', 'Magnific', 'ComfyUI', 'Blender', 'Photoshop', 'After Effects', 'Premiere Pro'].map((k) => (
               <span key={k}>{k}</span>
             ))}
           </div>

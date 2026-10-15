@@ -234,7 +234,7 @@ const allProjects = [
 
 const aiSkills = ['AI image and video generation', 'Prompt writing for film and brands', 'Character and product consistency', 'AI-led VFX workflows', 'Campaign concepts to final delivery'];
 const vfxSkills = ['VFX layout and proxy creation', 'Cinematic camera animation', 'Camera and body tracking (matchmove)', 'Previz and techviz', 'Set dressing and master scenes', 'On-set VFX supervision'];
-const tools = ['Runway', 'Kling', 'Midjourney', 'Freepik', 'Autodesk Maya', '3DEqualizer', 'Nuke', 'Houdini', 'Photoshop', 'After Effects', 'Premiere Pro'];
+const tools = ['Runway', 'Kling', 'Seedance', 'Luma AI', 'Midjourney', 'Magnific', 'ComfyUI', 'Autodesk Maya', 'Blender', '3DEqualizer', 'Nuke', 'Houdini', 'Photoshop', 'After Effects', 'Premiere Pro'];
 const awards = [
   { name: 'The Spotlight Award', date: 'Dec 2023', by: 'Technicolor Creative Studios · MPC', note: 'For exceptional hard work and technical expertise in Layout.' },
   { name: 'The Star Performer Award', date: 'Feb 2023', by: 'Technicolor Creative Studios · MPC', note: 'For consistently exceptional performance and contribution.' },
