@@ -31,11 +31,15 @@ export default function Experience() {
       period: 'Apr 2025 - Jul 2025',
       title: 'AI VFX Lead',
       company: 'Studio Blo',
-      location: 'Mumbai, India · Hybrid',
-      description: 'Led the creative and technical direction of AI-integrated VFX projects, bridging traditional VFX craftsmanship with AI tools to streamline production.',
+      location: 'Mumbai, Maharashtra, India · Hybrid',
+      description: 'Drove the creative and technical direction of AI-integrated VFX projects, bridging traditional VFX craftsmanship with cutting-edge AI tools to streamline workflows and elevate visual storytelling.',
       responsibilities: [
-        'Drove the creative and technical direction of AI-integrated VFX projects',
-        'Combined traditional VFX craft with AI image and video generation tools to streamline workflows'
+        'Executed high-end VFX projects from concept to delivery',
+        'Prompted and generated AI-driven images and videos for concept development and production',
+        'Upskilled teams and implemented AI-led VFX workflows',
+        'Brought in the right talent and resources for specialized VFX tasks',
+        'Provided on-site VFX supervision for live-action shoots',
+        'Explored and integrated emerging AI tools across pre- and post-production'
       ],
       technologies: ['AI Image Generation', 'AI Video Generation', 'Runway', 'Kling']
     },
