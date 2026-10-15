@@ -4,8 +4,8 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Zaheer Bijapure | AI Senior Designer & VFX Storyteller',
-  description: 'Zaheer Bijapure, AI Senior Designer at Saatchi & Saatchi ME (Publicis Groupe) and former MPC and DNEG layout artist. Cinematic AI campaigns and VFX for film.',
+  title: 'Zaheer Bijapure | AI Film Director & Creative',
+  description: 'Zaheer Bijapure is an AI film director and creative in the UAE: cinematic AI films, advertising concepts and visual campaigns, built on 10 years of professional VFX.',
 };
 
 export default function RootLayout({

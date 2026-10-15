@@ -3,20 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Zaheer Bijapure</title>
-<meta name="description" content="Zaheer Bijapure, AI Senior Designer at Saatchi &amp; Saatchi ME, Publicis Groupe. AI brand films, ad campaigns and key visuals, directed with ten years of Hollywood VFX experience.">
+<title>Zaheer Bijapure | AI Film Director &amp; Creative</title>
+<meta name="description" content="Zaheer Bijapure is an AI film director and creative in the UAE. Cinematic AI films, advertising concepts and visual campaigns, built on 10 years of professional VFX for Hollywood and Indian cinema.">
+<link rel="canonical" href="https://zaheerartist.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zaheerartist.github.io/">
+<meta property="og:title" content="Zaheer Bijapure | AI Film Director &amp; Creative">
+<meta property="og:description" content="Cinematic AI films, advertising concepts and visual campaigns, from the first concept to the final frame.">
+<meta property="og:image" content="https://zaheerartist.github.io/images/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06090a">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Zaheer Bijapure","jobTitle":"AI Film Director & Creative","worksFor":{"@type":"Organization","name":"Saatchi & Saatchi ME"},"address":{"@type":"PostalAddress","addressCountry":"AE"},"url":"https://zaheerartist.github.io/","image":"https://zaheerartist.github.io/images/og-card.jpg","sameAs":["https://www.linkedin.com/in/zaheer-bijapure/","https://www.instagram.com/zaheerbijapure/","https://www.youtube.com/@ZaheerBijapure","https://www.imdb.com/name/nm12429900/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Courier+Prime:wght@400;700&family=Figtree:wght@400;500;600&display=swap">
 <style>
-/* Layout: one short film. Title card, four scenes, the reels, the films, the end. Teal-and-orange grade. */
+/* Layout: a film-studio one-pager. Hero, selected work, services, the craft, the person, contact. Teal-and-orange grade, one ember accent. */
 :root{
-  --void:#06090a; --deep:#0c1a1c; --edge:#1f3336; --cream:#f2e8d5; --dim:#8ea1a0; --ember:#ff7a2f;
+  --void:#06090a; --deep:#0c1a1c; --edge:#1f3336; --cream:#f2e8d5; --dim:#9aaaa9; --ember:#ff7a2f;
   --title:"Cinzel","Trajan Pro",Georgia,serif;
   --script:"Courier Prime","Courier New",Courier,monospace;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 section[id]{scroll-margin-top:60px}
 body{margin:0;background:var(--void);color:var(--cream);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -27,12 +39,14 @@ h1,h2,h3{font-weight:600;text-wrap:balance}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .eyebrow{font-family:var(--script);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ember)}
 .h2{font-family:var(--title);font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.04em;line-height:1.05}
+.sub{color:var(--dim);max-width:56ch}
 .btn{display:inline-block;font-family:var(--script);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--edge);color:var(--cream);background:transparent;text-decoration:none;cursor:pointer}
 .btn:hover{border-color:var(--ember);color:var(--ember)}
 .btn.hot{background:var(--ember);border-color:var(--ember);color:var(--void)}
 .btn.hot:hover{color:var(--void);filter:brightness(1.08)}
-.head{text-align:center;display:grid;gap:12px;justify-items:center;margin-bottom:40px}
+.head{text-align:center;display:grid;gap:12px;justify-items:center;margin-bottom:44px}
 section{padding-block:clamp(72px,11vw,120px) 0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Nav */
 .nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;background:linear-gradient(var(--void),transparent)}
@@ -41,49 +55,84 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .nav nav{display:flex;gap:18px;font-family:var(--script);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
 .nav nav a{text-decoration:none;color:var(--dim)}
 .nav nav a:hover{color:var(--ember)}
-@media (max-width:560px){.nav nav .opt{display:none}}
+@media (max-width:640px){.nav nav .opt{display:none}}
 
-/* Title card */
-.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(92vh,820px);display:grid;align-items:end;padding:0}
+/* 01 Hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(94vh,860px);display:grid;align-items:end;padding:0}
 .hero .plate{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.05)}
-.playing{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:calc(70px + env(safe-area-inset-top,0px));margin:0;font-family:var(--script);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:rgba(6,9,10,.55);padding:6px 10px}
+.playing{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:calc(70px + env(safe-area-inset-top,0px));margin:0;font-family:var(--script);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:rgba(6,9,10,.6);padding:6px 10px}
 .playing b{color:var(--ember);font-weight:700}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,9,10,.25) 0%,rgba(6,9,10,.2) 35%,rgba(6,9,10,.75) 70%,var(--void) 98%),linear-gradient(90deg,rgba(6,9,10,.6),transparent 60%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,9,10,.3) 0%,rgba(6,9,10,.25) 30%,rgba(6,9,10,.8) 68%,var(--void) 98%),linear-gradient(90deg,rgba(6,9,10,.7),transparent 62%)}
 .hero .wrap{width:100%;padding-block:120px 64px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
-.hero h1{font-family:var(--title);font-size:clamp(2.8rem,9vw,6.6rem);line-height:.98;letter-spacing:.03em}
-.hero h1 span{display:block;color:var(--ember);font-size:.4em;letter-spacing:.45em;margin-top:.5em}
-.agency{margin-top:8px;font-family:var(--title);font-weight:700;font-size:clamp(1.35rem,3.6vw,1.9rem);letter-spacing:.06em;color:var(--cream)}
-.agency span{display:block;margin-top:2px;font-family:var(--script);font-weight:400;font-size:.62em;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
-.role{margin-top:22px;font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:34ch}
-.role b{color:var(--ember);font-weight:600}
-.actions{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
-.face{width:min(240px,32vw);aspect-ratio:3/4;object-fit:cover;display:block;border:1px solid rgba(242,232,213,.25);filter:saturate(.9)}
+.hero .wrap>div{min-width:0}
+.hero h1{font-family:var(--title);font-size:clamp(2.7rem,8.6vw,6.4rem);line-height:.98;letter-spacing:.03em}
+.hero h1 span{display:block;color:var(--ember);font-size:.36em;letter-spacing:.24em;margin-top:.6em;text-transform:uppercase}
+.pitch{margin-top:22px;font-size:clamp(1.05rem,2.3vw,1.28rem);max-width:44ch;line-height:1.55}
+.tag{margin-top:12px;font-family:var(--title);font-size:clamp(1rem,2.2vw,1.2rem);letter-spacing:.06em;color:var(--cream);opacity:.9}
+.now{margin-top:18px;font-family:var(--script);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.now b{color:var(--cream);font-weight:700}
+.actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.face{width:min(240px,32vw);height:auto;aspect-ratio:3/4;object-fit:cover;display:block;border:1px solid rgba(242,232,213,.25)}
 @media (max-width:700px){.hero .wrap{grid-template-columns:1fr}.face{display:none}}
 
-/* Four scenes */
+/* 02 Selected work */
+.projects{display:grid;gap:clamp(48px,7vw,84px)}
+.proj{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(22px,4vw,44px);align-items:center}
+.proj>*{min-width:0}
+.proj.flip .media{order:2}
+@media (max-width:820px){.proj{grid-template-columns:1fr}.proj.flip .media{order:0}}
+.player{position:relative;display:block;width:100%;aspect-ratio:16/9;max-width:100%;background:linear-gradient(135deg,var(--deep),#1b2b2d);border:0;padding:0;cursor:pointer;overflow:hidden;color:inherit}
+.player img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.player:hover img{transform:scale(1.04)}
+.player .pb{position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--script);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;background:var(--ember);color:var(--void);padding:10px 14px}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.idx{font-family:var(--script);font-size:.78rem;letter-spacing:.2em;color:var(--dim)}
+.proj h3{font-family:var(--title);font-size:clamp(1.6rem,3.6vw,2.4rem);letter-spacing:.03em;line-height:1.1;margin:10px 0 12px}
+.proj p.log{color:#d9d0be}
+.proj dl{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.95rem}
+.proj dt{font-family:var(--script);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);padding-top:3px}
+.proj dd{margin:0;color:var(--dim)}
+.proj .actions{margin-top:20px}
+.morefilms{margin-top:clamp(56px,8vw,90px)}
+.morefilms h3{font-family:var(--script);font-weight:400;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.minis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:640px){.minis{grid-template-columns:1fr}}
+.mini{display:block;text-decoration:none;background:var(--deep)}
+.mini .pic{display:block;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,var(--deep),#1b2b2d)}
+.mini img{width:100%;height:100%;object-fit:cover;display:block}
+.mini b{display:block;padding:12px 14px;font-family:var(--title);font-size:1rem;letter-spacing:.03em}
+.mini:hover b{color:var(--ember)}
+.more{text-align:center;margin-top:30px}
+
+/* 03 What I do */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:820px){.services{grid-template-columns:1fr}}
+.svc{background:var(--deep);border-top:2px solid var(--ember);padding:24px 22px 26px;display:grid;gap:10px;align-content:start}
+.svc h3{font-family:var(--title);font-size:1.4rem;letter-spacing:.03em}
+.svc p{color:var(--dim)}
+.svc .val{color:var(--cream);font-size:.95rem;border-top:1px solid var(--edge);padding-top:10px}
+.svc .val b{font-family:var(--script);font-weight:400;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ember);display:block;margin-bottom:2px}
+
+/* 04 The craft */
 .scenes{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--edge)}
 .scene{padding:26px 22px 28px;border-right:1px solid var(--edge);min-width:0}
 .scene:last-child{border-right:0}
 .scene:first-child{background:linear-gradient(180deg,rgba(255,122,47,.12),transparent)}
 .scene .yr{font-family:var(--script);font-size:.78rem;color:var(--dim);letter-spacing:.1em}
-.scene h3{font-family:var(--title);font-size:1.3rem;letter-spacing:.03em;margin:10px 0 8px}
-.scene p{color:var(--dim);font-size:.95rem}
 .scene .at{display:block;margin:6px 0 4px;font-family:var(--title);font-weight:700;font-size:clamp(1.25rem,1.9vw,1.5rem);line-height:1.2;letter-spacing:.02em;color:var(--ember)}
 .scene .at small{display:block;margin-top:4px;font-family:var(--script);font-weight:400;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
-.scene h3{font-size:1.05rem!important;color:var(--cream)}
+.scene h3{font-family:var(--title);font-size:1.05rem;letter-spacing:.03em;margin:10px 0 8px;color:var(--cream)}
+.scene p{color:var(--dim);font-size:.95rem}
 @media (max-width:980px){.scenes{grid-template-columns:1fr}.scene{border-right:0;border-bottom:1px solid var(--edge)}}
-
-/* Laurels */
 .laurels{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 48px;margin-top:44px}
 .laurel{display:flex;align-items:center;gap:4px;color:var(--ember)}
 .laurel svg{width:34px;height:70px;flex:none}
 .laurel svg.r{transform:scaleX(-1)}
-.laurel div{text-align:center;font-family:var(--title);width:150px;color:var(--cream);line-height:1.25}
+.laurel div{text-align:center;font-family:var(--title);width:160px;color:var(--cream);line-height:1.25}
 .laurel small{display:block;font-size:.6rem;letter-spacing:.22em;color:var(--ember)}
 .laurel strong{display:block;font-size:1rem;margin:4px 0}
 .laurel em{font-style:normal;font-size:.6rem;letter-spacing:.18em;color:var(--dim)}
-
-/* Reels */
+.subhead{margin:clamp(56px,8vw,84px) 0 18px;text-align:center}
 .reels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media (max-width:860px){.reels{grid-template-columns:1fr 1fr}}
 .reel{display:block;text-decoration:none;position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
@@ -93,147 +142,220 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .reel span{position:absolute;z-index:1;left:14px;right:14px;bottom:14px;display:grid;gap:4px}
 .reel b{font-family:var(--title);font-size:1.05rem;letter-spacing:.03em}
 .reel i{font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.16em;color:var(--ember)}
-
-/* AI films */
-.sub{color:var(--dim);max-width:52ch}
-.films{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-@media (max-width:640px){.films{grid-template-columns:1fr}}
-.film{display:block;text-decoration:none;background:var(--deep)}
-.film.wide{grid-column:1/-1}
-.film.wide .pic{aspect-ratio:21/9}
-@media (max-width:640px){.film.wide .pic{aspect-ratio:16/9}}
-.film .pic{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,var(--deep),#1b2b2d)}
-.film img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:transform .7s ease}
-.film:hover img{transform:scale(1.05)}
-.film em{position:absolute;left:14px;bottom:14px;font-style:normal;width:44px;height:44px;display:grid;place-items:center;background:var(--ember);color:var(--void);font-size:.95rem}
-.film .txt{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 16px}
-.film b{font-family:var(--title);font-size:1.12rem;letter-spacing:.03em}
-.film:hover b{color:var(--ember)}
-.film i{order:2;font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);white-space:nowrap}
-.make{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
-.make div{padding:18px 16px;display:grid;gap:4px;border-right:1px solid var(--edge)}
-.make div:last-child{border-right:0}
-.make b{font-family:var(--title);letter-spacing:.03em}
-.make span{color:var(--dim);font-size:.92rem}
-@media (max-width:640px){.make{grid-template-columns:1fr}.make div{border-right:0;border-bottom:1px solid var(--edge)}.make div:last-child{border-bottom:0}}
-.more{text-align:center;margin-top:30px}
-
-/* Credits */
-.credits{text-align:center}
-.marquee{font-family:var(--title);font-size:clamp(1.05rem,2.6vw,1.5rem);letter-spacing:.06em;line-height:1.9;max-width:900px;margin:0 auto}
+.marquee{font-family:var(--title);font-size:clamp(1.05rem,2.6vw,1.45rem);letter-spacing:.06em;line-height:1.9;max-width:900px;margin:0 auto;text-align:center}
 .marquee span{color:var(--ember);margin:0 .5em}
 .marquee b{font-weight:600;white-space:nowrap}
-.credits .note{margin-top:18px;color:var(--dim);font-size:.95rem}
+.note{margin-top:16px;color:var(--dim);font-size:.95rem;text-align:center}
 
-/* End */
-.end{padding-block:clamp(90px,14vw,150px) clamp(60px,8vw,90px);text-align:center}
-.end h2{font-family:var(--title);font-size:clamp(2.2rem,8vw,5rem);line-height:1.02;letter-spacing:.03em}
+/* 05 About */
+.me{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:clamp(28px,6vw,64px);align-items:center}
+.me>*{min-width:0}
+.me img{width:100%;max-width:320px;height:auto;aspect-ratio:3/4;object-fit:cover;display:block;border:1px solid rgba(242,232,213,.2)}
+.quote{font-family:var(--title);font-size:clamp(1.3rem,2.8vw,1.85rem);line-height:1.35;letter-spacing:.02em;margin:14px 0 18px}
+.quote em{font-style:normal;color:var(--ember)}
+.me p.body{color:#d9d0be;max-width:58ch}
+.me .actions{margin-top:22px}
+@media (max-width:720px){.me{grid-template-columns:1fr}.me img{max-width:240px}}
+
+/* 06 Contact */
+.end{padding-block:clamp(90px,14vw,150px) clamp(60px,8vw,90px)}
+.end h2{font-family:var(--title);font-size:clamp(2.2rem,8vw,5rem);line-height:1.02;letter-spacing:.03em;text-align:center}
 .end h2 em{font-style:normal;color:var(--ember)}
-.contact{margin:36px auto 0;max-width:560px;display:grid;gap:10px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--deep);padding:14px 16px;text-align:left}
+.endsub{text-align:center;color:var(--dim);margin:16px auto 0;max-width:50ch}
+.contactgrid{margin-top:44px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:start}
+.contactgrid>*{min-width:0}
+@media (max-width:820px){.contactgrid{grid-template-columns:1fr}}
+.form{display:grid;gap:14px;background:var(--deep);padding:24px 22px}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.form .two{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field label,.field legend{font-family:var(--script);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:1rem;color:var(--cream);background:var(--void);border:1px solid var(--edge);padding:12px 12px;border-radius:0}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--ember);outline-offset:0;border-color:var(--ember)}
+fieldset.field{border:0;margin:0;padding:0}
+.radios{display:flex;flex-wrap:wrap;gap:8px}
+.radios label{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--edge);padding:9px 12px;cursor:pointer;font-family:var(--body);font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--cream)}
+.radios input{accent-color:var(--ember);width:auto;margin:0}
+.formnote{font-size:.92rem;color:var(--dim);min-height:1.4em}
+.formnote.ok{color:var(--cream)}
+.formnote.err{color:#ffb38a}
+.direct{display:grid;gap:10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--deep);padding:14px 16px}
 .row>div{min-width:0}
 .row .k{font-family:var(--script);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
-.row .v{font-weight:500;font-size:1.1rem;user-select:all;overflow-wrap:anywhere}
-.socials{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.row .v{font-weight:500;font-size:1.08rem;user-select:all;overflow-wrap:anywhere}
+.socials{margin-top:6px;display:flex;flex-wrap:wrap;gap:10px}
 footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spacing:.35em;font-size:.75rem;color:var(--dim)}
 
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reel img{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reel img,.player img{transition:none}}
 </style>
 </head>
 <body>
 
 <header class="nav"><div class="wrap">
-  <a class="mark" href="#top">ZB</a>
-  <nav aria-label="Sections"><a href="#ai">AI Films</a><a class="opt" href="#story">Story</a><a class="opt" href="#reels">VFX</a><a href="#contact">Contact</a></nav>
+  <a class="mark" href="#top" aria-label="Zaheer Bijapure, back to top">ZB</a>
+  <nav aria-label="Sections"><a href="#work">Work</a><a class="opt" href="#services">Services</a><a class="opt" href="#craft">Craft</a><a class="opt" href="#about">About</a><a href="#contact">Contact</a></nav>
 </div></header>
 
 <main id="top">
-  <section class="hero">
-    <video class="plate" id="bgvid" autoplay muted loop playsinline preload="auto" poster="images/hero-ai-poster.jpg" aria-hidden="true"><source src="videos/hero-ai.mp4" type="video/mp4"></video>
+  <!-- 01 Hero -->
+  <section class="hero" aria-label="Introduction">
+    <video class="plate" id="bgvid" autoplay muted loop playsinline preload="metadata" poster="images/hero-ai-poster.jpg" aria-hidden="true"><source src="videos/hero-ai.mp4" type="video/mp4"></video>
     <p class="playing">Now playing · <b>The Jester</b> · made with AI</p>
     <div class="wrap">
       <div>
-        <p class="eyebrow">AI Senior Designer</p>
-        <p class="agency">Saatchi &amp; Saatchi ME <span>Publicis Groupe</span></p>
-        <h1 style="margin-top:22px">Zaheer Bijapure<span>AI Storyteller</span></h1>
-        <p class="role">I direct <b>AI films and campaigns</b> for brands, with ten years of Hollywood VFX behind every frame.</p>
-        <div class="actions"><a class="btn hot" href="#ai">▶ Watch AI films</a><a class="btn" href="#contact">Work with me</a></div>
+        <h1>Zaheer Bijapure<span>AI Film Director &amp; Creative</span></h1>
+        <p class="pitch">I develop cinematic AI films, advertising concepts and visual campaigns, combining creative direction with 10 years of professional VFX experience.</p>
+        <p class="tag">From the first concept to the final frame.</p>
+        <div class="actions"><a class="btn hot" href="#work">▶ Watch selected films</a><a class="btn" href="#contact">Discuss a project</a></div>
+        <p class="now">Currently <b>AI Senior Designer</b> at <b>Saatchi &amp; Saatchi ME</b> · Publicis Groupe</p>
       </div>
-      <img class="face" src="images/portrait.jpg" alt="Portrait of Zaheer Bijapure">
+      <img class="face" src="images/portrait.jpg" alt="Portrait of Zaheer Bijapure in a navy cap and black T-shirt" width="900" height="1200">
     </div>
   </section>
 
-  <section id="ai">
+  <!-- 02 Selected work -->
+  <section id="work">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">Now showing</p><h2 class="h2">AI films</h2><p class="sub">Films made with generative AI, directed and finished like VFX.</p></div>
-      <div class="films">
-        <a class="film wide" href="https://youtu.be/xQ4nvfIa0vM" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/xQ4nvfIa0vM/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>AI film</i><b>From Previz to Final Frame</b></span></a>
-        <a class="film" href="https://youtu.be/Cze-4Sl6rqk" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/Cze-4Sl6rqk/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>AI film</i><b>The Little Moment</b></span></a>
-        <a class="film" href="https://youtu.be/Qkfv8MbizyA" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/Qkfv8MbizyA/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>AI film</i><b>After Midnight</b></span></a>
-        <a class="film" href="https://youtu.be/Xgi4iJWYF_w" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/Xgi4iJWYF_w/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>AI film</i><b>The Look</b></span></a>
-        <a class="film" href="https://youtu.be/VJ-GlgECLDs" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/VJ-GlgECLDs/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>AI film</i><b>Innocence</b></span></a>
-        <a class="film wide" href="https://youtu.be/aCAQfk3F_4k" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/aCAQfk3F_4k/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><em>▶</em></span><span class="txt"><i>AI film</i><b>Through Young Eyes</b></span></a>
+      <div class="head"><p class="eyebrow">Selected work</p><h2 class="h2">Three films</h2><p class="sub">Each one directed like a shoot and finished like a VFX shot. Open a case study to see how it was made.</p></div>
+      <div class="projects">
+        <article class="proj">
+          <div class="media"><button type="button" class="player" data-yt="xQ4nvfIa0vM" aria-label="Play From Previz to Final Frame"><img src="https://i.ytimg.com/vi/xQ4nvfIa0vM/hqdefault.jpg" alt="Still from From Previz to Final Frame" loading="lazy" onerror="this.remove()"><span class="pb">▶ Play film</span></button></div>
+          <div>
+            <p class="idx">01 · AI film</p>
+            <h3>From Previz to Final Frame</h3>
+            <p class="log">How a shot travels from a grey-shaded previz to a finished cinematic frame, using a VFX layout workflow together with AI generation.</p>
+            <dl><dt>Role</dt><dd>Concept and direction, Previz and camera, AI image and video generation, Compositing and finishing</dd></dl>
+            <div class="actions"><a class="btn hot" href="work/from-previz-to-final-frame/">Case study</a></div>
+          </div>
+        </article>
+        <article class="proj flip">
+          <div class="media"><button type="button" class="player" data-yt="Qkfv8MbizyA" aria-label="Play After Midnight"><img src="https://i.ytimg.com/vi/Qkfv8MbizyA/hqdefault.jpg" alt="Still from After Midnight" loading="lazy" onerror="this.remove()"><span class="pb">▶ Play film</span></button></div>
+          <div>
+            <p class="idx">02 · AI film</p>
+            <h3>After Midnight</h3>
+            <p class="log">A night-time mood piece built on smoke, light and atmosphere.</p>
+            <dl><dt>Role</dt><dd>Concept and direction, AI image and video generation, Edit and finishing</dd></dl>
+            <div class="actions"><a class="btn hot" href="work/after-midnight/">Case study</a></div>
+          </div>
+        </article>
+        <article class="proj">
+          <div class="media"><button type="button" class="player" data-yt="VJ-GlgECLDs" aria-label="Play Innocence"><img src="https://i.ytimg.com/vi/VJ-GlgECLDs/hqdefault.jpg" alt="Still from Innocence" loading="lazy" onerror="this.remove()"><span class="pb">▶ Play film</span></button></div>
+          <div>
+            <p class="idx">03 · AI film</p>
+            <h3>Innocence</h3>
+            <p class="log">A quiet, intimate character piece about childhood.</p>
+            <dl><dt>Role</dt><dd>Concept and direction, AI image and video generation, Edit and finishing</dd></dl>
+            <div class="actions"><a class="btn hot" href="work/innocence/">Case study</a></div>
+          </div>
+        </article>
       </div>
-      <div class="make">
-        <div><b>AI brand films</b><span>Story-led spots for launches and social</span></div>
-        <div><b>AI ad campaigns</b><span>Concepts to finished ads, at agency speed</span></div>
-        <div><b>Key visuals</b><span>Stills and posters, retouched to print</span></div>
+      <div class="morefilms">
+        <h3>More AI films</h3>
+        <div class="minis">
+          <a class="mini" href="https://youtu.be/Cze-4Sl6rqk" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/Cze-4Sl6rqk/mqdefault.jpg" alt="Still from The Little Moment" loading="lazy" onerror="this.remove()"></span><b>The Little Moment ↗</b></a>
+          <a class="mini" href="https://youtu.be/Xgi4iJWYF_w" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/Xgi4iJWYF_w/mqdefault.jpg" alt="Still from The Look" loading="lazy" onerror="this.remove()"></span><b>The Look ↗</b></a>
+          <a class="mini" href="https://youtu.be/aCAQfk3F_4k" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/aCAQfk3F_4k/mqdefault.jpg" alt="Still from Through Young Eyes" loading="lazy" onerror="this.remove()"></span><b>Through Young Eyes ↗</b></a>
+        </div>
+        <p class="more"><a class="btn" href="portfolio/ai/">Full AI portfolio</a></p>
       </div>
-      <p class="more"><a class="btn hot" href="portfolio/ai/">Enter the AI portfolio</a></p>
     </div>
   </section>
 
-  <section id="story">
+  <!-- 03 What I do -->
+  <section id="services">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">The backstory</p><h2 class="h2">From Hollywood to AI</h2><p class="sub">Every AI film I make is built on a decade of placing cameras for the big screen.</p></div>
+      <div class="head"><p class="eyebrow">What I do</p><h2 class="h2">How I can help</h2></div>
+      <div class="services">
+        <div class="svc"><h3>AI films</h3><p>Cinematic short films and brand stories, from idea and script to the final grade.</p><p class="val"><b>For you</b>Film-quality storytelling without a full live-action shoot.</p></div>
+        <div class="svc"><h3>Brand campaigns</h3><p>Advertising concepts, campaign films and key visuals for launches and social.</p><p class="val"><b>For you</b>Distinctive campaign assets at agency speed, consistent across formats.</p></div>
+        <div class="svc"><h3>Creative development</h3><p>Concept frames, mood films, previz and pitch visuals that bring an idea to life early.</p><p class="val"><b>For you</b>Clients see the idea before you commit budget to it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 The craft -->
+  <section id="craft">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">The craft</p><h2 class="h2">From VFX to AI</h2><p class="sub">Every AI film I make is built on a decade of placing cameras for the big screen.</p></div>
       <div class="scenes">
-        <div class="scene"><p class="yr">Sep 2025 – Now</p><span class="at">Saatchi &amp; Saatchi ME<small>Publicis Groupe</small></span><h3>The Plot Twist</h3><p>AI Senior Designer, crafting AI campaigns for global brands.</p></div>
-        <div class="scene"><p class="yr">Apr – Jul 2025</p><span class="at">Studio Blo</span><h3>The Pivot</h3><p>AI VFX Lead on AI-integrated VFX projects and live-action shoots.</p></div>
-        <div class="scene"><p class="yr">2022 – 2025</p><span class="at">MPC</span><h3>Behind the Camera</h3><p>Senior layout, previz and techviz on <i>The Flash</i> and <i>Kraven</i>.</p></div>
-        <div class="scene"><p class="yr">2017 – 2022</p><span class="at">DNEG · Red Chillies</span><h3>The Big Screen</h3><p>Body track and layout on <i>Zero</i>, <i>Devotion</i>, <i>The Matrix Resurrections</i>.</p></div>
-        <div class="scene"><p class="yr">2014 – 2017</p><span class="at">Tata Elxsi · Vertex Volt</span><h3>The Apprentice</h3><p>Animation for TV, ads and <i>Maya the Bee</i>.</p></div>
+        <div class="scene"><p class="yr">Sep 2025 – Now</p><span class="at">Saatchi &amp; Saatchi ME<small>Publicis Groupe</small></span><h3>AI Senior Designer</h3><p>AI-driven visual concepts and films for advertising and branded campaigns.</p></div>
+        <div class="scene"><p class="yr">Apr – Jul 2025</p><span class="at">Studio Blo</span><h3>AI VFX Lead</h3><p>AI-integrated VFX projects, team upskilling and on-set supervision.</p></div>
+        <div class="scene"><p class="yr">2022 – 2025</p><span class="at">MPC</span><h3>Senior VFX Layout</h3><p>Layout, previz and techviz on <i>The Flash</i> and <i>Kraven the Hunter</i>.</p></div>
+        <div class="scene"><p class="yr">2017 – 2022</p><span class="at">DNEG · Red Chillies</span><h3>Layout &amp; Body Track</h3><p>On <i>Zero</i>, <i>Devotion</i> and <i>The Matrix Resurrections</i>.</p></div>
+        <div class="scene"><p class="yr">2014 – 2017</p><span class="at">Tata Elxsi · Vertex Volt</span><h3>Animator</h3><p>Animation for TV, ads and <i>Maya the Bee</i>.</p></div>
       </div>
       <div class="laurels" aria-label="Awards">
-        <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · 2023</small><strong>Spotlight Award</strong><em>MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
-        <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · 2023</small><strong>Star Performer</strong><em>MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
+        <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · Dec 2023</small><strong>Spotlight Award</strong><em>Technicolor · MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
+        <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · Feb 2023</small><strong>Star Performer</strong><em>Technicolor · MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
       </div>
-    </div>
-  </section>
-
-  <section id="reels">
-    <div class="wrap">
-      <div class="head"><p class="eyebrow">Where the craft began</p><h2 class="h2">VFX showreels</h2></div>
+      <h3 class="eyebrow subhead">VFX showreels</h3>
       <div class="reels">
-        <a class="reel" href="https://vimeo.com/1060745371" target="_blank" rel="noopener"><img src="images/reel-production.jpg" alt="Production layout showreel still"><span><i>▶ Play</i><b>Production Layout</b></span></a>
-        <a class="reel" href="https://vimeo.com/1062331587/1a0097ad99" target="_blank" rel="noopener"><img src="images/reel-cinematic.jpg" alt="Butterfly in a CG flower field"><span><i>▶ Play</i><b>Cinematic Camera</b></span></a>
-        <a class="reel" href="https://vimeo.com/1062328741/dd9829b4a8" target="_blank" rel="noopener"><img src="images/reel-previz.jpg" alt="Previz car on a city street"><span><i>▶ Play</i><b>Previz &amp; Techviz</b></span></a>
-        <a class="reel" href="https://youtu.be/Vqj1RU_uJCk" target="_blank" rel="noopener"><img src="images/reel-tracking.jpg" alt="Camera and body tracking showreel still"><span><i>▶ Play</i><b>Body Tracking</b></span></a>
+        <a class="reel" href="https://vimeo.com/1060745371" target="_blank" rel="noopener"><img src="images/reel-production.jpg" alt="Still from the production layout showreel: two actors looking through an aircraft window" loading="lazy"><span><i>▶ Play</i><b>Production Layout</b></span></a>
+        <a class="reel" href="https://vimeo.com/1062331587/1a0097ad99" target="_blank" rel="noopener"><img src="images/reel-cinematic.jpg" alt="Still from the cinematic camera reel: a butterfly in a CG flower field" loading="lazy"><span><i>▶ Play</i><b>Cinematic Camera</b></span></a>
+        <a class="reel" href="https://vimeo.com/1062328741/dd9829b4a8" target="_blank" rel="noopener"><img src="images/reel-previz.jpg" alt="Still from the previz reel: a grey-shaded car on a city street" loading="lazy"><span><i>▶ Play</i><b>Previz &amp; Techviz</b></span></a>
+        <a class="reel" href="https://youtu.be/Vqj1RU_uJCk" target="_blank" rel="noopener"><img src="images/reel-tracking.jpg" alt="Still from the camera and body tracking showreel" loading="lazy"><span><i>▶ Play</i><b>Body Tracking</b></span></a>
+      </div>
+      <h3 class="eyebrow subhead">Selected credits</h3>
+      <p class="marquee"><b>The Matrix Resurrections</b> <span>·</span> <b>No Time to Die</b> <span>·</span> <b>Kraven the Hunter</b> <span>·</span> <b>The Flash</b> <span>·</span> <b>Aquaman and the Lost Kingdom</b> <span>·</span> <b>Wonder Woman 1984</b> <span>·</span> <b>Mission: Impossible – Fallout</b> <span>·</span> <b>Pinocchio</b> <span>·</span> <b>Back in Action</b> <span>·</span> <b>Brahmastra</b></p>
+      <p class="note">35+ films and series. <a href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener" style="color:var(--ember)">Full list on IMDb ↗</a> · <a href="portfolio/vfx/" style="color:var(--ember)">VFX portfolio</a></p>
+    </div>
+  </section>
+
+  <!-- 05 About -->
+  <section id="about">
+    <div class="wrap me">
+      <img src="images/portrait.jpg" alt="Portrait of Zaheer Bijapure" loading="lazy" width="900" height="1200">
+      <div>
+        <p class="eyebrow">The person behind the frames</p>
+        <p class="quote">I treat AI like a camera department: <em>every frame is directed</em>, then finished with the care of a VFX shot.</p>
+        <p class="body">I started in 2014 as a 3D animator, spent a decade building shots at DNEG and MPC for films like <i>The Matrix Resurrections</i> and <i>Kraven the Hunter</i>, and won two MPC awards along the way. Today I bring that craft to AI at Saatchi &amp; Saatchi ME in the UAE, working with creative and strategy teams to turn ideas into cinematic work for brands.</p>
+        <div class="actions"><a class="btn" href="about/">My full story</a></div>
       </div>
     </div>
   </section>
 
-
-  <section class="credits">
-    <div class="wrap">
-      <div class="head"><p class="eyebrow">Selected credits</p><h2 class="h2">On the big screen</h2></div>
-      <p class="marquee"><b>The Matrix Resurrections</b> <span>·</span> <b>No Time to Die</b> <span>·</span> <b>Kraven the Hunter</b> <span>·</span> <b>The Flash</b> <span>·</span> <b>Aquaman and the Lost Kingdom</b> <span>·</span> <b>Wonder Woman 1984</b> <span>·</span> <b>Mission: Impossible – Fallout</b> <span>·</span> <b>Pinocchio</b> <span>·</span> <b>Back in Action</b> <span>·</span> <b>Brahmastra</b></p>
-      <p class="note">35+ films and series. <a href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener" style="color:var(--ember)">Full list on IMDb ↗</a></p>
-    </div>
-  </section>
-
+  <!-- 06 Contact -->
   <section class="end" id="contact">
     <div class="wrap">
-      <p class="eyebrow">Post-credits scene</p>
+      <p class="eyebrow" style="text-align:center">Contact</p>
       <h2 style="margin-top:16px">Your brand is<br>the <em>next story</em>.</h2>
-      <div class="contact">
-        <div class="row"><div><p class="k">Email</p><p class="v" id="email">zaheerartist@gmail.com</p></div><div style="display:flex;gap:8px"><button class="btn" type="button" data-copy="email">Copy</button><a class="btn hot" href="mailto:zaheerartist@gmail.com">Write</a></div></div>
-        <div class="row"><div><p class="k">Phone</p><p class="v" id="phone">+971 56 756 7948</p></div><button class="btn" type="button" data-copy="phone">Copy</button></div>
-      </div>
-      <div class="socials">
-        <a class="btn" href="https://www.linkedin.com/in/zaheer-bijapure/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener">IMDb</a>
-        <a class="btn" href="https://www.youtube.com/@ZaheerBijapure" target="_blank" rel="noopener">YouTube</a>
-        <a class="btn" href="https://www.instagram.com/zaheerbijapure/" target="_blank" rel="noopener">Instagram</a>
+      <p class="endsub">Tell me about your film, campaign or idea. I usually reply within two working days.</p>
+      <div class="contactgrid">
+        <form class="form" id="enquiry" action="https://formspree.io/f/mqapaqqq" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New project enquiry from zaheerartist.github.io">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+          <div class="two">
+            <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="field"><label for="f-type">Project type</label>
+            <select id="f-type" name="project_type" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>AI film</option><option>Brand campaign</option><option>Creative development</option><option>VFX collaboration</option><option>Something else</option>
+            </select></div>
+          <div class="field"><label for="f-brief">Brief</label><textarea id="f-brief" name="brief" placeholder="What you want to make, for whom, and roughly when." required></textarea></div>
+          <fieldset class="field"><legend>Preferred contact</legend>
+            <div class="radios">
+              <label><input type="radio" name="preferred_contact" value="Email" checked> Email</label>
+              <label><input type="radio" name="preferred_contact" value="Phone"> Phone</label>
+              <label><input type="radio" name="preferred_contact" value="WhatsApp"> WhatsApp</label>
+            </div></fieldset>
+          <div class="field" id="phonewrap" hidden><label for="f-phone">Your phone number</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div><button class="btn hot" type="submit" id="f-send">Send enquiry</button></div>
+          <p class="formnote" id="f-note" role="status" aria-live="polite"></p>
+        </form>
+        <div class="direct">
+          <div class="row"><div><p class="k">Email</p><p class="v" id="email">zaheerartist@gmail.com</p></div><div style="display:flex;gap:8px"><button class="btn" type="button" data-copy="email">Copy</button><a class="btn hot" href="mailto:zaheerartist@gmail.com">Write</a></div></div>
+          <div class="row"><div><p class="k">Phone · WhatsApp</p><p class="v" id="phone">+971 56 756 7948</p></div><button class="btn" type="button" data-copy="phone">Copy</button></div>
+          <div class="socials">
+            <a class="btn" href="https://www.linkedin.com/in/zaheer-bijapure/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://www.instagram.com/zaheerbijapure/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn" href="https://www.youtube.com/@ZaheerBijapure" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn" href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener">IMDb</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -248,6 +370,16 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   go();v.addEventListener('canplay',go);
   ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){addEventListener(ev,go,{passive:true,once:true});});
   document.addEventListener('visibilitychange',function(){if(!document.hidden)go();});})();
+// Load a YouTube player only when someone presses play.
+document.querySelectorAll('.player[data-yt]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';
+    f.title=b.getAttribute('aria-label')||'Film';
+    f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;
+    b.replaceChildren(f);b.style.cursor='default';
+  },{once:true});
+});
 document.querySelectorAll('[data-copy]').forEach(function(b){
   b.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.copy);
@@ -256,6 +388,23 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(e){sel()}
   });
 });
+// Enquiry form
+(function(){
+  var f=document.getElementById('enquiry'),note=document.getElementById('f-note'),send=document.getElementById('f-send'),pw=document.getElementById('phonewrap');
+  f.querySelectorAll('input[name=preferred_contact]').forEach(function(r){r.addEventListener('change',function(){pw.hidden=(f.preferred_contact.value==='Email');});});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();note.className='formnote';
+    if(!f.checkValidity()){var bad=f.querySelector(':invalid');note.textContent='Please fill in your name, a valid email, the project type and a short brief.';note.classList.add('err');if(bad)bad.focus();return;}
+    if(!pw.hidden&&!f.phone.value.trim()){note.textContent='Please add your phone number, or choose email.';note.classList.add('err');f.phone.focus();return;}
+    send.disabled=true;send.textContent='Sending…';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}}).then(function(r){
+      if(!r.ok)throw new Error(r.status);
+      f.reset();pw.hidden=true;note.textContent='Thank you. Your enquiry has been sent, and I will reply soon.';note.classList.add('ok');
+    }).catch(function(){
+      note.textContent='Your enquiry could not be sent from here. Please email zaheerartist@gmail.com directly.';note.classList.add('err');
+    }).finally(function(){send.disabled=false;send.textContent='Send enquiry';});
+  });
+})();
 </script>
 
 </body>

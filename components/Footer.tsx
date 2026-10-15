@@ -32,7 +32,7 @@ export const Footer = () => {
               </div>
             </Link>
             <p className="text-sm text-textSecondary mb-6">
-              AI Senior Designer at Saatchi & Saatchi ME, Publicis Groupe. A decade of layout and matchmove for Hollywood and Indian films, now crafting cinematic AI campaigns.
+              AI film director and creative. Cinematic AI films and campaigns, built on 10 years of VFX for Hollywood and Indian films. Currently AI Senior Designer at Saatchi & Saatchi ME, Publicis Groupe.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
