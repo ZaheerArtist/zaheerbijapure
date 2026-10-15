@@ -113,22 +113,17 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .more{text-align:center;margin-top:30px}
 
 /* Poetry */
-@font-face{font-family:"Noto Nastaliq Urdu";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/noto-nastaliq-urdu-arabic-400.woff2) format("woff2");unicode-range:U+0600-06FF,U+0750-077F,U+200C-200E,U+FB50-FDFF,U+FE70-FEFC}
-.poem{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(46px,6vw,74px);margin-top:clamp(24px,4vw,48px);background:radial-gradient(60% 55% at 50% 45%,rgba(255,122,47,.06),transparent 70%)}
+.poem{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(64px,9vw,112px);margin-top:clamp(24px,4vw,48px);background:#0b0f10 radial-gradient(60% 55% at 50% 45%,rgba(255,122,47,.07),transparent 70%)}
 .poem-field{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 .poem-inner{text-align:center;display:grid;justify-items:center}
 .poem-label{font-family:var(--script);font-weight:400;font-size:.76rem;letter-spacing:.34em;color:var(--ember);margin:0}
-.poem-fig{margin:clamp(10px,1.6vw,16px) 0 0;display:grid;justify-items:center;gap:clamp(8px,1.4vw,14px)}
-.ur{margin:0;font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq","Urdu Typesetting","Noto Naskh Arabic",serif;font-size:clamp(1.5rem,3.5vw,2.55rem);line-height:1.95;color:var(--cream);direction:rtl;unicode-bidi:isolate;font-feature-settings:"liga" 1,"calt" 1;text-rendering:optimizeLegibility}
-.ur p{margin:0;white-space:nowrap}
-.roman{font-family:var(--title);font-size:clamp(1rem,2.1vw,1.25rem);letter-spacing:.04em;line-height:1.55;color:var(--cream);opacity:.88}
-.trans{margin-top:6px;font-style:italic;color:var(--dim);font-size:clamp(.98rem,1.8vw,1.08rem);max-width:62ch}
-.closing{margin-top:clamp(14px,2vw,22px);font-family:var(--script);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ember)}
+.verse{margin:clamp(22px,3vw,34px) 0 0;font-family:var(--title);font-weight:500;font-size:clamp(1.45rem,3.6vw,2.6rem);line-height:1.45;letter-spacing:.03em;color:var(--cream);display:grid;gap:.25em}
+.verse p{margin:0;text-wrap:balance}
+.closing{margin-top:clamp(22px,3vw,34px);font-family:var(--script);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ember)}
 .poem.armed .pr{opacity:0;transform:translateY(14px);transition:opacity 1.6s ease,transform 1.6s ease}
 .poem.armed.in .pr{opacity:1;transform:none}
-.poem.armed.in .ur p:nth-child(1){transition-delay:.7s}.poem.armed.in .ur p:nth-child(2){transition-delay:1.5s}
-.poem.armed.in .roman{transition-delay:2.3s}.poem.armed.in .trans{transition-delay:2.8s}.poem.armed.in .closing{transition-delay:3.5s}
-@media (max-width:420px){.poem{padding-block:28px}.ur{font-size:min(1.6rem,7.6vw)}.poem-label,.closing{letter-spacing:.2em}}
+.poem.armed.in .verse p:nth-child(1){transition-delay:.9s}.poem.armed.in .verse p:nth-child(2){transition-delay:1.8s}.poem.armed.in .closing{transition-delay:2.9s}
+@media (max-width:420px){.poem{padding-block:56px}.verse{font-size:min(1.45rem,6.4vw)}.poem-label,.closing{letter-spacing:.2em}}
 @media (prefers-reduced-motion:reduce){.poem.armed .pr{opacity:1;transform:none;transition:none}}
 
 /* 03 What I do */
@@ -333,16 +328,10 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
     <canvas class="poem-field" aria-hidden="true"></canvas>
     <div class="wrap poem-inner">
       <h2 id="poem-label" class="poem-label pr">A THOUGHT BEHIND THE PIXEL</h2>
-      <figure class="poem-fig">
-        <blockquote class="ur" lang="ur" dir="rtl">
-          <p class="pr">اک نقطے سے جہاں بنتا ہے</p>
-          <p class="pr">اک خیال سے آسماں بنتا ہے</p>
-        </blockquote>
-        <figcaption>
-          <p class="roman pr" lang="ur-Latn">Ik nuqte se jahaan banta hai,<br>ik khayaal se aasmaan banta hai.</p>
-          <p class="trans pr" lang="en">“A world emerges from a single point; a sky from a single thought.”</p>
-        </figcaption>
-      </figure>
+      <blockquote class="verse" lang="en">
+        <p class="pr">From a single point, a world emerges.</p>
+        <p class="pr">From a single thought, a universe begins.</p>
+      </blockquote>
       <p class="closing pr">One pixel. Infinite possibilities.</p>
     </div>
   </section>
@@ -532,7 +521,7 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     // the single point
     var seed=Math.min(1,t/1.2),pr=0.6+seed*1.6;
     ctx.fillStyle='rgba(255,122,47,'+(0.25+0.65*seed)+')';ctx.beginPath();ctx.arc(ox,oy,pr,0,6.283);ctx.fill();
-    var g=ctx.createRadialGradient(ox,oy,0,ox,oy,22);g.addColorStop(0,'rgba(255,122,47,'+(0.22*seed)+')');g.addColorStop(1,'rgba(255,122,47,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(ox,oy,22,0,6.283);ctx.fill();
+    var gr=26+10*Math.sin(t*1.3)*seed,g=ctx.createRadialGradient(ox,oy,0,ox,oy,gr);g.addColorStop(0,'rgba(255,150,80,'+(0.38*seed)+')');g.addColorStop(1,'rgba(255,122,47,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(ox,oy,gr,0,6.283);ctx.fill();
     for(var i=0;i<pts.length;i++){
       var p=pts[i],k=still?1:ease(Math.max(0,Math.min(1,(grow-p.delay*0.6)/(1-p.delay*0.6))));
       if(k<=0)continue;
