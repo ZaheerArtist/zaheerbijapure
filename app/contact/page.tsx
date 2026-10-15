@@ -6,6 +6,8 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaYoutube
 import { ContactInfo } from '@/components/ContactInfo';
 import { useSearchParams } from 'next/navigation';
 
+const RETURN_URL = 'https://zaheerartist.github.io/zaheerbijapure/contact/?success=true';
+
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
@@ -25,7 +27,7 @@ export default function Contact() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
   
-  // Check for success parameter in URL (for Formspree redirect)
+  // Check for success parameter in URL (after the form redirect)
   useEffect(() => {
     if (searchParams?.get('success') === 'true') {
       setSuccess(true);
@@ -58,7 +60,7 @@ export default function Contact() {
         throw new Error('Please enter a valid email address');
       }
       
-      // If validation passes, submit the form to Formspree
+      // If validation passes, submit the form to Web3Forms
       // We'll let the native form submission handle the actual submission
       if (formRef.current) {
         formRef.current.submit();
@@ -184,16 +186,17 @@ export default function Contact() {
               ) : (
                 <form 
                   ref={formRef} 
-                  action="https://formspree.io/f/mqapaqqq"
+                  action="https://api.web3forms.com/submit"
                   method="POST"
-                  onSubmit={handleSubmit} 
+                  onSubmit={handleSubmit}
                   noValidate
                 >
-                  {/* Hidden fields for Formspree */}
-                  <input type="hidden" name="_subject" value="New contact from zaheerbijapure.com" />
-                  <input type="hidden" name="_next" value="https://zaheerartist.github.io/zaheerbijapure/contact/?success=true" />
+                  {/* Web3Forms */}
+                  <input type="hidden" name="access_key" value="abdd028d-1dc5-4266-b58e-3851b2eb9dc6" />
+                  <input type="hidden" name="from_name" value="Portfolio contact page" />
+                  <input type="hidden" name="redirect" value={RETURN_URL} />
                   {/* Honeypot field to prevent spam */}
-                  <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                  <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>

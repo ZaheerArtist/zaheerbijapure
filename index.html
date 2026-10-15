@@ -417,10 +417,12 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
       <h2 style="margin-top:16px">Your brand is<br>the <em>next story</em>.</h2>
       <p class="endsub">Tell me about your film, campaign or idea. I usually reply within two working days.</p>
       <div class="contactgrid">
-        <form class="form" id="enquiry" action="https://formspree.io/f/mqapaqqq" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="New project enquiry from zaheerartist.github.io">
-          <input type="hidden" name="_next" value="https://zaheerartist.github.io/?sent=1#contact">
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <form class="form" id="enquiry" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="abdd028d-1dc5-4266-b58e-3851b2eb9dc6">
+          <input type="hidden" name="subject" value="New project enquiry from zaheerartist.github.io">
+          <input type="hidden" name="from_name" value="Portfolio enquiry">
+          <input type="hidden" name="redirect" value="https://zaheerartist.github.io/?sent=1#contact">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
           <div class="two">
             <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
             <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
@@ -443,7 +445,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
         </form>
         <div class="direct">
           <div class="row"><div><p class="k">Email</p><p class="v" id="email">zaheerartist@gmail.com</p></div><div style="display:flex;gap:8px"><button class="btn" type="button" data-copy="email">Copy</button><a class="btn hot" href="mailto:zaheerartist@gmail.com">Write</a></div></div>
-          <div class="row"><div><p class="k">Phone · WhatsApp</p><p class="v" id="phone">+971 56 756 7948</p></div><button class="btn" type="button" data-copy="phone">Copy</button></div>
+          <div class="row"><div><p class="k">Phone · WhatsApp</p><p class="v" id="phone">+971 56 756 7948</p></div><div style="display:flex;gap:8px"><button class="btn" type="button" data-copy="phone">Copy</button><a class="btn hot" href="https://wa.me/971567567948" target="_blank" rel="noopener">WhatsApp</a></div></div>
           <div class="socials">
             <a class="btn" href="https://www.linkedin.com/in/zaheer-bijapure/" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn" href="https://www.instagram.com/zaheerbijapure/" target="_blank" rel="noopener">Instagram</a>
@@ -549,7 +551,11 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     if(!f.checkValidity()){var bad=f.querySelector(':invalid');note.textContent='Please fill in your name, a valid email, the project type and a short brief.';note.classList.add('err');if(bad)bad.focus();return;}
     if(!pw.hidden&&!f.phone.value.trim()){note.textContent='Please add your phone number, or choose email.';note.classList.add('err');f.phone.focus();return;}
     send.disabled=true;send.textContent='Sending…';
-    f.submit();
+    var data=Object.fromEntries(new FormData(f));delete data.redirect;
+    fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok||j.success===false)throw 0;});})
+      .then(function(){f.reset();pw.hidden=true;note.textContent='Thank you. Your enquiry has been sent, and I will reply soon.';note.classList.add('ok');send.textContent='Sent';})
+      .catch(function(){note.innerHTML='Sorry, the message could not be sent. Please email <a href="mailto:zaheerartist@gmail.com">zaheerartist@gmail.com</a> or <a href="https://wa.me/971567567948" target="_blank" rel="noopener">message me on WhatsApp</a>.';note.classList.add('err');send.disabled=false;send.textContent='Send enquiry';});
   });
 })();
 </script>
