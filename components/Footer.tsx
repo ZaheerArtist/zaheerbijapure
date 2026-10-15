@@ -33,7 +33,7 @@ export const Footer = () => {
               </div>
             </Link>
             <p className="text-sm text-textSecondary mb-6">
-              VFX Layout & 3D Artist with 9 years of experience creating immersive visual experiences for film, television, and digital media.
+              AI creative and VFX storyteller. A decade of layout and matchmove for Hollywood and Indian films, now crafting cinematic AI campaigns at Saatchi & Saatchi ME.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
@@ -55,13 +55,20 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
-              {['Home', 'About', 'VFX Portfolio', 'AI Portfolio', 'Experience', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link 
-                    href={`/${item.toLowerCase().replace(' ', '-')}`}
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About', path: '/about/' },
+                { name: 'VFX Portfolio', path: '/portfolio/vfx/' },
+                { name: 'AI Portfolio', path: '/portfolio/ai/' },
+                { name: 'Experience', path: '/experience/' },
+                { name: 'Contact', path: '/contact/' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.path}
                     className="text-textSecondary hover:text-accent1 transition-colors duration-300"
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -73,7 +80,7 @@ export const Footer = () => {
             <h3 className="text-lg font-bold mb-4 text-white">Contact</h3>
             <ContactInfo />
             <Link
-              href="/contact"
+              href="/contact/"
               className="bg-accent2 text-white hover:bg-accent2/80 transition-all duration-300 rounded-full inline-block mt-4 text-sm px-4 py-2"
             >
               Get in Touch, Let's Create Together

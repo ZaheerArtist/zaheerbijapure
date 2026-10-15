@@ -30,7 +30,7 @@ export const ContactInfo = ({
     { 
       id: 'location', 
       icon: <FaMapMarkerAlt />, 
-      content: 'Mumbai, India',
+      content: 'United Arab Emirates',
       href: null 
     }
   ];

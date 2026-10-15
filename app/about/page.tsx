@@ -12,6 +12,49 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 },
 };
 
+const BASE = process.env.NODE_ENV === 'production' ? '/zaheerbijapure' : '';
+const POSTERS: Record<string, string> = {
+  "Back in Action|2025": "Back in Action (2025).jpg",
+  "Kraven the Hunter|2024": "Kraven the Hunter (2024).jpg",
+  "Atlas|2024": "Atlas (2024).jpg",
+  "Halo|2024": "Halo (2024).jpg",
+  "Argylle|2024": "Argylle (2024).jpg",
+  "Malaikottai Vaaliban|2024": "Malaikottai Vaaliban (2024).jpg",
+  "Aquaman and the Lost Kingdom|2023": "Aquaman and the Lost Kingdom (2023).jpg",
+  "Leo|2023": "Leo (2023).jpg",
+  "Ferrari|2023": "Ferrari (2023).jpg",
+  "The Flash|2023": "The Flash (2023).jpg",
+  "Crater|2023": "Crater (2023).png",
+  "Shazam! Fury of the Gods|2023": "Shazam! Fury of the Gods (2023).jpg",
+  "Ant Man and the Wasp Quantumania|2023": "Ant Man and the Wasp Quantumania (2023).jpg",
+  "The School for Good and Evil|2022": "The School for Good and Evil (2022).jpg",
+  "Guillermo del Toro's Pinocchio|2022": "Guillermo del Toro's Pinocchio (2022).jpg",
+  "Devotion|2022": "Devotion (2022).jpg",
+  "Brahmastra Part One Shiva|2022": "Brahmastra Part One Shiva (2022).jpg",
+  "The Matrix Resurrections|2021": "The Matrix Resurrections (2021).jpg",
+  "Bell Bottom|2021": "Bell Bottom (2021).jpg",
+  "Venom Let There Be Carnage|2021": "Venom Let There Be Carnage (2021).jpg",
+  "No Time to Die|2021": "No Time to Die (2021).jpg",
+  "Jungle Cruise|2021": "Jungle Cruise (2021).png",
+  "Infinite|2021": "Infinite (2021).jpg",
+  "Jupiter's Legacy|2021": "Jupiter's Legacy (2021).jpg",
+  "Zack Snyder's Justice League|2021": "Zack Snyder's Justice League (2021).jpg",
+  "The Flash|2021": "The Flash (2021).jpg",
+  "Wonder Woman 1984|2020": "Wonder Woman 1984 (2020).png",
+  "The Boys|2020": "The Boys (2020).jpg",
+  "Greyhound|2020": "Greyhound Tom Hanks (2020).jpeg",
+  "The Dark Crystal Age of Resistance|2019": "The Dark Crystal Age of Resistance (2019).jpg",
+  "Curfew|2019": "Curfew (2019).jpg",
+  "Fast & Furious: Hobbs & Shaw|2019": "Fast and Furious Hobbs and Shaw (2019).jpg",
+  "Mission Impossible Fallout|2018": "Mission Impossible Fallout (2018).jpg",
+  "Fantastic Beasts: The Crimes of Grindelwald|2018": "Fantastic Beasts The Crimes of Grindelwald (2018).jpg",
+  "2.0|2018": "2Point0 (2018).jpg"
+};
+const posterSrc = (title: string, year: string) => {
+  const file = POSTERS[`${title}|${year}`];
+  return file ? `${BASE}/images/films/${encodeURIComponent(file)}` : `${BASE}/placeholder-movie.jpg`;
+};
+
 export default function About() {
   const [showAllProjects, setShowAllProjects] = useState(false);
   
@@ -47,7 +90,7 @@ export default function About() {
       
       // Test direct image access with correct GitHub Pages path
 
-      const testImageUrl = '/images/profile.jpg';
+      const testImageUrl = `${BASE}/images/profile.jpg`;
 
       // Create an image element instead of using the Image constructor
       const testImg = document.createElement('img');
@@ -327,7 +370,7 @@ export default function About() {
           <div className="relative w-48 h-48 rounded-full overflow-hidden">
 
                 <Image 
-              src="/thumbnail/profile.jpg"
+              src={`${BASE}/thumbnail/profile.jpg`}
               alt="Zaheer Bijapure"
                   fill
               className="object-cover"
@@ -550,7 +593,7 @@ export default function About() {
 
                   <Image 
 
-                    src={`/thumbnail/${getMovieFilename(project.title)}-${project.year}.jpg`}
+                    src={posterSrc(project.title, project.year)}
                     alt={`${project.title} (${project.year})`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
