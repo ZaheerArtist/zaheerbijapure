@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
@@ -10,6 +9,8 @@ import { CgMenuRightAlt } from 'react-icons/cg';
 import { SlClose } from 'react-icons/sl';
 import { GiPlayButton } from 'react-icons/gi';
 import { ContactInfo } from './ContactInfo';
+
+const BASE = process.env.NODE_ENV === 'production' ? '/zaheerbijapure' : '';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +32,11 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'VFX Portfolio', path: '/portfolio/vfx' },
-    { name: 'AI Portfolio', path: '/portfolio/ai' },
-    { name: 'Experience', path: '/experience' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'About', path: '/about/' },
+    { name: 'VFX Portfolio', path: '/portfolio/vfx/' },
+    { name: 'AI Portfolio', path: '/portfolio/ai/' },
+    { name: 'Experience', path: '/experience/' },
+    { name: 'Contact', path: '/contact/' },
   ];
 
   const isActive = (path: string) => {
@@ -55,7 +56,7 @@ export const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="relative flex items-center z-10">
+        <a href={`${BASE}/`} className="relative flex items-center z-10">
           <div className="flex items-center justify-center border border-accent1 w-10 h-10">
             <span className="font-heading font-bold text-lg tracking-widest text-textPrimary">ZB</span>
           </div>
@@ -65,20 +66,20 @@ export const Navbar = () => {
             </span>
             <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] -mt-0.5 block">AI Film Director</span>
           </div>
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <Link 
+            <a 
               key={link.name} 
-              href={link.path}
+              href={`${BASE}${link.path}`}
               className={`nav-link text-sm lg:text-base ${
                 isActive(link.path) ? 'text-accent1' : ''
               }`}
             >
               {link.name}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -101,16 +102,16 @@ export const Navbar = () => {
           >
             <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
-                <Link 
+                <a 
                   key={link.name} 
-                  href={link.path}
+                  href={`${BASE}${link.path}`}
                   className={`nav-link text-xl font-medium ${
                     isActive(link.path) ? 'text-accent1' : ''
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
             </div>
           </motion.div>

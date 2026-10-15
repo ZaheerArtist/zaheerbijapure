@@ -1,8 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { FaLinkedin, FaInstagram, FaYoutube, FaImdb } from 'react-icons/fa';
 import { ContactInfo } from './ContactInfo';
+
+const BASE = process.env.NODE_ENV === 'production' ? '/zaheerbijapure' : '';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -20,7 +21,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Logo and Short Bio */}
           <div className="flex flex-col">
-            <Link href="/" className="flex items-center mb-4">
+            <a href={`${BASE}/`} className="flex items-center mb-4">
               <div className="flex items-center justify-center border border-accent1 w-8 h-8">
                 <span className="font-heading font-bold text-sm text-textPrimary">ZB</span>
               </div>
@@ -30,7 +31,7 @@ export const Footer = () => {
                 </span>
                 <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] block">AI Film Director</span>
               </div>
-            </Link>
+            </a>
             <p className="text-sm text-textSecondary mb-6">
               AI film director and creative. Cinematic AI films and campaigns, built on 10 years of VFX for Hollywood and Indian films. Currently AI Senior Designer at Saatchi & Saatchi ME, Publicis Groupe.
             </p>
@@ -63,12 +64,12 @@ export const Footer = () => {
                 { name: 'Contact', path: '/contact/' },
               ].map((item) => (
                 <li key={item.name}>
-                  <Link
-                    href={item.path}
+                  <a
+                    href={`${BASE}${item.path}`}
                     className="text-textSecondary hover:text-accent1 transition-colors duration-300"
                   >
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -78,12 +79,12 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4 text-white">Contact</h3>
             <ContactInfo />
-            <Link
-              href="/contact/"
+            <a
+              href={`${BASE}/contact/`}
               className="bg-accent1 text-background hover:bg-accent1/80 transition-all duration-300 rounded-none inline-block mt-4 text-sm px-4 py-2"
             >
               Get in Touch, Let's Create Together
-            </Link>
+            </a>
           </div>
         </div>
 

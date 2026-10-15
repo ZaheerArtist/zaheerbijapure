@@ -1,7 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+
+const BASE = process.env.NODE_ENV === 'production' ? '/zaheerbijapure' : '';
 
 export default function NotFound() {
   return (
@@ -17,9 +18,9 @@ export default function NotFound() {
         <p className="text-lg text-textSecondary mb-8">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <Link href="/" className="btn-primary">
+        <a href={`${BASE}/`} className="btn-primary">
           Return Home
-        </Link>
+        </a>
       </motion.div>
     </div>
   );
