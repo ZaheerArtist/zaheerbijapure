@@ -17,8 +17,15 @@ type Film = {
   tools: string;
 };
 
-// New AI films go here: { id: <YouTube id>, title, genre, year, logline, tools }
-const films: Film[] = [];
+// AI films: { id: <YouTube id>, title, genre, year, logline, tools }. Empty fields are hidden.
+const films: Film[] = [
+  { id: 'xQ4nvfIa0vM', title: 'Previz to Final', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'Cze-4Sl6rqk', title: 'A Little Moment', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'Qkfv8MbizyA', title: 'Midnight Smoke', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'Xgi4iJWYF_w', title: 'That Expression', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'VJ-GlgECLDs', title: 'Child', genre: 'AI film', year: '', logline: '', tools: '' },
+];
+const meta = (...parts: string[]) => parts.filter(Boolean).join(' · ');
 
 const posters = [
   { src: '/images/ai/johnsons-baby-poster1.jpg', title: 'Tear-free bath time', alt: 'AI-generated baby soap key visual: a smiling baby in bath foam on a soft pink background' },
@@ -120,10 +127,10 @@ export default function AIPortfolio() {
             <img src={thumb(lead.id)} alt="" />
             <span className={s.featureText}>
               <span className={s.meta}>
-                {lead.genre} · {lead.year}
+                {meta(lead.genre, lead.year)}
               </span>
               <span className={s.featureTitle}>{lead.title}</span>
-              <span className={s.featureLog}>{lead.logline}</span>
+              {lead.logline && <span className={s.featureLog}>{lead.logline}</span>}
               <span className={s.playTag}>
                 <FaPlay aria-hidden="true" /> Play film
               </span>
@@ -142,10 +149,10 @@ export default function AIPortfolio() {
                 </span>
                 <span className={s.filmBody}>
                   <span className={s.meta}>
-                    {f.genre} · {f.year}
+                    {meta(f.genre, f.year)}
                   </span>
                   <span className={s.filmTitle}>{f.title}</span>
-                  <span className={s.filmLog}>{f.logline}</span>
+                  {f.logline && <span className={s.filmLog}>{f.logline}</span>}
                 </span>
               </button>
             ))}
@@ -243,9 +250,9 @@ export default function AIPortfolio() {
             </div>
             <div className={s.modalBody}>
               <span className={s.meta}>
-                {film.genre} · {film.year} · {film.tools}
+                {meta(film.genre, film.year, film.tools)}
               </span>
-              <p>{film.logline}</p>
+              {film.logline && <p>{film.logline}</p>}
               <a className={s.btn} style={{ width: 'fit-content' }} href={`https://youtu.be/${film.id}`} target="_blank" rel="noopener noreferrer">
                 Open on YouTube ↗
               </a>

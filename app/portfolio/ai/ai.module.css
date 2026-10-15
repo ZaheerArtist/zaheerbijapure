@@ -75,7 +75,7 @@
 }
 .playTag { display: inline-flex; align-items: center; gap: 8px; width: fit-content; font-family: var(--script); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; background: var(--ember); color: var(--void); padding: 8px 12px; }
 
-.films { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 22px; }
+.films { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 22px; }
 @media (max-width: 900px) { .films { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .films { grid-template-columns: 1fr; } }
 .film { display: grid; grid-template-rows: auto 1fr; background: var(--deep); border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; min-width: 0; }
