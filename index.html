@@ -54,6 +54,16 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .extbtn span{color:var(--ember)}
 .extbtn:hover,.extbtn:focus-visible{border-color:var(--ember);color:var(--ember)}
 .extbtn:focus-visible{outline:2px solid var(--ember);outline-offset:4px}
+.cwgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:820px){.cwgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.cwgrid{grid-template-columns:1fr}}
+.cw{position:relative;display:grid;align-content:space-between;gap:28px;min-height:180px;padding:20px;border:1px solid var(--edge);background:linear-gradient(160deg,var(--deep),var(--void));text-decoration:none;transition:border-color .3s,transform .3s}
+.cw:hover,.cw:focus-visible{border-color:var(--ember);transform:translateY(-2px)}
+.cw-n{font-family:var(--script);font-size:.74rem;letter-spacing:.2em;color:var(--dim)}
+.cw-b{font-family:var(--title);font-size:clamp(2.2rem,5vw,3rem);line-height:1;color:var(--cream)}
+.cw-k{font-family:var(--script);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.cw-go{position:absolute;right:20px;bottom:20px;font-family:var(--script);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ember)}
+@media (prefers-reduced-motion:reduce){.cw{transition:none}.cw:hover{transform:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Nav */
@@ -308,6 +318,21 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
           <a class="mini" href="https://youtu.be/aCAQfk3F_4k" target="_blank" rel="noopener"><span class="pic"><img src="https://i.ytimg.com/vi/aCAQfk3F_4k/mqdefault.jpg" alt="Still from Through Young Eyes" loading="lazy" onerror="this.remove()"></span><b>Through Young Eyes ↗</b></a>
         </div>
         <p class="more"><a class="btn" href="portfolio/ai/">Full AI portfolio</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client work: links to the brand's own published posts -->
+  <section id="clients" class="clients" aria-labelledby="clients-h">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Client work</p><h2 class="h2" id="clients-h">For e&amp; UAE</h2><p class="sub">Campaign content I created as AI Senior Designer at Saatchi &amp; Saatchi ME, as published on e&amp;’s Instagram.</p></div>
+      <div class="cwgrid">
+          <a class="cw" href="https://www.instagram.com/reel/DZ62R06oKmD/" target="_blank" rel="noopener" aria-label="e&amp; UAE reel 01, opens on Instagram"><span class="cw-n">01</span><span class="cw-b">e&amp;</span><span class="cw-k">Reel · Instagram</span><span class="cw-go">Watch ↗</span></a>
+          <a class="cw" href="https://www.instagram.com/reel/Db-mz6KoIYV/" target="_blank" rel="noopener" aria-label="e&amp; UAE reel 02, opens on Instagram"><span class="cw-n">02</span><span class="cw-b">e&amp;</span><span class="cw-k">Reel · Instagram</span><span class="cw-go">Watch ↗</span></a>
+          <a class="cw" href="https://www.instagram.com/reel/DaNUm7OI8s0/" target="_blank" rel="noopener" aria-label="e&amp; UAE reel 03, opens on Instagram"><span class="cw-n">03</span><span class="cw-b">e&amp;</span><span class="cw-k">Reel · Instagram</span><span class="cw-go">Watch ↗</span></a>
+          <a class="cw" href="https://www.instagram.com/reel/DcLKRbXIkF7/" target="_blank" rel="noopener" aria-label="e&amp; UAE reel 04, opens on Instagram"><span class="cw-n">04</span><span class="cw-b">e&amp;</span><span class="cw-k">Reel · Instagram</span><span class="cw-go">Watch ↗</span></a>
+          <a class="cw" href="https://www.instagram.com/p/DX_yUzpDAKb/" target="_blank" rel="noopener" aria-label="e&amp; UAE post 05, opens on Instagram"><span class="cw-n">05</span><span class="cw-b">e&amp;</span><span class="cw-k">Post · Instagram</span><span class="cw-go">Watch ↗</span></a>
+          <a class="cw" href="https://www.instagram.com/reel/Deb5lPOoIg6/" target="_blank" rel="noopener" aria-label="e&amp; UAE reel 06, opens on Instagram"><span class="cw-n">06</span><span class="cw-b">e&amp;</span><span class="cw-k">Reel · Instagram</span><span class="cw-go">Watch ↗</span></a>
       </div>
     </div>
   </section>
