@@ -17,41 +17,8 @@ type Film = {
   tools: string;
 };
 
-const films: Film[] = [
-  {
-    id: 'koywWFCnhhg',
-    title: 'Effortless Elegance, Redefined',
-    genre: 'Fashion',
-    year: '2025',
-    logline:
-      'A fashion spot inspired by ZARA. Versatile modern styles that move from day to night, with every look, fabric and light built with AI.',
-    tools: 'Freepik · Runway · Premiere Pro',
-  },
-  {
-    id: 'Ra4tNXg4hSI',
-    title: 'Happy Noodles',
-    genre: 'Food',
-    year: '2025',
-    logline: 'A comedy food ad with real character, comic timing and a punchline that lands.',
-    tools: 'Vidu · Kling · Runway · Premiere Pro',
-  },
-  {
-    id: 'P4x1BBZdlyU',
-    title: 'The AI Film Showcase',
-    genre: 'Short film',
-    year: '2025',
-    logline: 'Story-driven visuals that test how far AI filmmaking can go when it is directed like a real shoot.',
-    tools: 'Runway · Vidu · Kling · MiniMax',
-  },
-  {
-    id: 'Q1QOJ3eY4Fo',
-    title: 'New York to Dubai',
-    genre: 'Travel',
-    year: '2025',
-    logline: 'An airline-style travel offer, two free nights in Dubai, told with the polish of a premium carrier.',
-    tools: 'Freepik · Runway · Premiere Pro',
-  },
-];
+// New AI films go here: { id: <YouTube id>, title, genre, year, logline, tools }
+const films: Film[] = [];
 
 const posters = [
   { src: '/images/ai/johnsons-baby-poster1.jpg', title: 'Tear-free bath time', alt: 'AI-generated baby soap key visual: a smiling baby in bath foam on a soft pink background' },
@@ -90,6 +57,7 @@ export default function AIPortfolio() {
   }, [open]);
 
   const [lead, ...rest] = films;
+  const hasFilms = films.length > 0;
 
   return (
     <div className={s.page}>
@@ -107,8 +75,8 @@ export default function AIPortfolio() {
           </p>
           <p className={`${s.slug} ${s.heroSlug}`}>Int. Saatchi &amp; Saatchi ME · Publicis Groupe — UAE — Now</p>
           <div className={s.heroActions}>
-            <a className={`${s.btn} ${s.btnHot}`} href="#films">
-              ▶ Watch the films
+            <a className={`${s.btn} ${s.btnHot}`} href={hasFilms ? '#films' : '#visuals'}>
+              {hasFilms ? '▶ Watch the films' : '▶ See the work'}
             </a>
             <Link className={s.btn} href="/contact/">
               Start a project
@@ -138,6 +106,7 @@ export default function AIPortfolio() {
       </section>
 
       {/* Feature presentation */}
+      {hasFilms && (
       <section className={s.section} id="films" style={{ scrollMarginTop: 80 }}>
         <div className={s.wrap}>
           <div className={s.head}>
@@ -183,9 +152,10 @@ export default function AIPortfolio() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Key visuals */}
-      <section className={s.section}>
+      <section className={s.section} id="visuals" style={{ scrollMarginTop: 80 }}>
         <div className={s.wrap}>
           <div className={s.head}>
             <p className={s.eyebrow}>Key visuals</p>
