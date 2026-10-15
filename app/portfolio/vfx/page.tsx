@@ -148,16 +148,31 @@ export default function VFXPortfolio() {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      {/* Page Header */}
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">VFX Portfolio</h1>
+    <div className="min-h-screen pb-16">
+      {/* Page Header with background video */}
+      <section className="relative isolate overflow-hidden min-h-[70vh] flex items-end pt-24 mb-16">
+        <video
+          className="absolute inset-0 -z-20 w-full h-full object-cover"
+          src={`${BASE}/videos/hero.mp4`}
+          poster={`${BASE}/images/hero-poster.jpg`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/30 via-black/40 to-background" />
+        <div className="container-custom w-full pb-12 text-center">
+          <p className="text-accent1 tracking-[0.3em] text-xs uppercase mb-4">Ten years behind the camera</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">VFX Portfolio</h1>
           <div className="w-20 h-1 bg-accent1 mx-auto mb-6"></div>
-          <p className="text-textSecondary text-lg">
-            Showcasing professional work in visual effects, layout, cinematography, and technical visualization for film and television projects.
+          <p className="text-white/85 text-lg max-w-2xl mx-auto">
+            Layout, matchmove, body tracking and previz for feature films at MPC, DNEG and Red Chillies.
           </p>
         </div>
+      </section>
+      <div className="container-custom">
         
         {/* Filter Categories */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
