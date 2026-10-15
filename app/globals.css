@@ -8,7 +8,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold;
+    @apply font-heading font-semibold tracking-wide;
   }
   
   h1 {
@@ -34,11 +34,11 @@
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-accent1 hover:bg-opacity-80 text-white font-medium rounded-md transition-all duration-300 inline-flex items-center justify-center;
+    @apply px-6 py-3 bg-accent1 hover:bg-opacity-90 text-background font-mono uppercase tracking-widest text-sm rounded-none transition-all duration-300 inline-flex items-center justify-center;
   }
   
   .btn-outline {
-    @apply px-6 py-3 border-2 border-accent1 text-accent1 hover:bg-accent1 hover:bg-opacity-10 font-medium rounded-md transition-all duration-300 inline-flex items-center justify-center;
+    @apply px-6 py-3 border border-secondary text-textPrimary hover:border-accent1 hover:text-accent1 font-mono uppercase tracking-widest text-sm rounded-none transition-all duration-300 inline-flex items-center justify-center;
   }
   
   .section-title {

@@ -8,17 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#121212',
-        primary: '#1E1E1E',
-        secondary: '#2A2A2A',
-        accent1: '#7B68EE', // Main accent - vibrant purple
-        accent2: '#00CCFF', // Secondary accent - bright cyan
-        textPrimary: '#FFFFFF',
-        textSecondary: '#AAAAAA',
+        background: '#06090a', // cinema black
+        primary: '#0c1a1c',    // teal shadow (cards)
+        secondary: '#1f3336',  // rules, chips
+        accent1: '#ff7a2f',    // ember
+        accent2: '#ffb07a',    // warm highlight
+        textPrimary: '#f2e8d5',
+        textSecondary: '#9aaaa9',
       },
       fontFamily: {
-        sans: ['Montserrat', 'Arial', 'sans-serif'],
-        heading: ['Raleway', 'Arial', 'sans-serif'],
+        sans: ['Figtree', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        heading: ['Cinzel', 'Trajan Pro', 'Georgia', 'serif'],
+        mono: ['Courier Prime', 'Courier New', 'monospace'],
       },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',

@@ -7,7 +7,7 @@ export default function Custom404() {
       <p className="text-xl mb-8">Sorry, the page you are looking for does not exist.</p>
       <Link 
         href="/"
-        className="px-6 py-3 bg-accent1 text-white rounded-md font-semibold hover:bg-accent1/80 transition-colors"
+        className="px-6 py-3 bg-accent1 text-background rounded-none font-semibold hover:bg-accent1/80 transition-colors"
       >
         Go Back Home
       </Link>

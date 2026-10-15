@@ -240,13 +240,13 @@ const awards = [
   { name: 'The Star Performer Award', date: 'Feb 2023', by: 'Technicolor Creative Studios · MPC', note: 'For consistently exceptional performance and contribution.' },
 ];
 const certs = [
-  { name: 'AI Filmmaking', by: 'Curious Refuge', date: 'Sep 2025' },
-  { name: 'AI Advertising', by: 'Curious Refuge', date: '' },
-  { name: 'Prompt Engineering with ChatGPT 4 & Midjourney', by: 'Udemy', date: 'Aug 2023' },
+  { name: 'AI Filmmaking', by: 'Curious Refuge', date: 'Completed Sep 2025' },
+  { name: 'AI Advertising', by: 'Curious Refuge', date: 'Completed' },
+  { name: 'Prompt Engineering with ChatGPT 4 & Midjourney', by: 'Udemy', date: 'Completed Aug 2023' },
 ];
 const education = [
-  { name: 'Post Graduate Diploma, Advertising & Media', by: 'University of Mumbai', date: '2016 – 2017' },
-  { name: "Bachelor's degree, Animation & VFX", by: 'Sikkim Manipal University', date: '2010 – 2013' },
+  { name: 'Post-Graduate Diploma in Advertising & Media', by: 'University of Mumbai', date: '2016 – 2017' },
+  { name: "Bachelor's Degree in Animation, Interactive Technology, Video Graphics and Special Effects", by: 'Sikkim Manipal University · Distance Education', date: '2010 – 2013' },
   { name: 'Animation & VFX course', by: 'Frameboxx', date: '2010 – 2013' },
   { name: 'Bachelor of Commerce', by: 'Savitribai Phule Pune University', date: '' },
 ];
@@ -355,7 +355,7 @@ export default function About() {
         <div className={s.wrap}>
           <div className={s.two}>
             <div>
-              <p className={s.eyebrow}>Certifications</p>
+              <p className={s.eyebrow}>Certifications &amp; professional development</p>
               <ul className={s.list}>
                 {certs.map((c) => (
                   <li key={c.name}><b>{c.name}</b><span>{[c.by, c.date].filter(Boolean).join(' · ')}</span></li>
@@ -393,6 +393,7 @@ export default function About() {
             <button type="button" className={s.btn} onClick={() => setShowAll(!showAll)}>
               {showAll ? 'Show recent only' : `Show all ${allProjects.length} titles`}
             </button>
+            <a className={s.btn} href={`${BASE}/Zaheer-Bijapure-CV.pdf`} download>Download CV</a>
             <a className={s.btn} href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener noreferrer">IMDb ↗</a>
             <a className={s.btn} href="https://www.linkedin.com/in/zaheer-bijapure/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <a className={s.btn} href="https://www.instagram.com/zaheerbijapure/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>

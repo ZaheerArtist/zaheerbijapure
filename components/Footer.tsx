@@ -21,14 +21,14 @@ export const Footer = () => {
           {/* Logo and Short Bio */}
           <div className="flex flex-col">
             <Link href="/" className="flex items-center mb-4">
-              <div className="flex items-center justify-center bg-accent1 w-8 h-8 rounded-md">
-                <span className="text-white font-bold text-sm">ZB</span>
+              <div className="flex items-center justify-center border border-accent1 w-8 h-8">
+                <span className="font-heading font-bold text-sm text-textPrimary">ZB</span>
               </div>
               <div className="ml-2">
                 <span className="text-lg font-heading font-bold text-white block text-center">
                   Zaheer <span className="text-accent1">Bijapure</span>
                 </span>
-                <span className="text-xs text-white/80 font-medium block text-center">VFX & AI</span>
+                <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] block">AI Film Director</span>
               </div>
             </Link>
             <p className="text-sm text-textSecondary mb-6">
@@ -80,7 +80,7 @@ export const Footer = () => {
             <ContactInfo />
             <Link
               href="/contact/"
-              className="bg-accent2 text-white hover:bg-accent2/80 transition-all duration-300 rounded-full inline-block mt-4 text-sm px-4 py-2"
+              className="bg-accent1 text-background hover:bg-accent1/80 transition-all duration-300 rounded-none inline-block mt-4 text-sm px-4 py-2"
             >
               Get in Touch, Let's Create Together
             </Link>

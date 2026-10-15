@@ -56,14 +56,14 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="relative flex items-center z-10">
-          <div className="flex items-center justify-center bg-accent1 w-10 h-10 rounded-md">
-            <span className="text-white font-bold text-xl">ZB</span>
+          <div className="flex items-center justify-center border border-accent1 w-10 h-10">
+            <span className="font-heading font-bold text-lg tracking-widest text-textPrimary">ZB</span>
           </div>
           <div className="ml-2">
-            <span className="text-lg md:text-xl font-heading font-bold text-white block text-center leading-tight">
+            <span className="text-lg md:text-xl font-heading font-semibold text-textPrimary block leading-tight tracking-wide">
               Zaheer <span className="text-accent1">Bijapure</span>
             </span>
-            <span className="text-xs text-white/80 font-medium -mt-1 block text-center">VFX & AI</span>
+            <span className="text-[0.62rem] text-textSecondary font-mono uppercase tracking-[0.2em] -mt-0.5 block">AI Film Director</span>
           </div>
         </Link>
 

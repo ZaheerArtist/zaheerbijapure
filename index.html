@@ -157,6 +157,24 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 @media (prefers-reduced-motion:reduce){.roll{animation:none}.rollbox{height:auto;-webkit-mask-image:none;mask-image:none}.set[aria-hidden]{display:none}}
 .note{margin-top:16px;color:var(--dim);font-size:.95rem;text-align:center}
 
+.reelwide{position:relative;margin:0 0 14px;aspect-ratio:2.39/1;max-width:100%;overflow:hidden;background:#000}
+.reelwide video{width:100%;height:100%;object-fit:cover;display:block}
+.reelwide::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,9,10,.85),transparent 45%);pointer-events:none}
+.reelwide figcaption{position:absolute;z-index:1;left:18px;bottom:16px;display:grid;gap:4px}
+.reelwide b{font-family:var(--title);font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:.04em}
+.reelwide i{font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ember)}
+@media (max-width:640px){.reelwide{aspect-ratio:16/9}}
+
+/* Education */
+.edu{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,5vw,56px);border-top:1px solid var(--edge);padding-top:clamp(36px,5vw,52px)}
+.edu>*{min-width:0}
+@media (max-width:820px){.edu{grid-template-columns:1fr}}
+.elist{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:16px}
+.elist b{display:block;font-family:var(--title);font-weight:600;font-size:clamp(1rem,2vw,1.15rem);letter-spacing:.02em;line-height:1.35}
+.elist span{display:block;margin-top:3px;font-family:var(--script);font-size:.78rem;letter-spacing:.06em;color:var(--dim)}
+.elist p{margin-top:4px;color:#d9d0be;font-size:.95rem}
+#education{padding-top:clamp(48px,7vw,80px)}
+
 /* 05 About */
 .me{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:clamp(28px,6vw,64px);align-items:center}
 .me>*{min-width:0}
@@ -292,6 +310,10 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
         <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · Feb 2023</small><strong>Star Performer</strong><em>Technicolor · MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
       </div>
       <h3 class="eyebrow subhead">VFX showreels</h3>
+      <figure class="reelwide">
+        <video id="stormvid" muted loop playsinline preload="none" poster="images/hero-poster.jpg" aria-label="The Storm, VFX reel"><source src="videos/hero.mp4" type="video/mp4"></video>
+        <figcaption><i>VFX reel</i><b>The Storm</b></figcaption>
+      </figure>
       <div class="reels">
         <a class="reel" href="https://vimeo.com/1060745371" target="_blank" rel="noopener"><img src="images/reel-production.jpg" alt="Still from the production layout showreel: two actors looking through an aircraft window" loading="lazy"><span><i>▶ Play</i><b>Production Layout</b></span></a>
         <a class="reel" href="https://vimeo.com/1062331587/1a0097ad99" target="_blank" rel="noopener"><img src="images/reel-cinematic.jpg" alt="Still from the cinematic camera reel: a butterfly in a CG flower field" loading="lazy"><span><i>▶ Play</i><b>Cinematic Camera</b></span></a>
@@ -306,6 +328,27 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
     </div>
   </section>
 
+  <!-- Education -->
+  <section id="education">
+    <div class="wrap edu">
+      <div>
+        <p class="eyebrow">Education</p>
+        <ul class="elist">
+          <li><b>Post-Graduate Diploma in Advertising &amp; Media</b><span>University of Mumbai · 2016 – 2017</span><p>A foundation in advertising, media and creative communication.</p></li>
+          <li><b>Bachelor&rsquo;s Degree in Animation, Interactive Technology, Video Graphics and Special Effects</b><span>Sikkim Manipal University · Distance Education · 2010 – 2013</span><p>Academic foundation in animation and digital visual production.</p></li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Selected professional development</p>
+        <ul class="elist">
+          <li><b>AI Filmmaking</b><span>Curious Refuge · Completed Sep 2025</span></li>
+          <li><b>AI Advertising</b><span>Curious Refuge · Completed</span></li>
+          <li><b>Prompt Engineering with ChatGPT 4 &amp; Midjourney</b><span>Udemy · Completed Aug 2023</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- 05 About -->
   <section id="about">
     <div class="wrap me">
@@ -314,7 +357,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
         <p class="eyebrow">The person behind the frames</p>
         <p class="quote">I treat AI like a camera department: <em>every frame is directed</em>, then finished with the care of a VFX shot.</p>
         <p class="body">I started in 2014 as a 3D animator, spent a decade building shots at DNEG and MPC for films like <i>The Matrix Resurrections</i> and <i>Kraven the Hunter</i>, and won two MPC awards along the way. Today I bring that craft to AI at Saatchi &amp; Saatchi ME in the UAE, working with creative and strategy teams to turn ideas into cinematic work for brands.</p>
-        <div class="actions"><a class="btn" href="about/">My full story</a></div>
+        <div class="actions"><a class="btn" href="about/">My full story</a><a class="btn" href="Zaheer-Bijapure-CV.pdf" download>Download CV (PDF)</a></div>
       </div>
     </div>
   </section>
@@ -358,6 +401,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
             <a class="btn" href="https://www.instagram.com/zaheerbijapure/" target="_blank" rel="noopener">Instagram</a>
             <a class="btn" href="https://www.youtube.com/@ZaheerBijapure" target="_blank" rel="noopener">YouTube</a>
             <a class="btn" href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener">IMDb</a>
+            <a class="btn hot" href="Zaheer-Bijapure-CV.pdf" download>Download CV</a>
           </div>
         </div>
       </div>
@@ -392,6 +436,10 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(e){sel()}
   });
 });
+// Storm reel: load and play only while on screen
+(function(){var v=document.getElementById('stormvid');if(!v)return;v.muted=true;
+  if(!('IntersectionObserver' in window)){v.preload='auto';v.play().catch(function(){});return;}
+  new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:.25}).observe(v);})();
 // Rolling credits pause/play
 (function(){var b=document.getElementById('rollpause'),box=document.getElementById('rollbox');if(!b||!box)return;b.addEventListener('click',function(){var on=box.classList.toggle('paused');b.textContent=on?'Play credits':'Pause credits';});})();
 // Enquiry form

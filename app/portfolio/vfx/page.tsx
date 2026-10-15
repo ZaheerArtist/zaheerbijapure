@@ -179,9 +179,9 @@ export default function VFXPortfolio() {
           {categories.map((category) => (
             <button
               key={category}
-              className={`px-6 py-2 rounded-full border-2 transition-all ${
+              className={`px-6 py-2 rounded-none border-2 transition-all ${
                 filter === category 
-                  ? 'border-accent1 bg-accent1 text-white' 
+                  ? 'border-accent1 bg-accent1 text-background' 
                   : 'border-secondary text-textSecondary hover:border-accent1'
               }`}
               onClick={() => setFilter(category)}
@@ -239,13 +239,13 @@ export default function VFXPortfolio() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <button 
-                      className="bg-background/90 text-white p-3 rounded-full mx-2 hover:bg-accent1 transition-colors duration-200"
+                      className="bg-background/90 text-background p-3 rounded-none mx-2 hover:bg-accent1 transition-colors duration-200"
                       onClick={() => setSelectedProject(project)}
                     >
                       <FaExpand className="text-xl" />
                     </button>
                     <button 
-                      className="bg-background/90 text-white p-3 rounded-full mx-2 hover:bg-accent1 transition-colors duration-200"
+                      className="bg-background/90 text-background p-3 rounded-none mx-2 hover:bg-accent1 transition-colors duration-200"
                       onClick={() => handlePlayVideo(project)}
                     >
                       <div className="flex items-center">
@@ -306,7 +306,7 @@ export default function VFXPortfolio() {
                 </button>
                 <button
                   type="submit"
-                  className="bg-accent1 text-white px-4 py-2 rounded hover:bg-accent1/80"
+                  className="bg-accent1 text-background px-4 py-2 rounded hover:bg-accent1/80"
                 >
                   Submit
                 </button>
@@ -348,7 +348,7 @@ export default function VFXPortfolio() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => setPlayingVideo(true)}
-                        className="bg-accent1 hover:bg-accent1/80 text-white py-2 px-4 rounded-full flex items-center"
+                        className="bg-accent1 hover:bg-accent1/80 text-background py-2 px-4 rounded-none flex items-center"
                       >
                         <FaPlay className="mr-2" /> Play Video
                       </button>

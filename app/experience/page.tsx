@@ -167,7 +167,7 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
               >
                 <div className="absolute -left-[53px] bg-background border-4 border-accent1 w-8 h-8 rounded-full"></div>
-                <div className="absolute -left-[45px] bg-accent1 w-4 h-4 rounded-full mt-2"></div>
+                <div className="absolute -left-[45px] bg-accent1 w-4 h-4 rounded-none mt-2"></div>
                 
                 <div className={`bg-primary p-6 rounded-lg shadow-lg hover:shadow-accent1/10 transition-all duration-300 ${expandedJob === index ? 'border-l-4 border-accent1' : ''}`}>
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start">
@@ -183,7 +183,7 @@ export default function Experience() {
                     </div>
                     <button 
                       onClick={() => toggleExpand(index)}
-                      className="self-start mt-2 md:mt-0 px-3 py-1 bg-secondary hover:bg-accent1/20 text-sm rounded-full transition-all flex items-center"
+                      className="self-start mt-2 md:mt-0 px-3 py-1 bg-secondary hover:bg-accent1/20 text-sm rounded-none transition-all flex items-center"
                     >
                       {expandedJob === index ? (
                         <>Show Less <FaChevronUp className="ml-1" /></>
