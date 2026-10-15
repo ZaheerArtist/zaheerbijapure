@@ -145,6 +145,16 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .marquee{font-family:var(--title);font-size:clamp(1.05rem,2.6vw,1.45rem);letter-spacing:.06em;line-height:1.9;max-width:900px;margin:0 auto;text-align:center}
 .marquee span{color:var(--ember);margin:0 .5em}
 .marquee b{font-weight:600;white-space:nowrap}
+.rollbox{position:relative;height:min(62vh,520px);overflow:hidden;max-width:760px;margin:0 auto;text-align:center;-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent)}
+.roll{animation:roll 75s linear infinite;will-change:transform}
+.rollbox:hover .roll,.rollbox:focus .roll,.rollbox.paused .roll{animation-play-state:paused}
+@keyframes roll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.set{padding-top:40px;display:flow-root}
+.cy{margin-bottom:34px}
+.cy p{font-family:var(--script);font-size:.78rem;letter-spacing:.3em;color:var(--ember);margin-bottom:8px}
+.cy b{display:block;font-family:var(--title);font-weight:600;font-size:clamp(1.05rem,2.5vw,1.4rem);letter-spacing:.05em;line-height:1.7}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--ember);text-decoration:underline;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.roll{animation:none}.rollbox{height:auto;-webkit-mask-image:none;mask-image:none}.set[aria-hidden]{display:none}}
 .note{margin-top:16px;color:var(--dim);font-size:.95rem;text-align:center}
 
 /* 05 About */
@@ -288,9 +298,11 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
         <a class="reel" href="https://vimeo.com/1062328741/dd9829b4a8" target="_blank" rel="noopener"><img src="images/reel-previz.jpg" alt="Still from the previz reel: a grey-shaded car on a city street" loading="lazy"><span><i>▶ Play</i><b>Previz &amp; Techviz</b></span></a>
         <a class="reel" href="https://youtu.be/Vqj1RU_uJCk" target="_blank" rel="noopener"><img src="images/reel-tracking.jpg" alt="Still from the camera and body tracking showreel" loading="lazy"><span><i>▶ Play</i><b>Body Tracking</b></span></a>
       </div>
-      <h3 class="eyebrow subhead">Selected credits</h3>
-      <p class="marquee"><b>The Matrix Resurrections</b> <span>·</span> <b>No Time to Die</b> <span>·</span> <b>Kraven the Hunter</b> <span>·</span> <b>The Flash</b> <span>·</span> <b>Aquaman and the Lost Kingdom</b> <span>·</span> <b>Wonder Woman 1984</b> <span>·</span> <b>Mission: Impossible – Fallout</b> <span>·</span> <b>Pinocchio</b> <span>·</span> <b>Back in Action</b> <span>·</span> <b>Brahmastra</b></p>
-      <p class="note">35+ films and series. <a href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener" style="color:var(--ember)">Full list on IMDb ↗</a> · <a href="portfolio/vfx/" style="color:var(--ember)">VFX portfolio</a></p>
+      <h3 class="eyebrow subhead">Film credits</h3>
+      <div class="rollbox" id="rollbox" tabindex="0" aria-label="Film and series credits, rolling">
+        <div class="roll"><div class="set"><div class="cy"><p>2025</p><b>Back in Action</b></div><div class="cy"><p>2024</p><b>Kraven the Hunter</b><b>Atlas</b><b>Halo</b><b>Argylle</b><b>Malaikottai Vaaliban</b></div><div class="cy"><p>2023</p><b>Aquaman and the Lost Kingdom</b><b>Leo</b><b>Ferrari</b><b>The Flash</b><b>Crater</b><b>Shazam! Fury of the Gods</b><b>Ant-Man and the Wasp: Quantumania</b></div><div class="cy"><p>2022</p><b>The School for Good and Evil</b><b>Guillermo del Toro&#x27;s Pinocchio</b><b>Devotion</b><b>Brahmastra Part One: Shiva</b></div><div class="cy"><p>2021</p><b>The Matrix Resurrections</b><b>Bell Bottom</b><b>Venom: Let There Be Carnage</b><b>No Time to Die</b><b>Jungle Cruise</b><b>Infinite</b><b>Jupiter&#x27;s Legacy</b><b>Zack Snyder&#x27;s Justice League</b></div><div class="cy"><p>2020</p><b>Wonder Woman 1984</b><b>The Boys</b><b>Greyhound</b></div><div class="cy"><p>2019</p><b>The Dark Crystal: Age of Resistance</b><b>Curfew</b><b>Fast &amp; Furious: Hobbs &amp; Shaw</b></div><div class="cy"><p>2018</p><b>Zero</b><b>Mission: Impossible – Fallout</b><b>Fantastic Beasts: The Crimes of Grindelwald</b><b>2.0</b></div></div><div class="set" aria-hidden="true"><div class="cy"><p>2025</p><b>Back in Action</b></div><div class="cy"><p>2024</p><b>Kraven the Hunter</b><b>Atlas</b><b>Halo</b><b>Argylle</b><b>Malaikottai Vaaliban</b></div><div class="cy"><p>2023</p><b>Aquaman and the Lost Kingdom</b><b>Leo</b><b>Ferrari</b><b>The Flash</b><b>Crater</b><b>Shazam! Fury of the Gods</b><b>Ant-Man and the Wasp: Quantumania</b></div><div class="cy"><p>2022</p><b>The School for Good and Evil</b><b>Guillermo del Toro&#x27;s Pinocchio</b><b>Devotion</b><b>Brahmastra Part One: Shiva</b></div><div class="cy"><p>2021</p><b>The Matrix Resurrections</b><b>Bell Bottom</b><b>Venom: Let There Be Carnage</b><b>No Time to Die</b><b>Jungle Cruise</b><b>Infinite</b><b>Jupiter&#x27;s Legacy</b><b>Zack Snyder&#x27;s Justice League</b></div><div class="cy"><p>2020</p><b>Wonder Woman 1984</b><b>The Boys</b><b>Greyhound</b></div><div class="cy"><p>2019</p><b>The Dark Crystal: Age of Resistance</b><b>Curfew</b><b>Fast &amp; Furious: Hobbs &amp; Shaw</b></div><div class="cy"><p>2018</p><b>Zero</b><b>Mission: Impossible – Fallout</b><b>Fantastic Beasts: The Crimes of Grindelwald</b><b>2.0</b></div></div></div>
+      </div>
+      <p class="note">35 films and series · <button type="button" class="linkbtn" id="rollpause">Pause credits</button> · <a href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener" style="color:var(--ember)">IMDb ↗</a> · <a href="portfolio/vfx/" style="color:var(--ember)">VFX portfolio</a></p>
     </div>
   </section>
 
@@ -380,6 +392,8 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(e){sel()}
   });
 });
+// Rolling credits pause/play
+(function(){var b=document.getElementById('rollpause'),box=document.getElementById('rollbox');if(!b||!box)return;b.addEventListener('click',function(){var on=box.classList.toggle('paused');b.textContent=on?'Play credits':'Pause credits';});})();
 // Enquiry form
 (function(){
   var f=document.getElementById('enquiry'),note=document.getElementById('f-note'),send=document.getElementById('f-send'),pw=document.getElementById('phonewrap');
