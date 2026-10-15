@@ -19,11 +19,12 @@ type Film = {
 
 // AI films: { id: <YouTube id>, title, genre, year, logline, tools }. Empty fields are hidden.
 const films: Film[] = [
-  { id: 'xQ4nvfIa0vM', title: 'Previz to Final', genre: 'AI film', year: '', logline: '', tools: '' },
-  { id: 'Cze-4Sl6rqk', title: 'A Little Moment', genre: 'AI film', year: '', logline: '', tools: '' },
-  { id: 'Qkfv8MbizyA', title: 'Midnight Smoke', genre: 'AI film', year: '', logline: '', tools: '' },
-  { id: 'Xgi4iJWYF_w', title: 'That Expression', genre: 'AI film', year: '', logline: '', tools: '' },
-  { id: 'VJ-GlgECLDs', title: 'Child', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'xQ4nvfIa0vM', title: 'From Previz to Final Frame', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'Cze-4Sl6rqk', title: 'The Little Moment', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'Qkfv8MbizyA', title: 'After Midnight', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'Xgi4iJWYF_w', title: 'The Look', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'VJ-GlgECLDs', title: 'Innocence', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'aCAQfk3F_4k', title: 'Through Young Eyes', genre: 'AI film', year: '', logline: '', tools: '' },
 ];
 const meta = (...parts: string[]) => parts.filter(Boolean).join(' · ');
 

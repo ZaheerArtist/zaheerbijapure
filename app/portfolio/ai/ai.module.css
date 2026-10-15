@@ -78,6 +78,9 @@
 .films { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 22px; }
 @media (max-width: 900px) { .films { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .films { grid-template-columns: 1fr; } }
+.films > .film:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.films > .film:last-child:nth-child(odd) .filmPic { aspect-ratio: 2.39 / 1; }
+@media (max-width: 560px) { .films > .film:last-child:nth-child(odd) .filmPic { aspect-ratio: 16 / 9; } }
 .film { display: grid; grid-template-rows: auto 1fr; background: var(--deep); border: 0; padding: 0; text-align: left; color: inherit; cursor: pointer; min-width: 0; }
 .filmPic { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
 .filmPic .playTag { position: absolute; left: 12px; bottom: 12px; }
