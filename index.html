@@ -4,18 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zaheer Bijapure</title>
-<meta name="description" content="Zaheer Bijapure, AI creative and VFX storyteller at Saatchi &amp; Saatchi ME. His career, told as a film in four reels.">
+<meta name="description" content="Zaheer Bijapure, storyteller at Saatchi &amp; Saatchi ME. AI × VFX × Content: cinematic campaigns from concept to screen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Courier+Prime:wght@400;700&family=Figtree:wght@400;500;600&display=swap">
 <style>
-/* Layout: a feature film in four reels. Opening titles, screenplay scenes, letterboxed stills with subtitles, end credits, post-credits scene. Teal-and-orange grade throughout. */
+/* Layout: one short film. Title card, four scenes, the reels, the films, the end. Teal-and-orange grade. */
 :root{
-  --void:#06090a;        /* the cinema, lights down */
-  --deep:#0c1a1c;        /* teal shadow of the grade */
-  --edge:#1f3336;        /* rules, sprockets */
-  --cream:#f2e8d5;       /* projector light on screen */
-  --dim:#8ea1a0;         /* teal-grey secondary */
-  --ember:#ff7a2f;       /* the orange half of the grade */
+  --void:#06090a; --deep:#0c1a1c; --edge:#1f3336; --cream:#f2e8d5; --dim:#8ea1a0; --ember:#ff7a2f;
   --title:"Cinzel","Trajan Pro",Georgia,serif;
   --script:"Courier Prime","Courier New",Courier,monospace;
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -23,416 +18,207 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-section[id]{scroll-margin-top:56px}
-body{margin:0;background:var(--void);color:var(--cream);font:400 1.0625rem/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+section[id]{scroll-margin-top:60px}
+body{margin:0;background:var(--void);color:var(--cream);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--ember);outline-offset:3px}
-p{margin:0}
-h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.narrow{max-width:720px}
-.script{font-family:var(--script)}
-.eyebrow{font-family:var(--script);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ember)}
-
-/* Film grain + progress */
-.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045}
-.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--ember);z-index:40}
-
-/* Top nav */
-.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:30;padding-top:14px;padding-bottom:14px;background:linear-gradient(var(--void),transparent)}
-.nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
-.mark{font-family:var(--title);font-weight:800;letter-spacing:.3em;text-decoration:none;font-size:.95rem}
-.nav nav{display:flex;gap:20px;font-family:var(--script);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
-.nav nav a{text-decoration:none;color:var(--dim)}
-.nav nav a:hover{color:var(--ember)}
-@media (max-width:640px){.nav nav a.opt{display:none}}
-
-/* Opening titles */
-.opening{position:relative;min-height:min(100vh,860px);display:grid;place-items:center;text-align:center;overflow:hidden;background:var(--void);isolation:isolate}
-.opening .plate{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;opacity:.42;filter:saturate(1.25) contrast(1.1) sepia(.15) hue-rotate(-8deg);animation:push 24s ease-out both;will-change:transform}
-@keyframes push{from{transform:scale(1.18)}to{transform:scale(1.02)}}
-.opening::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,transparent 25%,var(--void) 85%),linear-gradient(180deg,rgba(12,26,28,.55),rgba(6,9,10,.9))}
-.bars::before,.bars::after{content:"";position:absolute;left:0;right:0;height:9vh;max-height:80px;background:#000;z-index:2;animation:bar 1.6s cubic-bezier(.7,0,.2,1) both}
-.bars::before{top:0;transform-origin:top}.bars::after{bottom:0;transform-origin:bottom}
-@keyframes bar{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-.titles{padding-block:140px 120px;display:grid;gap:22px;justify-items:center}
-.presents{font-family:var(--script);letter-spacing:.35em;text-transform:uppercase;font-size:.8rem;color:var(--dim);animation:fade 1.4s .3s ease both}
-.opening h1{font-family:var(--title);font-weight:600;font-size:clamp(2.4rem,9vw,7.2rem);line-height:1.05;letter-spacing:.06em;animation:track 2.4s .2s cubic-bezier(.2,.7,.1,1) both}
-.opening h1 span{display:block;font-size:.42em;letter-spacing:.5em;color:var(--ember);margin-top:.35em;padding-left:.5em}
-@keyframes track{from{letter-spacing:.2em;opacity:.2}to{letter-spacing:.06em;opacity:1}}
-@keyframes fade{from{opacity:.1}to{opacity:1}}
-.logline{max-width:46ch;font-size:clamp(1.05rem,2.3vw,1.3rem);color:var(--cream);animation:fade 1.6s 1.2s ease both}
-.billing{margin-top:10px;font-family:var(--title);font-size:.72rem;letter-spacing:.24em;color:var(--dim);line-height:2;max-width:640px;animation:fade 1.6s 1.6s ease both}
-.billing b{color:var(--cream);font-weight:600}
-.cue{margin-top:18px;font-family:var(--script);font-size:.75rem;letter-spacing:.3em;color:var(--ember);text-decoration:none;animation:fade 1.6s 2s ease both}
-
-/* Reel chapter cards */
-.reel{padding-block:clamp(90px,14vw,170px) clamp(40px,6vw,70px)}
-.card{text-align:center;display:grid;gap:14px;justify-items:center}
-.card .num{font-family:var(--script);letter-spacing:.4em;text-transform:uppercase;font-size:.8rem;color:var(--ember)}
-.card h2{font-family:var(--title);font-weight:600;font-size:clamp(2.2rem,7vw,5rem);line-height:1.05;letter-spacing:.04em}
-.card .years{font-family:var(--title);letter-spacing:.3em;color:var(--dim);font-size:.9rem}
-.card::after{content:"";width:1px;height:70px;background:linear-gradient(var(--ember),transparent);margin-top:18px}
-
-/* Screenplay */
-.page{margin-top:48px;font-family:var(--script);font-size:1.05rem;line-height:1.6}
-.slug{font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:40px}
-.slug:first-child{margin-top:0}
-.action{margin-top:16px;color:#d9d0be}
-.cue-name{margin-top:26px;text-align:center;text-transform:uppercase}
-.dialogue{margin:4px auto 0;max-width:34ch;text-align:left}
-.paren{margin:2px auto 0;max-width:24ch;color:var(--dim);font-style:italic;text-align:left}
-.credit-line{margin-top:16px;padding:14px 16px;border-left:2px solid var(--ember);background:var(--deep);font-family:var(--body);font-size:.95rem}
-.credit-line b{display:block;font-weight:600;font-size:1.02rem}
-.credit-line span{color:var(--dim);font-family:var(--script);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
-.transition{margin-top:34px;text-align:right;text-transform:uppercase;font-weight:700;color:var(--ember)}
-
-/* Letterboxed still with subtitle */
-.still{position:relative;margin:64px auto 0;max-width:1180px;aspect-ratio:2.39/1;width:100%;overflow:hidden;background:#000}
-.still img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.2) contrast(1.08) sepia(.12)}
-.still::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(15,52,58,.45),transparent 50%,rgba(255,122,47,.18)),radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.55));mix-blend-mode:normal}
-.still .sub{position:absolute;z-index:2;left:50%;bottom:7%;transform:translateX(-50%);width:90%;text-align:center;font-family:var(--body);font-weight:500;font-size:clamp(.85rem,2.1vw,1.35rem);line-height:1.35;color:#fff;text-shadow:0 0 6px #000,0 2px 2px #000}
-.still .tc{position:absolute;z-index:2;top:6%;left:3%;font-family:var(--script);font-size:.7rem;letter-spacing:.12em;color:rgba(242,232,213,.75)}
-.still.portrait{aspect-ratio:auto;max-width:520px}
-.still.portrait img{aspect-ratio:3/4;height:auto}
-@media (max-width:560px){.still .sub{font-size:.8rem;bottom:5%}.still .tc{display:none}}
-
-/* Laurels */
-.laurels{display:flex;flex-wrap:wrap;justify-content:center;gap:28px 40px;margin-top:56px}
-.laurel{display:flex;align-items:center;gap:6px;color:var(--ember)}
-.laurel svg{width:46px;height:92px;flex:none}
-.laurel svg.r{transform:scaleX(-1)}
-.laurel div{text-align:center;color:var(--cream);font-family:var(--title);line-height:1.25;width:170px}
-.laurel small{display:block;font-size:.62rem;letter-spacing:.24em;color:var(--ember)}
-.laurel strong{display:block;font-weight:600;font-size:1.05rem;letter-spacing:.06em;margin:6px 0}
-.laurel em{font-style:normal;font-size:.62rem;letter-spacing:.2em;color:var(--dim)}
-
-/* Now showing */
-.showing h2,.trailers h2{font-family:var(--title);font-weight:600;font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:.05em;text-align:center}
-.showing .eyebrow,.trailers .eyebrow{text-align:center;display:block;margin-bottom:12px}
-.strip{margin-top:44px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-@media (max-width:680px){.strip{grid-template-columns:1fr}}
-.frame{display:block;text-decoration:none;background:#000;padding:16px 0;position:relative}
-.frame::before,.frame::after{content:"";position:absolute;left:0;right:0;height:8px;background:repeating-linear-gradient(90deg,transparent 0 10px,var(--edge) 10px 22px)}
-.frame::before{top:4px}.frame::after{bottom:4px}
-.frame .pic{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden}
-.frame img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.75) contrast(1.05);transition:transform .7s ease,filter .7s ease}
-.frame:hover img,.frame:focus-visible img{transform:scale(1.05);filter:saturate(1.1)}
-.frame .play{position:absolute;inset:auto auto 14px 14px;font-family:var(--script);font-size:.75rem;letter-spacing:.2em;background:var(--ember);color:var(--void);padding:6px 10px}
-.frame .info{padding:14px 16px 4px}
-.frame .info b{font-family:var(--title);font-weight:600;letter-spacing:.05em;font-size:1.1rem;display:block}
-.frame .info span{color:var(--dim);font-size:.94rem}
-
-/* Trailers */
-.tlist{list-style:none;margin:44px 0 0;padding:0;border-top:1px solid var(--edge)}
-.tlist a{display:grid;grid-template-columns:110px 1fr auto;gap:6px 22px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--edge);text-decoration:none}
-.tlist a>*{min-width:0}
-.tlist .g{font-family:var(--script);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ember)}
-.tlist b{font-family:var(--title);font-weight:600;font-size:clamp(1.1rem,2.6vw,1.5rem);letter-spacing:.04em}
-.tlist p{grid-column:2/3;color:var(--dim);font-size:.95rem}
-.tlist .w{font-family:var(--script);color:var(--ember);font-size:.85rem}
-.tlist a:hover b{color:var(--ember)}
-@media (max-width:560px){.tlist a{grid-template-columns:1fr auto}.tlist p{grid-column:1/-1}.tlist .g{grid-column:1/-1}}
-.posters{display:grid;gap:22px;margin-top:48px}
-.posters figure{margin:0}
-.posters img{width:100%;display:block}
-.posters figcaption{margin-top:10px;font-family:var(--script);font-size:.78rem;color:var(--dim);letter-spacing:.06em}
-
-/* End credits */
-.credits{text-align:center}
-.roll-box{position:relative;height:min(78vh,620px);overflow:hidden;margin-top:40px;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
-.roll{animation:roll 90s linear infinite;will-change:transform}
-.roll>div{padding-top:40px;display:flow-root}
-@media (hover:hover){.roll-box:hover .roll{animation-play-state:paused}}
-.roll-box.paused .roll{animation-play-state:paused}
-@keyframes roll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
-.block{margin-bottom:46px}
-.block .role{font-family:var(--title);font-size:.7rem;letter-spacing:.32em;color:var(--ember);margin-bottom:8px}
-.block .name{font-family:var(--title);font-weight:600;font-size:clamp(1.05rem,2.6vw,1.45rem);letter-spacing:.08em;line-height:1.6}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px;text-align:left;max-width:560px;margin:0 auto;font-family:var(--title);font-size:.92rem;letter-spacing:.06em}
-.pair span:nth-child(odd){text-align:right;color:var(--dim);font-size:.7rem;letter-spacing:.2em;padding-top:4px}
-.credits-tools{margin-top:22px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{font-family:var(--script);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;background:transparent;color:var(--cream);border:1px solid var(--edge);padding:11px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+p,h1,h2,h3{margin:0}
+h1,h2,h3{font-weight:600;text-wrap:balance}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--script);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ember)}
+.h2{font-family:var(--title);font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.04em;line-height:1.05}
+.btn{display:inline-block;font-family:var(--script);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;padding:12px 18px;border:1px solid var(--edge);color:var(--cream);background:transparent;text-decoration:none;cursor:pointer}
 .btn:hover{border-color:var(--ember);color:var(--ember)}
 .btn.hot{background:var(--ember);border-color:var(--ember);color:var(--void)}
 .btn.hot:hover{color:var(--void);filter:brightness(1.08)}
+.head{text-align:center;display:grid;gap:12px;justify-items:center;margin-bottom:40px}
+section{padding-block:clamp(72px,11vw,120px) 0}
 
-/* Post-credits */
-.post{padding-block:clamp(90px,14vw,160px)}
-.post h2{font-family:var(--title);font-weight:600;font-size:clamp(2.2rem,8vw,5.6rem);letter-spacing:.03em;line-height:1.02;text-align:center}
-.post h2 em{font-style:normal;color:var(--ember)}
-.contact{margin:46px auto 0;max-width:640px;display:grid;gap:12px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--deep);padding:16px 18px}
+/* Nav */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;background:linear-gradient(var(--void),transparent)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:14px}
+.mark{font-family:var(--title);font-weight:700;letter-spacing:.3em;text-decoration:none}
+.nav nav{display:flex;gap:18px;font-family:var(--script);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
+.nav nav a{text-decoration:none;color:var(--dim)}
+.nav nav a:hover{color:var(--ember)}
+@media (max-width:560px){.nav nav .opt{display:none}}
+
+/* Title card */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(92vh,820px);display:grid;align-items:end;padding:0}
+.hero .plate{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;filter:saturate(1.2) contrast(1.05);animation:push 20s ease-out both}
+@keyframes push{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,9,10,.35) 0%,rgba(6,9,10,.55) 45%,var(--void) 96%),linear-gradient(90deg,rgba(12,40,44,.55),transparent 60%)}
+.hero .wrap{width:100%;padding-block:120px 64px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
+.hero h1{font-family:var(--title);font-size:clamp(2.8rem,9vw,6.6rem);line-height:.98;letter-spacing:.03em}
+.hero h1 span{display:block;color:var(--ember);font-size:.4em;letter-spacing:.45em;margin-top:.5em}
+.role{margin-top:22px;font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:34ch}
+.role b{color:var(--ember);font-weight:600}
+.actions{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.face{width:min(240px,32vw);aspect-ratio:3/4;object-fit:cover;display:block;border:1px solid rgba(242,232,213,.25);filter:saturate(.9)}
+@media (max-width:700px){.hero .wrap{grid-template-columns:1fr}.face{display:none}}
+
+/* Four scenes */
+.scenes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--edge)}
+.scene{padding:26px 22px 28px;border-right:1px solid var(--edge);min-width:0}
+.scene:last-child{border-right:0;background:linear-gradient(180deg,rgba(255,122,47,.12),transparent)}
+.scene .yr{font-family:var(--script);font-size:.78rem;color:var(--dim);letter-spacing:.1em}
+.scene h3{font-family:var(--title);font-size:1.3rem;letter-spacing:.03em;margin:10px 0 8px}
+.scene p{color:var(--dim);font-size:.95rem}
+.scene .at{display:block;margin-top:12px;font-family:var(--script);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ember)}
+@media (max-width:860px){.scenes{grid-template-columns:1fr 1fr}.scene:nth-child(2){border-right:0}.scene:nth-child(-n+2){border-bottom:1px solid var(--edge)}}
+@media (max-width:480px){.scenes{grid-template-columns:1fr}.scene{border-right:0;border-bottom:1px solid var(--edge)}}
+
+/* Laurels */
+.laurels{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 48px;margin-top:44px}
+.laurel{display:flex;align-items:center;gap:4px;color:var(--ember)}
+.laurel svg{width:34px;height:70px;flex:none}
+.laurel svg.r{transform:scaleX(-1)}
+.laurel div{text-align:center;font-family:var(--title);width:150px;color:var(--cream);line-height:1.25}
+.laurel small{display:block;font-size:.6rem;letter-spacing:.22em;color:var(--ember)}
+.laurel strong{display:block;font-size:1rem;margin:4px 0}
+.laurel em{font-style:normal;font-size:.6rem;letter-spacing:.18em;color:var(--dim)}
+
+/* Reels */
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:860px){.reels{grid-template-columns:1fr 1fr}}
+.reel{display:block;text-decoration:none;position:relative;aspect-ratio:4/5;overflow:hidden;background:#000}
+.reel img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8);transition:transform .7s ease,filter .7s ease}
+.reel:hover img,.reel:focus-visible img{transform:scale(1.06);filter:saturate(1.1)}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,9,10,.92),transparent 60%)}
+.reel span{position:absolute;z-index:1;left:14px;right:14px;bottom:14px;display:grid;gap:4px}
+.reel b{font-family:var(--title);font-size:1.05rem;letter-spacing:.03em}
+.reel i{font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.16em;color:var(--ember)}
+
+/* AI films */
+.films{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;border-top:1px solid var(--edge)}
+@media (max-width:640px){.films{grid-template-columns:1fr}}
+.films a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--edge);text-decoration:none}
+.films b{font-family:var(--title);font-size:1.12rem;letter-spacing:.03em}
+.films a:hover b{color:var(--ember)}
+.films i{font-style:normal;font-family:var(--script);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember);white-space:nowrap}
+.more{text-align:center;margin-top:30px}
+
+/* Credits */
+.credits{text-align:center}
+.marquee{font-family:var(--title);font-size:clamp(1.05rem,2.6vw,1.5rem);letter-spacing:.06em;line-height:1.9;max-width:900px;margin:0 auto}
+.marquee span{color:var(--ember);margin:0 .5em}
+.marquee b{font-weight:600;white-space:nowrap}
+.credits .note{margin-top:18px;color:var(--dim);font-size:.95rem}
+
+/* End */
+.end{padding-block:clamp(90px,14vw,150px) clamp(60px,8vw,90px);text-align:center}
+.end h2{font-family:var(--title);font-size:clamp(2.2rem,8vw,5rem);line-height:1.02;letter-spacing:.03em}
+.end h2 em{font-style:normal;color:var(--ember)}
+.contact{margin:36px auto 0;max-width:560px;display:grid;gap:10px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--deep);padding:14px 16px;text-align:left}
 .row>div{min-width:0}
-.row .k{font-family:var(--script);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
-.row .v{font-size:1.15rem;font-weight:500;user-select:all;overflow-wrap:anywhere}
-.row .acts{display:flex;gap:8px}
-.socials{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-footer{padding-block:34px;text-align:center;font-family:var(--title);letter-spacing:.4em;font-size:.8rem;color:var(--dim)}
-footer b{display:block;font-size:1.6rem;letter-spacing:.3em;color:var(--cream);font-weight:600;margin-bottom:10px}
+.row .k{font-family:var(--script);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.row .v{font-weight:500;font-size:1.1rem;user-select:all;overflow-wrap:anywhere}
+.socials{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spacing:.35em;font-size:.75rem;color:var(--dim)}
 
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .opening .plate,.bars::before,.bars::after,.opening h1,.presents,.logline,.billing,.cue{animation:none}
-  .roll{animation:none}.roll-box{height:auto;-webkit-mask-image:none;mask-image:none}.roll .dup{display:none}
-  .frame img{transition:none}
-}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero .plate{animation:none}.reel img{transition:none}}
 </style>
 </head>
 <body>
 
-<div class="grain" id="grain" aria-hidden="true"></div>
-<div class="progress" id="progress" aria-hidden="true"></div>
-
-<header class="nav">
-  <div class="wrap">
-    <a class="mark" href="#top">ZB</a>
-    <nav aria-label="Sections">
-      <a href="#reel1" class="opt">Story</a><a href="#showing">Reels</a><a href="#ai" class="opt">AI</a><a href="#credits" class="opt">Credits</a><a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+<header class="nav"><div class="wrap">
+  <a class="mark" href="#top">ZB</a>
+  <nav aria-label="Sections"><a class="opt" href="#story">Story</a><a href="#reels">Reels</a><a class="opt" href="#ai">AI</a><a href="#contact">Contact</a></nav>
+</div></header>
 
 <main id="top">
-  <section class="opening bars">
+  <section class="hero">
     <div class="plate" style="background-image:url('images/still-butterfly.jpg')"></div>
-    <div class="wrap titles">
-      <p class="presents">A story in four reels</p>
-      <h1>Zaheer Bijapure<span>Storyteller</span></h1>
-      <p class="logline">A layout artist spends ten years placing cameras for Hollywood. Then he points the lens at something new.</p>
-      <p class="billing"><b>VFX Layout</b> · Matchmove · Body Track · Previz · <b>AI Creative</b><br>MPC · DNEG · Red Chillies · Studio Blo · <b>Saatchi &amp; Saatchi</b></p>
-      <a class="cue" href="#reel1">▼ Roll film</a>
-    </div>
-  </section>
-
-  <!-- REEL ONE -->
-  <section class="reel" id="reel1">
-    <div class="wrap narrow">
-      <div class="card"><p class="num">Reel One</p><h2>The Apprentice</h2><p class="years">2014 — 2017</p></div>
-      <div class="page">
-        <p class="slug">Fade in.</p>
-        <p class="slug">Int. Vertex Volt Studio — Mumbai — Day — 2014</p>
-        <p class="action">A young artist sits at a workstation with Maya open. He rigs, models, textures and animates whatever lands on his desk, from Indian TV epics like <i>Devon Ke Dev Mahadev</i> and <i>Hatim</i> to TV commercials.</p>
-        <p class="cue-name">Zaheer (V.O.)</p>
-        <p class="dialogue">Animation taught me timing. Every frame has to earn its place.</p>
-        <p class="slug">Int. Tata Elxsi — Day — 2016</p>
-        <p class="action">He animates and lays out shots for the French series <i>Maya the Bee</i>, a Tata Motors ad and eLearning films. Evenings go to a post-graduate diploma in Advertising and Media. It will matter later.</p>
-        <div class="credit-line"><b>3D Animator &amp; 3D Artist</b><span>Vertex Volt · 2014 – 2015</span></div>
-        <div class="credit-line"><b>Animator &amp; CG Layout Artist</b><span>Tata Elxsi · 2016 – 2017</span></div>
-        <p class="transition">Cut to:</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- REEL TWO -->
-  <section class="reel" id="reel2">
-    <div class="wrap narrow">
-      <div class="card"><p class="num">Reel Two</p><h2>The Big Screen</h2><p class="years">2017 — 2022</p></div>
-      <div class="page">
-        <p class="slug">Int. Red Chillies Entertainment — Night — 2017</p>
-        <p class="action">His first feature, <i>Zero</i>. He learns body tracking, locking a digital body onto a real actor frame by frame until no one can see the join.</p>
-        <p class="slug">Int. DNEG — Mumbai — 2018</p>
-        <p class="action">The studio behind Hollywood blockbusters. He tracks bodies and cameras, manages layout on <i>Devotion</i>, pre-delivers complex shots for <i>The Matrix Resurrections</i>, and solves the flying and water sequences nobody else wants.</p>
-        <p class="cue-name">Zaheer (V.O.)</p>
-        <p class="paren">(quietly)</p>
-        <p class="dialogue">If the audience notices my work, I've failed. If they believe the shot, I've done my job.</p>
-        <p class="action">Soon he is teaching it too, as the studio's upskill trainer.</p>
-        <div class="credit-line"><b>Animator &amp; Body Track Artist</b><span>Red Chillies · 2017 – 2018</span></div>
-        <div class="credit-line"><b>Layout · Senior Body Track · Matchmove · Upskill Trainer</b><span>DNEG · 2018 – 2022</span></div>
-      </div>
-    </div>
-    <figure class="still" style="margin-bottom:0">
-      <img src="images/still-previz.jpg" alt="Previz frame of a car speeding down a city street, from Zaheer's previz reel">
-      <span class="tc">PREVIZ · SH040 · 1047</span>
-      <figcaption class="sub">Before a single frame is shot, someone has to plan the camera.</figcaption>
-    </figure>
-  </section>
-
-  <!-- REEL THREE -->
-  <section class="reel" id="reel3">
-    <div class="wrap narrow">
-      <div class="card"><p class="num">Reel Three</p><h2>Behind the Camera</h2><p class="years">2022 — 2025</p></div>
-      <div class="page">
-        <p class="slug">Int. MPC — Layout Department — 2022</p>
-        <p class="action">Senior now. He builds the cameras, previz and techviz for films like <i>The Flash</i>, <i>Kraven the Hunter</i> and <i>Back in Action</i>. He dresses sets, builds proxies and makes sure every department downstream gets what it needs.</p>
-        <p class="action">The studio notices. Twice.</p>
-        <div class="credit-line"><b>Senior VFX Layout · Previz · Techviz · Matchmove</b><span>MPC · 2022 – 2025</span></div>
-      </div>
-    </div>
-    <div class="laurels" aria-label="Awards">
-      <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/><ellipse cx="17" cy="32" rx="3" ry="7" transform="rotate(30 17 32)"/><ellipse cx="18" cy="48" rx="3" ry="7" transform="rotate(10 18 48)"/><ellipse cx="24" cy="63" rx="3" ry="7" transform="rotate(-15 24 63)"/></g></svg>
-        <div><small>Winner · Dec 2023</small><strong>The Spotlight Award</strong><em>MPC · Technicolor Creative Studios</em></div>
-        <svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/><ellipse cx="17" cy="32" rx="3" ry="7" transform="rotate(30 17 32)"/><ellipse cx="18" cy="48" rx="3" ry="7" transform="rotate(10 18 48)"/><ellipse cx="24" cy="63" rx="3" ry="7" transform="rotate(-15 24 63)"/></g></svg>
-      </div>
-      <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/><ellipse cx="17" cy="32" rx="3" ry="7" transform="rotate(30 17 32)"/><ellipse cx="18" cy="48" rx="3" ry="7" transform="rotate(10 18 48)"/><ellipse cx="24" cy="63" rx="3" ry="7" transform="rotate(-15 24 63)"/></g></svg>
-        <div><small>Winner · Feb 2023</small><strong>Star Performer Award</strong><em>MPC · Technicolor Creative Studios</em></div>
-        <svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/><ellipse cx="17" cy="32" rx="3" ry="7" transform="rotate(30 17 32)"/><ellipse cx="18" cy="48" rx="3" ry="7" transform="rotate(10 18 48)"/><ellipse cx="24" cy="63" rx="3" ry="7" transform="rotate(-15 24 63)"/></g></svg>
-      </div>
-    </div>
-    <div class="wrap"><figure class="still portrait">
-      <img src="images/portrait.jpg" alt="Zaheer Bijapure holding his award at an MPC event">
-      <figcaption class="sub">No excuses. Just the work.</figcaption>
-    </figure></div>
-  </section>
-
-  <!-- REEL FOUR -->
-  <section class="reel" id="ai">
-    <div class="wrap narrow">
-      <div class="card"><p class="num">Reel Four</p><h2>The Plot Twist</h2><p class="years">2025 — Now</p></div>
-      <div class="page">
-        <p class="slug">Int. Studio Blo — Mumbai — 2025</p>
-        <p class="action">The tools change overnight. Images and video can be generated from a sentence. Most artists panic. He sees cameras, lenses and continuity, the same craft he has practised for a decade. He becomes AI VFX Lead.</p>
-        <p class="slug">Ext. Dubai skyline — Sunset — Sep 2025</p>
-        <p class="action">A new city. He joins Saatchi &amp; Saatchi ME, part of Publicis Groupe, as Senior Designer, AI Creative. Remember that advertising diploma? This is where the story pays it off.</p>
-        <p class="cue-name">Zaheer (V.O.)</p>
-        <p class="dialogue">I write a prompt the way I'd brief a shot. The tool is new. The storytelling isn't.</p>
-        <div class="credit-line"><b>AI VFX Lead</b><span>Studio Blo · Apr – Jul 2025</span></div>
-        <div class="credit-line"><b>Senior Designer, AI Creative</b><span>Saatchi &amp; Saatchi ME · UAE · Sep 2025 – Present</span></div>
-        <p class="transition">To be continued…</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOW SHOWING -->
-  <section class="reel showing" id="showing">
     <div class="wrap">
-      <span class="eyebrow">Now showing</span>
-      <h2>The Showreels</h2>
-      <div class="strip">
-        <a class="frame" href="https://vimeo.com/1060745371" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-production.jpg" alt="Still from the production layout showreel"><span class="play">▶ Play</span></div>
-          <div class="info"><b>Production Layout</b><span>CG cameras, retimes, re-racks, proxies and crowd placement.</span></div>
-        </a>
-        <a class="frame" href="https://vimeo.com/1062331587/1a0097ad99" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-cinematic.jpg" alt="Still of a butterfly in a CG flower field"><span class="play">▶ Play</span></div>
-          <div class="info"><b>Cinematic Camera</b><span>Stitched and projected cameras, framing that serves the story.</span></div>
-        </a>
-        <a class="frame" href="https://vimeo.com/1062328741/dd9829b4a8" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-previz.jpg" alt="Previz still of a car on a city street"><span class="play">▶ Play</span></div>
-          <div class="info"><b>Previz &amp; Techviz</b><span>Complex sequences planned and solved before the shoot.</span></div>
-        </a>
-        <a class="frame" href="https://youtu.be/Vqj1RU_uJCk" target="_blank" rel="noopener">
-          <div class="pic"><img src="images/reel-tracking.jpg" alt="Still from the camera and body tracking showreel"><span class="play">▶ Play</span></div>
-          <div class="info"><b>Camera &amp; Body Tracking</b><span>Precise tracks that let CG live inside real footage.</span></div>
-        </a>
+      <div>
+        <p class="eyebrow">AI × VFX × Content</p>
+        <h1 style="margin-top:14px">Zaheer Bijapure<span>Storyteller</span></h1>
+        <p class="role">Senior Designer, AI Creative at <b>Saatchi &amp; Saatchi ME</b>. Ten years building shots for Hollywood, now crafting cinematic campaigns from concept to screen.</p>
+        <div class="actions"><a class="btn hot" href="#reels">▶ Watch reels</a><a class="btn" href="#contact">Work with me</a></div>
       </div>
+      <img class="face" src="images/portrait.jpg" alt="Zaheer Bijapure holding his MPC award">
     </div>
   </section>
 
-  <!-- TRAILERS -->
-  <section class="reel trailers" style="padding-top:0">
+  <section id="story">
     <div class="wrap">
-      <span class="eyebrow">Coming attractions</span>
-      <h2>AI Films</h2>
-      <ul class="tlist">
-        <li><a href="https://youtu.be/koywWFCnhhg" target="_blank" rel="noopener"><span class="g">Fashion</span><b>Effortless Elegance, Redefined</b><span class="w">Watch ↗</span><p>A fashion spot inspired by ZARA, built entirely with AI.</p></a></li>
-        <li><a href="https://youtu.be/Ra4tNXg4hSI" target="_blank" rel="noopener"><span class="g">Food</span><b>Happy Noodles</b><span class="w">Watch ↗</span><p>A comedy food ad with character, timing and a punchline.</p></a></li>
-        <li><a href="https://youtu.be/P4x1BBZdlyU" target="_blank" rel="noopener"><span class="g">Showcase</span><b>AI Film Showcase</b><span class="w">Watch ↗</span><p>Story-driven visuals made with Runway, Vidu, Kling and MiniMax.</p></a></li>
-        <li><a href="https://youtu.be/Q1QOJ3eY4Fo" target="_blank" rel="noopener"><span class="g">Travel</span><b>New York to Dubai</b><span class="w">Watch ↗</span><p>A premium airline-style travel ad.</p></a></li>
-      </ul>
-      <p style="text-align:center;margin-top:36px"><a class="btn hot" href="portfolio/ai/">Enter the full AI portfolio</a></p>
-      <div class="posters">
-        <figure><img src="images/ai-poster-1.jpg" alt="AI-generated baby soap advertisement, a smiling baby in bubbles on pink"><figcaption>Key visual 01 · Baby care concept · Freepik AI + Photoshop</figcaption></figure>
-        <figure><img src="images/ai-poster-2.jpg" alt="Second AI-generated baby care advertisement"><figcaption>Key visual 02 · Baby care concept · Freepik AI + Photoshop</figcaption></figure>
+      <div class="head"><p class="eyebrow">The story so far</p><h2 class="h2">Four reels, one craft</h2></div>
+      <div class="scenes">
+        <div class="scene"><p class="yr">2014 – 2017</p><h3>The Apprentice</h3><p>Animation for TV, ads and <i>Maya the Bee</i>.</p><span class="at">Vertex Volt · Tata Elxsi</span></div>
+        <div class="scene"><p class="yr">2017 – 2022</p><h3>The Big Screen</h3><p>Body track and layout on <i>Zero</i>, <i>Devotion</i>, <i>The Matrix Resurrections</i>.</p><span class="at">Red Chillies · DNEG</span></div>
+        <div class="scene"><p class="yr">2022 – 2025</p><h3>Behind the Camera</h3><p>Senior layout, previz and techviz on <i>The Flash</i> and <i>Kraven</i>.</p><span class="at">MPC</span></div>
+        <div class="scene"><p class="yr">2025 – Now</p><h3>The Plot Twist</h3><p>AI films and campaigns for global brands.</p><span class="at">Studio Blo · Saatchi &amp; Saatchi</span></div>
+      </div>
+      <div class="laurels" aria-label="Awards">
+        <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · 2023</small><strong>Spotlight Award</strong><em>MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
+        <div class="laurel"><svg viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg><div><small>Winner · 2023</small><strong>Star Performer</strong><em>MPC</em></div><svg class="r" viewBox="0 0 46 92" aria-hidden="true"><g fill="currentColor"><path d="M40 90C18 80 6 60 8 30" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="9" cy="24" rx="4" ry="9" transform="rotate(-10 9 24)"/><ellipse cx="6" cy="40" rx="4" ry="9" transform="rotate(-35 6 40)"/><ellipse cx="9" cy="56" rx="4" ry="9" transform="rotate(-55 9 56)"/><ellipse cx="17" cy="70" rx="4" ry="9" transform="rotate(-70 17 70)"/><ellipse cx="28" cy="81" rx="4" ry="9" transform="rotate(-82 28 81)"/></g></svg></div>
       </div>
     </div>
   </section>
 
-  <!-- END CREDITS -->
-  <section class="reel credits" id="credits">
-    <div class="wrap narrow">
-      <span class="eyebrow">End credits</span>
-      <div class="roll-box" id="rollbox">
-        <div class="roll" id="roll"></div>
-      </div>
-      <div class="credits-tools">
-        <button class="btn" type="button" id="pause">Pause credits</button>
-        <a class="btn" href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener">IMDb ↗</a>
+  <section id="reels">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Now showing</p><h2 class="h2">The showreels</h2></div>
+      <div class="reels">
+        <a class="reel" href="https://vimeo.com/1060745371" target="_blank" rel="noopener"><img src="images/reel-production.jpg" alt="Production layout showreel still"><span><i>▶ Play</i><b>Production Layout</b></span></a>
+        <a class="reel" href="https://vimeo.com/1062331587/1a0097ad99" target="_blank" rel="noopener"><img src="images/reel-cinematic.jpg" alt="Butterfly in a CG flower field"><span><i>▶ Play</i><b>Cinematic Camera</b></span></a>
+        <a class="reel" href="https://vimeo.com/1062328741/dd9829b4a8" target="_blank" rel="noopener"><img src="images/reel-previz.jpg" alt="Previz car on a city street"><span><i>▶ Play</i><b>Previz &amp; Techviz</b></span></a>
+        <a class="reel" href="https://youtu.be/Vqj1RU_uJCk" target="_blank" rel="noopener"><img src="images/reel-tracking.jpg" alt="Camera and body tracking showreel still"><span><i>▶ Play</i><b>Body Tracking</b></span></a>
       </div>
     </div>
   </section>
 
-  <!-- POST-CREDITS -->
-  <section class="post" id="contact">
-    <div class="wrap narrow">
-      <div class="page" style="margin:0 0 40px">
-        <p class="slug" style="text-align:center;color:var(--ember)">Post-credits scene</p>
-        <p class="slug" style="text-align:center;margin-top:10px">Int. Your next project — Anywhere — Now</p>
+  <section id="ai">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Coming attractions</p><h2 class="h2">AI films</h2></div>
+      <div class="films">
+        <a href="https://youtu.be/koywWFCnhhg" target="_blank" rel="noopener"><b>Effortless Elegance</b><i>Fashion ↗</i></a>
+        <a href="https://youtu.be/Ra4tNXg4hSI" target="_blank" rel="noopener"><b>Happy Noodles</b><i>Food ↗</i></a>
+        <a href="https://youtu.be/P4x1BBZdlyU" target="_blank" rel="noopener"><b>AI Film Showcase</b><i>Short ↗</i></a>
+        <a href="https://youtu.be/Q1QOJ3eY4Fo" target="_blank" rel="noopener"><b>New York to Dubai</b><i>Travel ↗</i></a>
       </div>
-      <h2>Let's make<br>the <em>sequel</em>.</h2>
-      <p style="text-align:center;color:var(--dim);margin:22px auto 0;max-width:46ch">AI campaigns, VFX collaborations and brand films. Based in the UAE, working worldwide.</p>
+      <p class="more"><a class="btn hot" href="portfolio/ai/">Enter the AI portfolio</a></p>
+    </div>
+  </section>
+
+  <section class="credits">
+    <div class="wrap">
+      <div class="head"><p class="eyebrow">Selected credits</p><h2 class="h2">On the big screen</h2></div>
+      <p class="marquee"><b>The Matrix Resurrections</b><span>·</span><b>No Time to Die</b><span>·</span><b>Kraven the Hunter</b><span>·</span><b>The Flash</b><span>·</span><b>Aquaman and the Lost Kingdom</b><span>·</span><b>Wonder Woman 1984</b><span>·</span><b>Mission: Impossible – Fallout</b><span>·</span><b>Pinocchio</b><span>·</span><b>Back in Action</b><span>·</span><b>Brahmastra</b></p>
+      <p class="note">35+ films and series. <a href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener" style="color:var(--ember)">Full list on IMDb ↗</a></p>
+    </div>
+  </section>
+
+  <section class="end" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Post-credits scene</p>
+      <h2 style="margin-top:16px">Let's make<br>the <em>sequel</em>.</h2>
       <div class="contact">
-        <div class="row"><div><p class="k">Email</p><p class="v" id="email">zaheerartist@gmail.com</p></div><div class="acts"><button class="btn" type="button" data-copy="email">Copy</button><a class="btn hot" href="mailto:zaheerartist@gmail.com">Write</a></div></div>
-        <div class="row"><div><p class="k">Phone</p><p class="v" id="phone">+91 97303 26776</p></div><div class="acts"><button class="btn" type="button" data-copy="phone">Copy</button></div></div>
+        <div class="row"><div><p class="k">Email</p><p class="v" id="email">zaheerartist@gmail.com</p></div><div style="display:flex;gap:8px"><button class="btn" type="button" data-copy="email">Copy</button><a class="btn hot" href="mailto:zaheerartist@gmail.com">Write</a></div></div>
+        <div class="row"><div><p class="k">Phone</p><p class="v" id="phone">+91 97303 26776</p></div><button class="btn" type="button" data-copy="phone">Copy</button></div>
       </div>
       <div class="socials">
         <a class="btn" href="https://www.linkedin.com/in/zaheerbijapure/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener">IMDb</a>
-        <a class="btn" href="portfolio/vfx/">VFX portfolio</a>
         <a class="btn" href="https://www.youtube.com/@zaheerartist" target="_blank" rel="noopener">YouTube</a>
         <a class="btn" href="https://www.instagram.com/zaheerartist/" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn" href="https://twitter.com/zaheerartist" target="_blank" rel="noopener">X</a>
       </div>
     </div>
   </section>
 </main>
-<footer><b>THE END</b>© <span id="yr">2026</span> Zaheer Bijapure</footer>
+<footer>© <span id="yr">2026</span> Zaheer Bijapure · UAE</footer>
 
 <script>
-(function(){
-  // Film grain: one noise tile, drawn once.
-  try{
-    var c=document.createElement('canvas');c.width=c.height=160;var x=c.getContext('2d'),d=x.createImageData(160,160);
-    for(var i=0;i<d.data.length;i+=4){var v=Math.random()*255|0;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255;}
-    x.putImageData(d,0,0);document.getElementById('grain').style.backgroundImage='url('+c.toDataURL()+')';
-  }catch(e){}
-
-  // Scroll progress, like a reel running out.
-  var p=document.getElementById('progress');
-  function prog(){var m=Math.max(1,document.documentElement.scrollHeight-innerHeight);p.style.transform='scaleX('+Math.min(1,scrollY/m)+')';}
-  addEventListener('scroll',prog,{passive:true});prog();
-
-  // End credits.
-  var films=[
-    ["2025",["Back in Action"]],
-    ["2024",["Kraven the Hunter","Atlas","Halo","Argylle","Malaikottai Vaaliban"]],
-    ["2023",["Aquaman and the Lost Kingdom","Leo","Ferrari","The Flash","Crater","Shazam! Fury of the Gods","Ant-Man and the Wasp: Quantumania"]],
-    ["2022",["The School for Good and Evil","Guillermo del Toro's Pinocchio","Devotion","Brahmastra Part One: Shiva"]],
-    ["2021",["The Matrix Resurrections","Bell Bottom","Venom: Let There Be Carnage","No Time to Die","Jungle Cruise","Infinite","Jupiter's Legacy","Zack Snyder's Justice League"]],
-    ["2020",["Wonder Woman 1984","The Boys","Greyhound"]],
-    ["2019",["The Dark Crystal: Age of Resistance","Curfew","Fast & Furious: Hobbs & Shaw"]],
-    ["2018",["Zero","Mission: Impossible – Fallout","Fantastic Beasts: The Crimes of Grindelwald","2.0"]]
-  ];
-  function blk(role,name){var b=document.createElement('div');b.className='block';var r=document.createElement('p');r.className='role';r.textContent=role;b.appendChild(r);[].concat(name).forEach(function(n){var e=document.createElement('p');e.className='name';e.textContent=n;b.appendChild(e);});return b;}
-  function pair(rows){var b=document.createElement('div');b.className='block';var g=document.createElement('div');g.className='pair';rows.forEach(function(r){var a=document.createElement('span');a.textContent=r[0];var c=document.createElement('span');c.textContent=r[1];g.appendChild(a);g.appendChild(c);});b.appendChild(g);return b;}
-  function build(dup){
-    var f=document.createDocumentFragment();
-    f.appendChild(blk('Starring','Zaheer Bijapure'));
-    f.appendChild(pair([['VFX Layout','Zaheer Bijapure'],['Matchmove','Zaheer Bijapure'],['Body Track','Zaheer Bijapure'],['Previz & Techviz','Zaheer Bijapure'],['AI Creative','Zaheer Bijapure']]));
-    f.appendChild(blk('Filmography',[]));
-    films.forEach(function(y){f.appendChild(blk(y[0],y[1]));});
-    f.appendChild(blk('Studios','MPC · DNEG · Red Chillies · Tata Elxsi · Vertex Volt'));
-    f.appendChild(blk('Agency & AI','Saatchi & Saatchi ME · Studio Blo'));
-    f.appendChild(blk('Training','AI Filmmaking & AI Advertising, Curious Refuge · Prompt Engineering, Udemy'));
-    f.appendChild(blk('Education','University of Mumbai · Sikkim Manipal University · Frameboxx · Savitribai Phule Pune University'));
-    f.appendChild(blk('Tools','Maya · 3DEqualizer · Nuke · Houdini · Photoshop · After Effects · Premiere Pro · Runway · Kling · Midjourney · Freepik'));
-    var w=document.createElement('div');if(dup){w.className='dup';w.setAttribute('aria-hidden','true');}w.appendChild(f);return w;
-  }
-  var roll=document.getElementById('roll');roll.appendChild(build(false));roll.appendChild(build(true));
-  var box=document.getElementById('rollbox'),pb=document.getElementById('pause');
-  pb.addEventListener('click',function(){var on=box.classList.toggle('paused');pb.textContent=on?'Play credits':'Pause credits';});
-
-  document.getElementById('yr').textContent=new Date().getFullYear();
-
-  document.querySelectorAll('[data-copy]').forEach(function(b){
-    b.addEventListener('click',function(){
-      var el=document.getElementById(b.dataset.copy),t=el.textContent;
-      function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600);}
-      function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';setTimeout(function(){b.textContent='Copy'},1600);}
-      try{navigator.clipboard.writeText(t).then(ok,sel);}catch(e){sel();}
-    });
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy);
+    function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';setTimeout(function(){b.textContent='Copy'},1600)}
+    try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(e){sel()}
   });
-})();
+});
 </script>
 
 </body>
