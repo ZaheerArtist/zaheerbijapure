@@ -15,10 +15,35 @@ export default function Experience() {
 
   const experiences = [
     {
-      period: 'Jun 2022 - Present',
-      title: 'Senior VFX Layout/ Matchmove / Roto Animation Artist',
+      period: 'Sep 2025 - Present',
+      title: 'AI Senior Designer',
+      company: 'Saatchi & Saatchi ME · Publicis Groupe',
+      location: 'United Arab Emirates · On-site',
+      description: 'Creating AI-driven visual concepts for advertising and branded campaigns, taking ideas from concept to images and videos through to final delivery, in close collaboration with the creative team.',
+      responsibilities: [
+        'Develop AI-driven visual concepts for advertising and branded campaigns',
+        'Take ideas from concept to finished images and videos through to final delivery',
+        'Collaborate closely with creative teams on campaign direction'
+      ],
+      technologies: ['AI Image Generation', 'AI Video Generation', 'After Effects', 'Photoshop', 'Premiere Pro']
+    },
+    {
+      period: 'Apr 2025 - Jul 2025',
+      title: 'AI VFX Lead',
+      company: 'Studio Blo',
+      location: 'Mumbai, India · Hybrid',
+      description: 'Led the creative and technical direction of AI-integrated VFX projects, bridging traditional VFX craftsmanship with AI tools to streamline production.',
+      responsibilities: [
+        'Drove the creative and technical direction of AI-integrated VFX projects',
+        'Combined traditional VFX craft with AI image and video generation tools to streamline workflows'
+      ],
+      technologies: ['AI Image Generation', 'AI Video Generation', 'Runway', 'Kling']
+    },
+    {
+      period: 'Jun 2022 - Mar 2025',
+      title: 'Senior VFX Layout / Previz / Techviz / Matchmove / Roto Animation Artist',
       company: 'MPC',
-      location: 'Mumbai, India',
+      location: 'Mumbai, India · Hybrid',
       description: 'Delivered high-quality VFX layouts, techviz, and previsualization, showcasing expertise in match move, body tracking, set dressing, and proxy modeling, while streamlining production workflows, enhancing cross-department collaboration, and earning two industry awards.',
       responsibilities: [
         'Delivered high-quality VFX layouts, techviz and previsualization, cinematic camera and framing to meet film directors creative vision',
@@ -31,7 +56,7 @@ export default function Experience() {
     {
       period: 'Mar 2018 - May 2022',
       title: 'Layout / Senior Bodytrack / Matchmove / Upskill Trainer',
-      company: 'DNEG',
+      company: 'DNEG (Double Negative)',
       location: 'Mumbai, India',
       description: 'Led and mentored teams in advanced body tracking and match move techniques, managed layout for Devotion, pre-delivered complex shots for The Matrix Resurrections, and provided solutions for challenging sequences, including flying and water scenes.',
       responsibilities: [
@@ -59,9 +84,9 @@ export default function Experience() {
     },
     {
       period: 'Feb 2016 - Jun 2017',
-      title: 'Animator',
+      title: 'Animator & CG Layout Artist',
       company: 'Tata Elxsi',
-      location: 'Bangalore, India',
+      location: 'Mumbai, India',
       description: 'Enhanced animation skills by contributing to the French TV series Maya the Bee, advertising projects like Tata Motors, and eLearning content, delivering shots that met production quality, creative vision, and technical standards.',
       responsibilities: [
         'Created character animations for commercial projects, TV shows',
@@ -73,14 +98,14 @@ export default function Experience() {
     {
       period: 'Mar 2014 - Sep 2015',
       title: '3D Animator & 3D Artist',
-      company: 'Vertex Volt Studio',
+      company: 'Vertex Volt',
       location: 'Mumbai, India',
       description: 'I worked as a 3D Animator and 3D Artist, contributing to rigging, modeling, and texturing for various projects.',
       responsibilities: [
         'Created 3D models, textures, and animations for commercial and TV Shows',
         'Animated creatures and characters for tv shows'
       ],
-      projects: ['Architectural visualizations', 'Product animations', 'Corporate videos'],
+      projects: ['Devon Ke Dev Mahadev (TV series)', 'Hatim (TV series)', 'TV commercials'],
       technologies: ['Autodesk Maya', 'Adobe Creative Suite']
     },
   ];
@@ -107,11 +132,11 @@ export default function Experience() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Professional Experience</h1>
           <div className="w-20 h-1 bg-accent1 mx-auto mb-6"></div>
           <p className="text-textSecondary text-lg mb-6">
-            Over <span className="text-accent1 font-medium">9 years</span> of experience in the visual effects industry
+            Over <span className="text-accent1 font-medium">a decade</span> in VFX, now creating with AI
           </p>
           <p className="text-textSecondary mb-8">
-            Specializing in VFX layout, camera tracking, body tracking, and animation for major feature films and productions,
-            with a focus on creating seamless visual integration and enhancing storytelling through technical excellence.
+            From animation and body tracking to senior layout on Hollywood features, and now AI Senior Designer at
+            Saatchi &amp; Saatchi ME, Publicis Groupe, crafting AI-driven campaigns from concept to final delivery.
           </p>
         </motion.div>
 

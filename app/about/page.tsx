@@ -390,7 +390,7 @@ export default function About() {
           >
             <h2 className="text-3xl font-bold mb-6">Professional Bio</h2>
             <p className="text-textSecondary mb-4">
-              With over 9 years in the VFX and CG industry, I bring a deep understanding of the creative and technical processes that shape compelling visual stories. My experience across multiple departments—ranging from VFX layout, camera tracking, body tracking, cinematic camera animation, animation, to previsualization (previz) & technical visualization (techviz)—has equipped me with a versatile skill set and a unique perspective on production workflows.
+              With over a decade in VFX and CG, and now as AI Senior Designer at Saatchi &amp; Saatchi ME (Publicis Groupe), I bring a deep understanding of the creative and technical processes that shape compelling visual stories. My experience across multiple departments—ranging from VFX layout, camera tracking, body tracking, cinematic camera animation, animation, to previsualization (previz) & technical visualization (techviz)—has equipped me with a versatile skill set and a unique perspective on production workflows.
             </p>
             <p className="text-textSecondary mb-4">
               This cross-department experience allows me to seamlessly collaborate with diverse teams, anticipate project needs, and contribute to more efficient and cohesive outcomes. My leadership skills have been honed through my role as an upskill trainer, where I guided teams in mastering advanced techniques, enhancing their creative capabilities, and adapting to evolving industry trends.
