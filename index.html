@@ -175,8 +175,10 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .marquee{font-family:var(--title);font-size:clamp(1.05rem,2.6vw,1.45rem);letter-spacing:.06em;line-height:1.9;max-width:900px;margin:0 auto;text-align:center}
 .marquee span{color:var(--ember);margin:0 .5em}
 .marquee b{font-weight:600;white-space:nowrap}
-.rollbox{position:relative;height:min(62vh,520px);overflow:hidden;max-width:760px;margin:0 auto;text-align:center;-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent)}
-.roll{animation:roll 75s linear infinite;will-change:transform}
+.rollbox{position:relative;max-width:760px;margin:0 auto;text-align:center;-webkit-mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent)}
+.rollbox.loop{height:min(62vh,520px);overflow:hidden}
+.rollbox:not(.loop){-webkit-mask-image:none;mask-image:none}
+.loop .roll{animation:roll 75s linear infinite;will-change:transform}
 .rollbox:hover .roll,.rollbox:focus .roll,.rollbox.paused .roll{animation-play-state:paused}
 @keyframes roll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 .set{padding-top:40px;display:flow-root}
@@ -184,7 +186,7 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .cy p{font-family:var(--script);font-size:.78rem;letter-spacing:.3em;color:var(--ember);margin-bottom:8px}
 .cy b{display:block;font-family:var(--title);font-weight:600;font-size:clamp(1.05rem,2.5vw,1.4rem);letter-spacing:.05em;line-height:1.7}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--ember);text-decoration:underline;cursor:pointer}
-@media (prefers-reduced-motion:reduce){.roll{animation:none}.rollbox{height:auto;-webkit-mask-image:none;mask-image:none}.set[aria-hidden]{display:none}}
+@media (prefers-reduced-motion:reduce){.loop .roll{animation:none}}
 .note{margin-top:16px;color:var(--dim);font-size:.95rem;text-align:center}
 
 .reelwide{position:relative;margin:0 0 14px;aspect-ratio:2.39/1;max-width:100%;overflow:hidden;background:#000}
@@ -385,7 +387,7 @@ footer{padding-block:28px;text-align:center;font-family:var(--title);letter-spac
       </div>
       <h3 class="eyebrow subhead">Film credits</h3>
       <div class="rollbox" id="rollbox" tabindex="0" aria-label="Film and series credits, rolling">
-        <div class="roll"><div class="set"><div class="cy"><p>2025</p><b>Back in Action</b></div><div class="cy"><p>2024</p><b>Kraven the Hunter</b><b>Atlas</b><b>Halo</b><b>Argylle</b><b>Malaikottai Vaaliban</b></div><div class="cy"><p>2023</p><b>Aquaman and the Lost Kingdom</b><b>Leo</b><b>Ferrari</b><b>The Flash</b><b>Crater</b><b>Shazam! Fury of the Gods</b><b>Ant-Man and the Wasp: Quantumania</b></div><div class="cy"><p>2022</p><b>The School for Good and Evil</b><b>Guillermo del Toro&#x27;s Pinocchio</b><b>Devotion</b><b>Brahmastra Part One: Shiva</b></div><div class="cy"><p>2021</p><b>The Matrix Resurrections</b><b>Bell Bottom</b><b>Venom: Let There Be Carnage</b><b>No Time to Die</b><b>Jungle Cruise</b><b>Infinite</b><b>Jupiter&#x27;s Legacy</b><b>Zack Snyder&#x27;s Justice League</b></div><div class="cy"><p>2020</p><b>Wonder Woman 1984</b><b>The Boys</b><b>Greyhound</b></div><div class="cy"><p>2019</p><b>The Dark Crystal: Age of Resistance</b><b>Curfew</b><b>Fast &amp; Furious: Hobbs &amp; Shaw</b></div><div class="cy"><p>2018</p><b>Zero</b><b>Mission: Impossible – Fallout</b><b>Fantastic Beasts: The Crimes of Grindelwald</b><b>2.0</b></div></div><div class="set" aria-hidden="true"><div class="cy"><p>2025</p><b>Back in Action</b></div><div class="cy"><p>2024</p><b>Kraven the Hunter</b><b>Atlas</b><b>Halo</b><b>Argylle</b><b>Malaikottai Vaaliban</b></div><div class="cy"><p>2023</p><b>Aquaman and the Lost Kingdom</b><b>Leo</b><b>Ferrari</b><b>The Flash</b><b>Crater</b><b>Shazam! Fury of the Gods</b><b>Ant-Man and the Wasp: Quantumania</b></div><div class="cy"><p>2022</p><b>The School for Good and Evil</b><b>Guillermo del Toro&#x27;s Pinocchio</b><b>Devotion</b><b>Brahmastra Part One: Shiva</b></div><div class="cy"><p>2021</p><b>The Matrix Resurrections</b><b>Bell Bottom</b><b>Venom: Let There Be Carnage</b><b>No Time to Die</b><b>Jungle Cruise</b><b>Infinite</b><b>Jupiter&#x27;s Legacy</b><b>Zack Snyder&#x27;s Justice League</b></div><div class="cy"><p>2020</p><b>Wonder Woman 1984</b><b>The Boys</b><b>Greyhound</b></div><div class="cy"><p>2019</p><b>The Dark Crystal: Age of Resistance</b><b>Curfew</b><b>Fast &amp; Furious: Hobbs &amp; Shaw</b></div><div class="cy"><p>2018</p><b>Zero</b><b>Mission: Impossible – Fallout</b><b>Fantastic Beasts: The Crimes of Grindelwald</b><b>2.0</b></div></div></div>
+        <div class="roll"><div class="set"><div class="cy"><p>2025</p><b>Back in Action</b></div><div class="cy"><p>2024</p><b>Kraven the Hunter</b><b>Atlas</b><b>Halo</b><b>Argylle</b><b>Malaikottai Vaaliban</b></div><div class="cy"><p>2023</p><b>Aquaman and the Lost Kingdom</b><b>Leo</b><b>Ferrari</b><b>The Flash</b><b>Crater</b><b>Shazam! Fury of the Gods</b><b>Ant-Man and the Wasp: Quantumania</b></div><div class="cy"><p>2022</p><b>The School for Good and Evil</b><b>Guillermo del Toro&#x27;s Pinocchio</b><b>Devotion</b><b>Brahmastra Part One: Shiva</b></div><div class="cy"><p>2021</p><b>The Matrix Resurrections</b><b>Bell Bottom</b><b>Venom: Let There Be Carnage</b><b>No Time to Die</b><b>Jungle Cruise</b><b>Infinite</b><b>Jupiter&#x27;s Legacy</b><b>Zack Snyder&#x27;s Justice League</b></div><div class="cy"><p>2020</p><b>Wonder Woman 1984</b><b>The Boys</b><b>Greyhound</b></div><div class="cy"><p>2019</p><b>The Dark Crystal: Age of Resistance</b><b>Curfew</b><b>Fast &amp; Furious: Hobbs &amp; Shaw</b></div><div class="cy"><p>2018</p><b>Zero</b><b>Mission: Impossible – Fallout</b><b>Fantastic Beasts: The Crimes of Grindelwald</b><b>2.0</b></div></div></div>
       </div>
       <p class="note">35 films and series · <button type="button" class="linkbtn" id="rollpause">Pause credits</button> · <a href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener" style="color:var(--ember)">IMDb ↗</a> · <a href="portfolio/vfx/" style="color:var(--ember)">VFX portfolio</a></p>
     </div>
@@ -533,6 +535,10 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
 (function(){var v=document.getElementById('stormvid');if(!v)return;v.muted=true;
   if(!('IntersectionObserver' in window)){v.preload='auto';v.play().catch(function(){});return;}
   new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:.25}).observe(v);})();
+// Rolling credits: duplicate the list in the browser only, for a seamless loop
+(function(){var box=document.getElementById('rollbox');if(!box)return;var still=false;try{still=matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  if(still)return;var roll=box.querySelector('.roll'),set=roll&&roll.querySelector('.set');if(!set)return;
+  var copy=set.cloneNode(true);copy.setAttribute('aria-hidden','true');roll.appendChild(copy);box.classList.add('loop');})();
 // Rolling credits pause/play
 (function(){var b=document.getElementById('rollpause'),box=document.getElementById('rollbox');if(!b||!box)return;b.addEventListener('click',function(){var on=box.classList.toggle('paused');b.textContent=on?'Play credits':'Pause credits';});})();
 // Enquiry form
