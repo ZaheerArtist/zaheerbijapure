@@ -33,7 +33,7 @@ export const Footer = () => {
               </div>
             </a>
             <p className="text-sm text-textSecondary mb-6">
-              AI filmmaker and VFX artist based in Dubai. Cinematic AI films and campaigns, built on over a decade of animation and film VFX for Hollywood and Indian cinema. Currently AI Senior Designer at Saatchi & Saatchi ME, Publicis Groupe.
+              AI filmmaker and VFX artist based in Dubai. Cinematic AI films and campaigns, built on over a decade of animation and film VFX for Hollywood and Indian cinema. Currently AI Senior Designer at Saatchi & Saatchi MEA, Publicis Groupe.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (

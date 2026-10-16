@@ -24,7 +24,7 @@ const films: Film[] = [
   { id: 'VJ-GlgECLDs', title: 'Innocence', genre: 'AI film', year: '', logline: '', tools: '' },
   { id: 'Cze-4Sl6rqk', title: 'The Little Moment', genre: 'AI film', year: '', logline: '', tools: '' },
   { id: 'Xgi4iJWYF_w', title: 'The Look', genre: 'AI film', year: '', logline: '', tools: '' },
-  { id: 'aCAQfk3F_4k', title: 'Through Young Eyes', genre: 'AI film', year: '', logline: '', tools: '' },
+  { id: 'aCAQfk3F_4k', title: 'The Jester', genre: 'AI film', year: '', logline: '', tools: '' },
 ];
 const meta = (...parts: string[]) => parts.filter(Boolean).join(' · ');
 
@@ -174,7 +174,7 @@ export default function AIPortfolio() {
           <div className={s.creds}>
             <div className={s.cred}>
               <b>AI Senior Designer</b>
-              <span>Saatchi &amp; Saatchi ME · Publicis Groupe · 2025 – now</span>
+              <span>Saatchi &amp; Saatchi MEA · Publicis Groupe · 2025 – now</span>
             </div>
             <div className={s.cred}>
               <b>AI VFX Lead</b>

@@ -17,12 +17,17 @@ export default function Experience() {
     {
       period: 'Sep 2025 – Present',
       title: 'AI Senior Designer',
-      company: 'Saatchi & Saatchi ME · Publicis Groupe',
+      company: 'Saatchi & Saatchi MEA · Publicis Groupe',
       location: 'Dubai, United Arab Emirates · On-site',
-      description: 'AI-driven visual concepts, images and films for advertising and branded campaigns, from first idea to final delivery.',
+      description: 'Taking creative briefs through to final delivery across advertising films and campaigns, digital ads and web banners, OOH and DOOH, social media, emailers and radio.',
       responsibilities: [
-        'Develop AI-driven visual concepts for advertising and branded campaigns',
-        'Take ideas from concept to finished images and videos',
+        'Take creative briefs through to final delivery',
+        'Advertising films and campaigns',
+        'Digital ads and web banners',
+        'OOH and DOOH, including bridge banners, metro and lamp-post advertising',
+        'Social media creatives',
+        'Emailers and radio advertising',
+        'Develop AI-driven visual concepts, images and films for brands',
         'Work closely with creative and strategy teams to turn ideas into clear, cinematic visuals',
         'Combine AI and VFX craft across different brands and formats'
       ],
@@ -143,7 +148,7 @@ export default function Experience() {
           </p>
           <p className="text-textSecondary mb-8">
             From TV animation in Mumbai to layout on Hollywood features, and now AI Senior Designer at
-            Saatchi &amp; Saatchi ME, Publicis Groupe, in Dubai.
+            Saatchi &amp; Saatchi MEA, Publicis Groupe, in Dubai.
           </p>
         </motion.div>
 

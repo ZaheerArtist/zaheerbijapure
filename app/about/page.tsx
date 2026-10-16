@@ -282,7 +282,7 @@ export default function About() {
             <h1 className={s.name}>Zaheer Bijapure</h1>
             <p className={s.role}>AI Filmmaker &amp; VFX Artist</p>
             <p className={s.agency}>
-              AI Senior Designer, Saatchi &amp; Saatchi ME <span>Publicis Groupe · Dubai</span>
+              AI Senior Designer, Saatchi &amp; Saatchi MEA <span>Publicis Groupe · Dubai</span>
             </p>
             <p className={s.lede}>
               I direct cinematic AI films and campaigns, built on over a decade of animation and film VFX for Hollywood and
@@ -303,7 +303,7 @@ export default function About() {
               <i>Kraven the Hunter</i>, and trained teams as an upskill trainer along the way.
             </p>
             <p>
-              In 2025 I took that craft into AI: first as AI VFX Lead at Studio Blo in Mumbai, and now as AI Senior Designer at Saatchi &amp; Saatchi ME
+              In 2025 I took that craft into AI: first as AI VFX Lead at Studio Blo in Mumbai, and now as AI Senior Designer at Saatchi &amp; Saatchi MEA
               in Dubai, where I turn ideas into AI-driven images and films for brands, working closely with creative and strategy teams.
             </p>
           </div>
