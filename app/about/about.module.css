@@ -27,6 +27,10 @@
 /* Story */
 .story { display: grid; gap: 18px; font-size: 1.08rem; line-height: 1.75; color: #d9d0be; }
 .story p { margin: 0; }
+.storyTitle { margin-bottom: 28px; text-align: left; }
+.chapter { font-family: var(--title); font-weight: 600; font-size: clamp(1.15rem, 2.4vw, 1.4rem); letter-spacing: 0.03em; color: var(--ember); margin: 22px 0 -4px; }
+.chapter:first-child { margin-top: 0; }
+.coda { margin-top: 18px !important; padding-top: 22px; border-top: 1px solid var(--edge); font-family: var(--title); font-size: clamp(1.15rem, 2.6vw, 1.45rem); line-height: 1.5; color: var(--cream); text-align: center; }
 
 /* What I do */
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }

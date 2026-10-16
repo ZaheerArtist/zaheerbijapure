@@ -296,16 +296,46 @@ export default function About() {
       <section className={s.section}>
         <div className={`${s.wrap} ${s.narrow}`}>
           <p className={s.eyebrow}>The story</p>
+          <h2 className={`${s.h2} ${s.storyTitle}`}>From Pixels to Possibilities</h2>
           <div className={s.story}>
+            <h3 className={s.chapter}>The craft came first.</h3>
             <p>
-              I started in 2014 as a 3D animator on Indian TV and ads, then moved into body tracking on <i>Zero</i> at Red Chillies. At DNEG and MPC I
-              worked in layout, matchmove, previz and techviz on films like <i>The Matrix Resurrections</i>, <i>Devotion</i>, <i>The Flash</i> and{' '}
-              <i>Kraven the Hunter</i>, and trained teams as an upskill trainer along the way.
+              My journey into visual storytelling began in Mumbai in 2014, animating in 3D for Indian television and advertising. What started
+              as a love of making images grew into a fascination with how cinematic worlds are built.
             </p>
             <p>
-              In 2025 I took that craft into AI: first as AI VFX Lead at Studio Blo in Mumbai, and now as AI Senior Designer at Saatchi &amp; Saatchi MEA
-              in Dubai, where I turn ideas into AI-driven images and films for brands, working closely with creative and strategy teams.
+              Visual effects asked for more than a good image. Every frame demanded an understanding of perspective, camera movement, space,
+              light and timing: the small details that make a picture feel real.
             </p>
+
+            <h3 className={s.chapter}>A decade behind the frame.</h3>
+            <p>
+              At Red Chillies Entertainment, DNEG and MPC, I worked across matchmove, body tracking, layout, previz and techviz on films for
+              Hollywood and Indian cinema, from <i>Zero</i> and <i>Devotion</i> to <i>The Matrix Resurrections</i>, <i>The Flash</i> and{' '}
+              <i>Kraven the Hunter</i>.
+            </p>
+            <p>
+              Reconstructing camera moves, solving difficult shots and building 3D layouts taught me to see images differently: not just what
+              the camera sees, but why the image works. VFX gave me a technical foundation, film production taught me discipline, and working
+              frame by frame taught me that the smallest detail can change how a story feels.
+            </p>
+
+            <h3 className={s.chapter}>When the tools changed.</h3>
+            <p>
+              AI opened a new chapter. As AI VFX Lead at Studio Blo, I brought everything VFX had taught me (composition, camera language,
+              movement and continuity) into a faster, more exploratory way of creating concepts and cinematic sequences.
+            </p>
+            <p>Moving into AI wasn&apos;t a departure from VFX. It was an extension of it.</p>
+
+            <h3 className={s.chapter}>Where craft meets imagination.</h3>
+            <p>
+              Today, as AI Senior Designer at Saatchi &amp; Saatchi MEA in Dubai, I help turn creative briefs into visual ideas and final campaign
+              deliverables. Alongside commercial work, I keep exploring cinematic storytelling through original films.
+            </p>
+            <p>
+              My work sits where VFX, AI and storytelling meet: technical precision, with the freedom to imagine what doesn&apos;t exist yet.
+            </p>
+            <p className={s.coda}>The tools will keep evolving. The craft behind the image remains.</p>
           </div>
         </div>
       </section>
