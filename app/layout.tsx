@@ -4,8 +4,8 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Zaheer Bijapure | AI Filmmaker & VFX Artist, Dubai',
-  description: 'Zaheer Bijapure is an AI filmmaker and VFX artist based in Dubai: cinematic AI films, advertising concepts and visual campaigns, built on over a decade of animation and film VFX.',
+  title: 'Zaheer Bijapure | Cinematic Creative & VFX Artist, Dubai',
+  description: 'Zaheer Bijapure is a cinematic creative and VFX artist based in Dubai: cinematic AI films, advertising concepts and visual campaigns, built on over a decade of animation and film VFX.',
 };
 
 export default function RootLayout({

@@ -280,13 +280,13 @@ export default function About() {
           <div className={s.heroText}>
             <p className={s.eyebrow}>About</p>
             <h1 className={s.name}>Zaheer Bijapure</h1>
-            <p className={s.role}>AI Filmmaker &amp; VFX Artist</p>
+            <p className={s.role}>Cinematic Creative &amp; VFX Artist</p>
             <p className={s.agency}>
               AI Senior Designer, Saatchi &amp; Saatchi MEA <span>Publicis Groupe · Dubai</span>
             </p>
             <p className={s.lede}>
-              I direct cinematic AI films and campaigns, built on over a decade of animation and film VFX for Hollywood and
-              Indian cinema. Based in Dubai, working with brands and agencies in the UAE and worldwide.
+              I direct visual stories and shape cinematic campaigns, combining a decade of VFX experience with emerging creative
+              technologies to bring ideas from concept to screen. Based in Dubai, working with brands and agencies in the UAE and worldwide.
             </p>
           </div>
         </div>
