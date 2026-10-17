@@ -423,7 +423,7 @@ export default function About() {
             <button type="button" className={s.btn} onClick={() => setShowAll(!showAll)}>
               {showAll ? 'Show recent only' : `Show all ${allProjects.length} titles`}
             </button>
-            <a className={s.btn} href={`${BASE}/Zaheer-Bijapure-CV.pdf`} download>Download CV</a>
+            <a className={s.btn} href={`${BASE}/Zaheer-Bijapure-AI-Senior-Designer-CV.pdf`} download="Zaheer-Bijapure-AI-Senior-Designer-CV.pdf">Download CV</a>
             <a className={s.btn} href="https://www.imdb.com/name/nm12429900/" target="_blank" rel="noopener noreferrer">IMDb ↗</a>
             <a className={s.btn} href="https://www.linkedin.com/in/zaheer-bijapure/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <a className={s.btn} href="https://www.instagram.com/zaheerbijapure/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
