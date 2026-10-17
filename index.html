@@ -62,6 +62,39 @@ section{padding-block:clamp(72px,11vw,120px) 0}
 .fmts p{color:var(--dim);font-size:.95rem}
 @media (max-width:1000px){.fmts{grid-template-columns:repeat(2,1fr)}.fmts li:last-child{grid-column:1/-1}}
 @media (max-width:520px){.fmts{grid-template-columns:1fr}}
+/* Paper-cut Zaheer: a stop-motion guide who walks, runs, jumps, sits and reacts along the bottom of the page */
+:root{--zg-paper:#f2e8d5;--zg-ink:#1b1410;--zg-shadow:rgba(0,0,0,.45);--zg-ember:#ff7a2f;--zg-cloud:#cfd6dc;--zg-rain:#5b7fa6}
+.zg{position:fixed;left:0;right:0;bottom:calc(6px + env(safe-area-inset-bottom,0px));height:0;z-index:60;pointer-events:none}
+.zg-stage{position:absolute;left:0;bottom:0;transform-origin:0 100%;will-change:transform}
+.zg-img{position:absolute;bottom:0;max-width:none;pointer-events:auto;cursor:pointer;filter:drop-shadow(0 6px 6px var(--zg-shadow));-webkit-user-drag:none;user-select:none}
+.zg-img:focus-visible{outline:2px solid var(--zg-ember);outline-offset:3px}
+.zg-fx{position:absolute;left:0;bottom:0;width:0;height:0}
+.zg-bub{position:absolute;left:0;bottom:0;display:flex;align-items:center;gap:8px;max-width:min(270px,calc(100vw - 32px));padding:8px 28px 8px 8px;background:var(--zg-paper);color:var(--zg-ink);font:500 .9rem/1.35 "Figtree",system-ui,sans-serif;pointer-events:auto;filter:drop-shadow(0 6px 10px var(--zg-shadow));clip-path:polygon(0 6%,7% 0,24% 4%,42% 0,60% 3%,78% 0,95% 4%,100% 0,98% 34%,100% 66%,97% 100%,78% 96%,58% 100%,38% 95%,18% 100%,0 96%,3% 62%,0 30%)}
+.zg-bub{opacity:0;transition:opacity .35s}
+.zg-bub.show{opacity:1}
+.zg.away .zg-stage,.zg.away .zg-bub{opacity:0;pointer-events:none}
+.zg-stage{transition:opacity .3s}
+.zg-tog{position:fixed;z-index:61;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));background:rgba(6,9,10,.85);color:#f2e8d5;border:1px solid rgba(255,122,47,.5);font:400 .64rem/1 "Courier Prime",monospace;letter-spacing:.14em;text-transform:uppercase;padding:7px 9px;cursor:pointer}
+.zg-tog:hover,.zg-tog:focus-visible{border-color:#ff7a2f;outline:none}
+.zg-bub img{width:38px;height:38px;flex:none;object-fit:contain}
+.zg-bub p{margin:0;transition:opacity .18s}
+.zg-tx{display:grid;gap:2px;min-width:0}
+.zg-tx small{font:400 .62rem/1.2 "Courier Prime",monospace;letter-spacing:.14em;text-transform:uppercase;color:#b4521a}
+.zg-bub p.fade{opacity:0}
+.zg-x{position:absolute;top:3px;right:3px;width:24px;height:24px;border:0;background:none;color:var(--zg-ink);font:600 13px/1 system-ui,sans-serif;cursor:pointer;opacity:.55}
+.zg-x:hover,.zg-x:focus-visible{opacity:1;outline:none}
+.zg-c{position:absolute;bottom:20px;width:6px;height:9px;animation:zg-conf 1.4s cubic-bezier(.2,.7,.4,1) forwards}
+@keyframes zg-conf{0%{transform:translate(0,0) rotate(0)}45%{transform:translate(calc(var(--dx)*.6),-90px) rotate(calc(var(--r)*.5))}100%{transform:translate(var(--dx),30px) rotate(var(--r));opacity:0}}
+.zg-cloud{position:absolute;left:-26px;bottom:14px;width:52px;height:22px;background:var(--zg-cloud);border-radius:12px 14px 10px 12px;animation:zg-bob 1.2s steps(3) infinite}
+.zg-cloud::before{content:"";position:absolute;left:10px;top:-10px;width:24px;height:20px;background:var(--zg-cloud);border-radius:50%}
+.zg-cloud::after{content:"";position:absolute;left:14px;top:24px;width:3px;height:9px;background:var(--zg-rain);box-shadow:12px 4px 0 var(--zg-rain),24px 0 0 var(--zg-rain);animation:zg-rain .5s steps(2) infinite}
+@keyframes zg-rain{50%{transform:translateY(6px)}}
+@keyframes zg-bob{50%{transform:translateY(-3px)}}
+.zg-zzz{position:absolute;left:4px;bottom:0;font:700 14px/1 "Courier Prime",monospace;color:var(--zg-paper)}
+.zg-zzz b{position:absolute;opacity:0;animation:zg-z 3s steps(6) infinite}
+.zg-zzz b:nth-child(2){animation-delay:1s;font-size:17px}.zg-zzz b:nth-child(3){animation-delay:2s;font-size:20px}
+@keyframes zg-z{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(26px,-48px)}}
+@media (prefers-reduced-motion:reduce){.zg-c,.zg-cloud,.zg-zzz b{animation:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Nav */
@@ -559,6 +592,13 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
   });
 })();
 </script>
+<button type="button" class="zg-tog" id="zg-tog" aria-pressed="true">Guide: on</button>
+<div class="zg" id="zg" aria-label="Paper-cut guide">
+  <div class="zg-bub" id="zg-bub" role="status" aria-live="polite" hidden><img id="zg-face" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" width="38" height="38"><span class="zg-tx"><small id="zg-ch" hidden></small><p id="zg-t"></p></span><button type="button" class="zg-x" id="zg-x" aria-label="Hide the guide's messages">✕</button></div>
+  <div class="zg-fx" id="zg-fx"></div>
+  <div class="zg-stage" id="zg-stage"><img id="zg-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="zg-img" alt="Paper-cut Zaheer, your guide. Click to make him jump" role="button" tabindex="0"></div>
+</div>
+<script src="js/zaheer-guide.js" defer></script>
 
 </body>
 </html>
