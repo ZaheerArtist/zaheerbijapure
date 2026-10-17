@@ -6,7 +6,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaInstagram, FaYoutube
 import { ContactInfo } from '@/components/ContactInfo';
 import { useSearchParams } from 'next/navigation';
 
-const RETURN_URL = 'https://zaheerartist.github.io/zaheerbijapure/contact/?success=true';
+const RETURN_URL = 'https://zaheerbijapure.com/contact/?success=true';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
