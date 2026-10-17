@@ -37,6 +37,7 @@ const POSTERS: Record<string, string> = {
   "The Dark Crystal Age of Resistance|2019": "The Dark Crystal Age of Resistance (2019).jpg",
   "Curfew|2019": "Curfew (2019).jpg",
   "Fast & Furious: Hobbs & Shaw|2019": "Fast and Furious Hobbs and Shaw (2019).jpg",
+  "Zero|2018": "Zero (2018).jpg",
   "Mission Impossible Fallout|2018": "Mission Impossible Fallout (2018).jpg",
   "Fantastic Beasts: The Crimes of Grindelwald|2018": "Fantastic Beasts The Crimes of Grindelwald (2018).jpg",
   "2.0|2018": "2Point0 (2018).jpg"
@@ -177,11 +178,7 @@ const allProjects = [
     year: "2021",
     isRecent: false
   },
-  {
-    title: "The Flash",
-    year: "2021",
-    isRecent: false
-  },
+
   // Notable Projects (2020)
   {
     title: "Wonder Woman 1984",
@@ -215,6 +212,11 @@ const allProjects = [
     isRecent: false
   },
   // Notable Projects (2018)
+  {
+    title: "Zero",
+    year: "2018",
+    isRecent: false
+  },
   {
     title: "Mission Impossible Fallout",
     year: "2018",
