@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Get in touch with Zaheer Bijapure, cinematic creative and VFX artist in Dubai, about AI films, brand campaigns and creative development.',
     url: 'https://zaheerbijapure.com/contact/',
     siteName: 'Zaheer Bijapure',
-    images: [{ url: 'https://zaheerbijapure.com/images/og-card.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://zaheerbijapure.com/images/og-card-v2.jpg', width: 1200, height: 630 }],
     type: 'website',
   },
   twitter: { card: 'summary_large_image' },

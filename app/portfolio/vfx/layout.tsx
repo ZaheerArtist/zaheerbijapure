@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'VFX showreels by Zaheer Bijapure: layout, cinematic camera, previz and body tracking for feature films at MPC, DNEG and Red Chillies.',
     url: 'https://zaheerbijapure.com/portfolio/vfx/',
     siteName: 'Zaheer Bijapure',
-    images: [{ url: 'https://zaheerbijapure.com/images/og-card.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://zaheerbijapure.com/images/og-card-v2.jpg', width: 1200, height: 630 }],
     type: 'website',
   },
   twitter: { card: 'summary_large_image' },

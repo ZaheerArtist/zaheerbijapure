@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Zaheer Bijapure, cinematic creative and VFX artist in Dubai. From animation and Hollywood VFX at DNEG and MPC to AI films and campaigns at Saatchi & Saatchi MEA.',
     url: 'https://zaheerbijapure.com/about/',
     siteName: 'Zaheer Bijapure',
-    images: [{ url: 'https://zaheerbijapure.com/images/og-card.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://zaheerbijapure.com/images/og-card-v2.jpg', width: 1200, height: 630 }],
     type: 'website',
   },
   twitter: { card: 'summary_large_image' },

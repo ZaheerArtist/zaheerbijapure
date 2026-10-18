@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Career of Zaheer Bijapure: AI Senior Designer at Saatchi & Saatchi MEA in Dubai, AI VFX Lead at Studio Blo, and layout and tracking at MPC, DNEG and Red Chillies.',
     url: 'https://zaheerbijapure.com/experience/',
     siteName: 'Zaheer Bijapure',
-    images: [{ url: 'https://zaheerbijapure.com/images/og-card.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://zaheerbijapure.com/images/og-card-v2.jpg', width: 1200, height: 630 }],
     type: 'website',
   },
   twitter: { card: 'summary_large_image' },
